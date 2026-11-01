@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>مساعدك الجامعي — لوحة الأدمن</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<script>/* المظهر بدري عشان مايحصلش وميض */
+try{var r=document.documentElement,c=localStorage.getItem("g22accent")||"purple",m=localStorage.getItem("g22t");
+if(!/^(green|red|blue|yellow|purple|pink)$/.test(c))c="purple";r.setAttribute("data-color",c);
+r.setAttribute("data-theme",m==="dark"||m==="light"?m:(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"))}catch(e){}
+</script>
+<style>
+:root{--bg:#f6f7f4;--card:#fff;--ink:#1d2a26;--mute:#6b7a74;--line:#dfe5e0;--acc:#1f7a5c;--accbg:#e1f2ea}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121816;--card:#1b2420;--ink:#e6efeb;--mute:#93a39c;--line:#2d3a35;--acc:#4cc596;--accbg:#1f3a2e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121816;--card:#1b2420;--ink:#e6efeb;--mute:#93a39c;--line:#2d3a35;--acc:#4cc596;--accbg:#1f3a2e;color-scheme:dark}
+:root[data-color="green"]{--acc:#1f7a5c;--accbg:#e1f2ea}
+:root[data-color="red"]{--acc:#d93045;--accbg:#fde8eb}
+:root[data-color="blue"]{--acc:#2563eb;--accbg:#e5edff}
+:root[data-color="yellow"]{--acc:#b8860b;--accbg:#fff4cc}
+:root[data-color="purple"]{--acc:#7c3aed;--accbg:#efe7ff}
+:root[data-color="pink"]{--acc:#db2777;--accbg:#ffe3f1}
+:root[data-theme="dark"][data-color="green"]{--acc:#4cc596;--accbg:#1f3a2e}
+:root[data-theme="dark"][data-color="red"]{--acc:#ff6b7c;--accbg:#48232a}
+:root[data-theme="dark"][data-color="blue"]{--acc:#75a4ff;--accbg:#203458}
+:root[data-theme="dark"][data-color="yellow"]{--acc:#f2cc60;--accbg:#403719}
+:root[data-theme="dark"][data-color="purple"]{--acc:#b79aff;--accbg:#35264f}
+:root[data-theme="dark"][data-color="pink"]{--acc:#ff85c2;--accbg:#48253a}
+:root[data-color="green"]{--bg:#f0f7f3;--card:#fbfefc;--line:#d4e5dc;--accbg:rgba(31,122,92,.11)}
+:root[data-color="red"]{--bg:#fff3f4;--card:#fffafb;--line:#f0d6da;--accbg:rgba(217,48,69,.11)}
+:root[data-color="blue"]{--bg:#f1f5ff;--card:#fbfcff;--line:#d7e1fa;--accbg:rgba(37,99,235,.11)}
+:root[data-color="yellow"]{--bg:#fff9e9;--card:#fffdf7;--line:#eee2bd;--accbg:rgba(184,134,11,.13)}
+:root[data-color="purple"]{--bg:#f7f2ff;--card:#fdfbff;--line:#e4d8fa;--accbg:rgba(124,58,237,.11)}
+:root[data-color="pink"]{--bg:#fff2f8;--card:#fffbfd;--line:#f3d7e6;--accbg:rgba(219,39,119,.11)}
+:root[data-theme="dark"][data-color="green"]{--bg:#101b16;--card:#17251e;--line:#2b493a;--accbg:rgba(76,197,150,.15)}
+:root[data-theme="dark"][data-color="red"]{--bg:#211316;--card:#2a191d;--line:#563038;--accbg:rgba(255,107,124,.15)}
+:root[data-theme="dark"][data-color="blue"]{--bg:#111827;--card:#182338;--line:#2d4267;--accbg:rgba(117,164,255,.15)}
+:root[data-theme="dark"][data-color="yellow"]{--bg:#201d12;--card:#292516;--line:#504629;--accbg:rgba(242,204,96,.15)}
+:root[data-theme="dark"][data-color="purple"]{--bg:#1b1428;--card:#241b35;--line:#42315f;--accbg:rgba(183,154,255,.15)}
+:root[data-theme="dark"][data-color="pink"]{--bg:#21131c;--card:#2b1925;--line:#573047;--accbg:rgba(255,133,194,.15)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"])[data-color="green"]{--bg:#101b16;--card:#17251e;--line:#2b493a;--accbg:rgba(76,197,150,.15)}
+:root:not([data-theme="light"])[data-color="red"]{--bg:#211316;--card:#2a191d;--line:#563038;--accbg:rgba(255,107,124,.15)}
+:root:not([data-theme="light"])[data-color="blue"]{--bg:#111827;--card:#182338;--line:#2d4267;--accbg:rgba(117,164,255,.15)}
+:root:not([data-theme="light"])[data-color="yellow"]{--bg:#201d12;--card:#292516;--line:#504629;--accbg:rgba(242,204,96,.15)}
+:root:not([data-theme="light"])[data-color="purple"]{--bg:#1b1428;--card:#241b35;--line:#42315f;--accbg:rgba(183,154,255,.15)}
+:root:not([data-theme="light"])[data-color="pink"]{--bg:#21131c;--card:#2b1925;--line:#573047;--accbg:rgba(255,133,194,.15)}}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo","Segoe UI",Tahoma,sans-serif}
+#adPanel .ad-tg{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:1.05rem}
+#adPanel .ad-sw{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+#adPanel .ad-sw button{width:34px;height:34px;border-radius:50%;border:3px solid transparent;cursor:pointer;outline:1px solid var(--line)}
+#adPanel .ad-sw button.on{border-color:var(--ink)}
+#adPanel .ad-q{border:1px solid var(--line);border-radius:12px;padding:10px;margin:8px 0;background:var(--bg)}
+#adPanel .ad-o{padding:4px 8px;border-radius:8px;margin-top:4px;overflow-wrap:anywhere}
+#adPanel .ad-o.ok{background:var(--accbg);color:var(--acc);font-weight:600}
+#adPanel .ad-o small{display:block;color:var(--mute);font-weight:400}
+#adPvBody{max-height:60vh;overflow:auto}
+#adPanel dialog.wide{width:min(94vw,640px)}
+#adSetup{max-width:420px;margin:5vh auto 0}
+#adSetup form{display:grid;gap:10px;margin-top:12px}
+
+/* كل القواعد مقيّدة بـ #adPanel و #admBtn عشان ما تأثرش على باقي الموقع */
+#admBtn{display:inline-flex;align-items:center;justify-content:center;padding:0;flex:0 0 auto;cursor:pointer}
+#admBtn svg{width:20px;height:20px;display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#adPanel{--dng:#c0392b;--dngbg:#fbeae8;--wrn:#8a5a00;--wrnbg:#fff1cf;--onacc:#fff;min-height:100vh;padding:calc(12px + env(safe-area-inset-top,0px)) 12px calc(12px + env(safe-area-inset-bottom,0px));line-height:1.7;font-size:.95rem}
+:root[data-theme="dark"] #adPanel{--dng:#ff8a7a;--dngbg:#40211e;--wrn:#f2cc60;--wrnbg:#403719;--onacc:#06130e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #adPanel{--dng:#ff8a7a;--dngbg:#40211e;--wrn:#f2cc60;--wrnbg:#403719;--onacc:#06130e}}
+#adPanel *{box-sizing:border-box}
+#adPanel .ad-hid{display:none!important}
+#adPanel button,#adPanel input,#adPanel select{font:inherit;color:inherit}
+#adPanel h1{font-size:1.2rem;margin:0;color:var(--ink)}
+#adPanel h2{font-size:1rem;margin:0;color:var(--ink)}
+#adPanel .ad-wrap{max-width:1040px;margin:0 auto}
+#adPanel .ad-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+#adPanel .ad-mute{color:var(--mute);font-size:.82rem}
+#adPanel svg.ad-i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;display:block}
+#adPanel .ad-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:6px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);cursor:pointer}
+#adPanel .ad-btn:hover{border-color:var(--acc)}
+#adPanel .ad-btn.pri{background:var(--acc);border-color:var(--acc);color:var(--onacc)}
+#adPanel .ad-btn.dng{color:var(--dng);border-color:var(--dng);background:transparent}
+#adPanel .ad-btn[disabled]{opacity:.5;cursor:not-allowed}
+#adPanel .ad-ib{width:36px;height:36px;padding:0;border-radius:50%;border:1px solid var(--line);background:var(--card);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:var(--acc)}
+#adPanel .ad-ib.dng{color:var(--dng)}
+#adPanel .ad-ib:hover{border-color:currentColor}
+#adPanel input[type=text],#adPanel input[type=email],#adPanel input[type=password],#adPanel select{width:100%;min-height:42px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+#adPanel input:focus,#adPanel select:focus,#adPanel .ad-btn:focus-visible,#adPanel .ad-ib:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+#adLogin{max-width:380px;margin:7vh auto 0}
+#adLogin form{display:grid;gap:10px;margin-top:12px}
+#adPanel .ad-err{color:var(--dng);font-size:.88rem;min-height:1.3em}
+#adPanel .ad-bar{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+#adPanel .ad-sp{flex:1}
+#adPanel .ad-grid{display:grid;grid-template-columns:290px 1fr;gap:12px;align-items:start}
+@media (max-width:760px){#adPanel .ad-grid{grid-template-columns:1fr}}
+#adPanel .ad-fadd{display:flex;gap:8px;margin:10px 0}
+#adPanel .ad-flist{display:grid;gap:6px}
+#adPanel .ad-frow{display:flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+#adPanel .ad-frow.sel{border-color:var(--acc);background:var(--accbg)}
+#adPanel .ad-frow .nm{flex:1;min-width:0;display:flex;align-items:center;gap:8px;padding:8px 10px;background:none;border:0;cursor:pointer;text-align:start}
+#adPanel .ad-frow .nm span.t{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#adPanel .ad-frow .nm .c{font-size:.75rem;color:var(--mute)}
+#adPanel .ad-frow .ad-ib{border:0;background:none;width:32px;height:32px}
+#adPanel .ad-drop{display:block;border:2px dashed var(--line);border-radius:12px;padding:16px;text-align:center;cursor:pointer;color:var(--mute);margin:10px 0}
+#adPanel .ad-drop.on,#adPanel .ad-drop:hover{border-color:var(--acc);color:var(--acc)}
+#adPanel .ad-stg{display:grid;gap:8px;margin:8px 0}
+#adPanel .ad-srow{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px;background:var(--bg)}
+#adPanel .ad-srow .m{grid-column:1/-1;font-size:.8rem}
+#adPanel .ad-badge{display:inline-block;padding:1px 9px;border-radius:99px;font-size:.75rem;background:var(--accbg);color:var(--acc)}
+#adPanel .ad-badge.no{background:var(--dngbg);color:var(--dng)}
+#adPanel .ad-badge.up{background:var(--wrnbg);color:var(--wrn)}
+#adPanel .ad-warn{color:var(--wrn);font-size:.8rem}
+#adPanel .ad-ai{margin:10px 0;border:1px solid var(--line);border-radius:12px;padding:8px 12px;background:var(--bg)}
+#adPanel .ad-ai summary{cursor:pointer;font-size:.88rem}
+#adPanel .ad-aif{display:grid;gap:8px;margin-top:8px}
+#adPanel .ad-aif label{display:grid;gap:4px;font-size:.85rem}
+#adPanel .ad-act{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+#adPanel .ad-chk{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;cursor:pointer}
+#adPanel .ad-xlist{display:grid;gap:8px;margin-top:10px}
+#adPanel .ad-xrow{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;padding:10px;flex-wrap:wrap}
+#adPanel .ad-xrow .tt{flex:1;min-width:160px}
+#adPanel .ad-xrow .tt b{display:block;overflow-wrap:anywhere}
+#adPanel .ad-xrow .ac{display:flex;gap:6px}
+#adPanel .ad-empty{padding:22px;text-align:center;color:var(--mute)}
+#adPanel dialog{border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);padding:18px;width:min(92vw,420px)}
+#adPanel dialog::backdrop{background:rgba(0,0,0,.55)}
+#adPanel dialog h3{margin:0 0 6px;font-size:1.05rem;color:var(--acc)}
+#adDlgM{white-space:pre-wrap;max-height:40vh;overflow:auto;overflow-wrap:anywhere}
+#adDlgF{display:grid;gap:10px;margin:10px 0}
+#adDlgF label{display:grid;gap:4px;font-size:.85rem}
+#adPanel .ad-dacts{display:flex;gap:8px;justify-content:flex-start;margin-top:12px}
+#adToast{position:fixed;inset-inline:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));margin:auto;max-width:420px;background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:12px;z-index:5;text-align:center;opacity:0;pointer-events:none;transition:opacity .2s}
+#adToast.on{opacity:1}
+#adToast.bad{background:var(--dng);color:#fff}
+@media (prefers-reduced-motion:reduce){#adToast{transition:none}}
+</style>
+</head>
+<body>
+<script src="config.js"></script>
+<div id="adPanel" dir="rtl" lang="ar">
+ <div class="ad-wrap">
+  <div class="ad-bar">
+    <h1>لوحة الأدمن — مكتبة الامتحانات</h1>
+    <span class="ad-sp"></span>
+    <span class="ad-mute" id="adWho" dir="ltr"></span>
+    <button class="ad-btn ad-hid" id="adOut" type="button">تسجيل خروج</button>
+    <button class="ad-tg" id="adTheme" type="button" aria-label="وضع ليلي / فاتح" title="وضع ليلي / فاتح">🌙</button>
+  </div>
+
+  <section id="adSetup" class="ad-card ad-hid">
+    <h2>أول مرة: اربط بـ Supabase</h2>
+    <p class="ad-mute">الصق بيانات مشروعك (Project Settings → API). بتتحفظ على الجهاز ده بس. تقدر بدل كده تعدّل ملف config.js.</p>
+    <form id="adSetupForm">
+      <input type="text" id="adCfgUrl" placeholder="Project URL  https://xxxx.supabase.co" dir="ltr" required>
+      <input type="text" id="adCfgKey" placeholder="anon public key" dir="ltr" required>
+      <div class="ad-err" id="adSetupErr" role="alert"></div>
+      <button class="ad-btn pri" type="submit">حفظ وبدء</button>
+    </form>
+  </section>
+
+  <section id="adLogin" class="ad-card ad-hid">
+    <h2>دخول الأدمن</h2>
+    <form id="adLoginForm" autocomplete="on">
+      <input type="email" id="adEm" placeholder="الإيميل" autocomplete="username" required dir="ltr">
+      <input type="password" id="adPw" placeholder="الباسورد" autocomplete="current-password" required dir="ltr">
+      <div class="ad-err" id="adLoginErr" role="alert"></div>
+      <button class="ad-btn pri" id="adLoginBtn" type="submit">دخول</button>
+    </form>
+  </section>
+
+  <section id="adDenied" class="ad-card ad-hid">
+    <h2 id="adDeniedT"></h2>
+    <p class="ad-mute" id="adDeniedMsg"></p>
+    <button class="ad-btn" id="adDeniedOut" type="button">تسجيل خروج</button>
+  </section>
+
+  <section id="adApp" class="ad-hid">
+    <details class="ad-ai" style="margin-top:0"><summary>المظهر والإعدادات</summary>
+      <div class="ad-aif">
+        <div>لون الموقع<div class="ad-sw" id="adSw"></div></div>
+        <button class="ad-btn" id="adCfgReset" type="button">مسح بيانات الاتصال المحفوظة على الجهاز</button>
+      </div></details>
+    <div class="ad-grid">
+      <aside class="ad-card">
+        <h2>المواد (الفولدرات)</h2>
+        <form class="ad-fadd" id="adFForm">
+          <input type="text" id="adFName" placeholder="اسم مادة جديدة" maxlength="80" required>
+          <button class="ad-btn pri" type="submit">إضافة</button>
+        </form>
+        <div class="ad-flist" id="adFList"></div>
+      </aside>
+      <main class="ad-card">
+        <div class="ad-empty" id="adXNone">اختار مادة من القايمة أو أضف مادة جديدة.</div>
+        <div id="adXBox" class="ad-hid">
+          <h2 id="adXHead"></h2>
+          <details class="ad-ai" id="adAiBox"><summary>إعدادات الذكاء الاصطناعي (Gemini) — للملفات الخام فقط</summary>
+            <div class="ad-aif">
+              <label>مفتاح Gemini API<input type="password" id="adAiKey" dir="ltr" autocomplete="off" placeholder="AIza..."></label>
+              <label>الموديل<input type="text" id="adAiModel" dir="ltr" placeholder="gemini-2.5-flash"></label>
+              <label>لغة الشرح<select id="adAiWhy"><option value="ar">عربي مصري (المصطلحات إنجليزي)</option><option value="en">English</option></select></label>
+              <div class="ad-mute">المفتاح بيتحفظ على جهازك إنت بس (localStorage)، ومش بيتكتب في الملف ولا في Supabase.</div>
+            </div></details>
+          <label class="ad-drop" id="adDrop" for="adFiles">
+            <svg class="ad-i" viewBox="0 0 24 24" style="margin:0 auto 4px"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg>
+            اضغط لاختيار ملف أو أكتر (TXT / JSON جاهز، أو ملف خام / PDF / صور للتنظيم بالذكاء الاصطناعي)
+          </label>
+          <input type="file" id="adFiles" accept=".txt,.json,.md,.pdf,image/*,text/plain,application/json" multiple class="ad-hid">
+          <div class="ad-stg" id="adStg"></div>
+          <div id="adStgAct" class="ad-act ad-hid">
+            <button class="ad-btn" id="adAiGo" type="button">نظّم بالذكاء الاصطناعي</button>
+            <button class="ad-btn pri" id="adUpAll" type="button"></button>
+            <button class="ad-btn" id="adStgClear" type="button">مسح القايمة</button>
+            <label class="ad-chk ad-hid" id="adMergeL"><input type="checkbox" id="adMerge"> ضم الصور في امتحان واحد</label>
+          </div>
+          <div class="ad-mute" id="adAiSt" aria-live="polite"></div>
+          <div class="ad-xlist" id="adXList"></div>
+        </div>
+      </main>
+    </div>
+  </section>
+ </div>
+
+ <input type="file" id="adRepFile" accept=".txt,.json,.md,text/plain,application/json" class="ad-hid">
+ <dialog id="adDlg">
+  <h3 id="adDlgT"></h3>
+  <div id="adDlgM" class="ad-mute" dir="auto"></div>
+  <div id="adDlgF"></div>
+  <div class="ad-dacts">
+    <button class="ad-btn pri" id="adDlgOk" type="button"></button>
+    <button class="ad-btn" id="adDlgNo" type="button">إلغاء</button>
+  </div>
+ </dialog>
+ <dialog id="adPv" class="wide">
+  <h3 id="adPvT"></h3>
+  <div id="adPvBody"></div>
+  <div class="ad-dacts"><button class="ad-btn pri" id="adPvX" type="button">إغلاق</button></div>
+ </dialog>
+ <div id="adToast" role="status" aria-live="polite"></div>
+</div>
+<script>
+/* =====================================================================
+   ⚙️ إعدادات Supabase — غيّر السطرين دول بس (نفس القيم اللي في مكتبة الامتحانات)
+   ===================================================================== */
+(function(){
+'use strict';
+const CFG=window.G22_CFG||{};
+const lsg=k=>{try{return localStorage.getItem(k)||''}catch(e){return ''}};
+const bad=v=>!v||/YOUR-/.test(v);
+let SUPABASE_URL=!bad(CFG.url)?CFG.url:lsg('adm.url');
+let SUPABASE_ANON_KEY=!bad(CFG.key)?CFG.key:lsg('adm.key');
+/* ===================================================================== */
+const SDK='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ICO={
+  edit:'<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+  trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6"/>',
+  swap:'<path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/>',
+  eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  folder:'<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>'
+};
+const ic=n=>'<svg class="ad-i" viewBox="0 0 24 24" aria-hidden="true">'+ICO[n]+'</svg>';
+const fmt=d=>{try{return new Date(d).toLocaleDateString('ar-EG',{day:'numeric',month:'short',year:'numeric'})}catch(e){return ''}};
+const collator=new Intl.Collator('ar',{numeric:true,sensitivity:'base'});
+const ready=()=>/^https:\/\/\S+$/.test(SUPABASE_URL)&&SUPABASE_ANON_KEY.length>20;
+let db=null,wired=false;
+
+/* البرومبت الأصلي بتاع الموقع (نفس TPL في بنك الأسئلة) */
+const TPL='You are an exam digitizer. The input is exam questions: plain text, a PDF, or photos of pages (use OCR/vision for images). Read every question and convert ALL of them into the exact plain-text format below. Do not skip, merge, or reorder questions.\n\nOUTPUT FORMAT (one block per question, blocks separated by a line containing only ---):\n\nNo: <question number as written in the file>\nYear: <4-digit year only, for example 2023, otherwise none>\nSource: <midterm / final / bank / doctor name if written in the file, otherwise none>\nTopic: <lecture or chapter name if written in the file, otherwise none>\nQ: <question text exactly as written>\nA) <option A>\nB) <option B>\nC) <option C>\nD) <option D>\nAnswer: <single letter of the correct option>\nAnswer source: <File or AI>\nWhy A: <explanation>\nWhy B: <explanation>\nWhy C: <explanation>\nWhy D: <explanation>\n---\n\nRULES:\n1. Take the correct answer from the answer shown in the file (usually next to the question, or within 1 to 2 pages after it) and write "Answer source: File". Never change it. ONLY if the answer is not in the file at all, solve the question yourself and write "Answer source: AI".\n2. Year must be ONLY a 4-digit number such as 2022. Never write words like "previous years" or "past exam" in Year. If the file says a question is from previous years but gives no specific year, write "Year: none" and put that wording in Source instead (for example "Source: Past exam"). Never invent a year, source or topic, write none instead.\n3. Keep the question and options in their original language and do not change any medical or scientific terms. Do not skip, merge, or reorder questions.\n4. Options use letters A to F only. If the file uses numbers or other labels, convert them to letters.\n5. Write a "Why" line for EVERY option, including the correct one. For the correct option: explain why it is right. For each wrong option: explain why it is wrong and what it actually refers to. If the file already has an explanation, use it and expand on it.\n6. Write all "Why" explanations {{WHY_LANG}} Keep each explanation short (1 to 3 sentences).\n7. If a question depends on an image, table, or graph, describe what is needed in words inside the question text so it can be answered without the image.\n8. Plain text only: no bold, bullets, headings, or markdown, no code block, and no intro or closing sentences. Start directly with the first question.';
+
+const st={user:null,folders:[],exams:[],fid:null,staged:[],repId:null};
+let tt=null;
+function toast(m,bad){const t=$('adToast');t.textContent=m;t.className='on'+(bad?' bad':'');clearTimeout(tt);tt=setTimeout(()=>{t.className=''},3200)}
+function view(v){['adSetup','adLogin','adDenied','adApp'].forEach(n=>$(n).classList.toggle('ad-hid',n!==v));$('adOut').classList.toggle('ad-hid',v!=='adApp')}
+function msgView(t,m,out){$('adDeniedT').textContent=t;$('adDeniedMsg').textContent=m;$('adDeniedOut').classList.toggle('ad-hid',!out);view('adDenied')}
+
+/* ---------- نافذة حوار موحّدة ---------- */
+function ask(o){
+  return new Promise(res=>{
+    const d=$('adDlg');
+    $('adDlgT').textContent=o.title||'';
+    $('adDlgM').textContent=o.msg||'';
+    $('adDlgNo').classList.toggle('ad-hid',!!o.noCancel);
+    $('adDlgF').innerHTML=(o.fields||[]).map(f=>{
+      const inp=f.type==='select'
+        ?'<select data-k="'+f.key+'">'+f.options.map(x=>'<option value="'+esc(x.v)+'"'+(x.v===f.value?' selected':'')+'>'+esc(x.t)+'</option>').join('')+'</select>'
+        :'<input type="text" data-k="'+f.key+'" value="'+esc(f.value||'')+'" maxlength="'+(f.max||120)+'">';
+      return '<label>'+esc(f.label)+inp+'</label>';
+    }).join('');
+    const ok=$('adDlgOk');ok.textContent=o.ok||'تأكيد';
+    ok.className='ad-btn '+(o.danger?'dng':'pri');
+    let done=false;
+    const fin=v=>{if(done)return;done=true;ok.onclick=null;$('adDlgNo').onclick=null;d.onclose=null;if(d.open)d.close();res(v)};
+    ok.onclick=()=>{
+      const v={};let bad=false;
+      d.querySelectorAll('#adDlgF [data-k]').forEach(e=>{v[e.dataset.k]=e.value.trim();if(e.tagName==='INPUT'&&!v[e.dataset.k])bad=true});
+      if(bad){toast('الحقل فاضي',true);return}
+      fin(v);
+    };
+    $('adDlgNo').onclick=()=>fin(null);
+    d.onclose=()=>fin(null);
+    d.showModal();
+    const f1=d.querySelector('#adDlgF input');if(f1){f1.focus();f1.select()}
+  });
+}
+
+/* ---------- فحص الملف (نفس منطق الموقع في قراءة الملفات المباشرة) ---------- */
+function inspect(raw,fname){
+  const t=String(raw||'').replace(/^\uFEFF/,'').trim();
+  const base=String(fname||'').replace(/\.[^.]+$/,'');
+  const bad=m=>({ok:false,n:0,title:base,msg:m});
+  if(!t)return bad('الملف فاضي');
+  if(/^[\[{`]/.test(t)){
+    try{
+      const d=JSON.parse(t.replace(/```json|```/g,'').trim());
+      const arr=Array.isArray(d)?d:(d&&d.questions)||[];
+      if(arr.length)return{ok:true,n:arr.length,title:(d&&d.exam_title)||base,msg:''};
+    }catch(e){}
+  }
+  if(/^\s*Q:/m.test(t)){
+    const qc=(t.match(/^\s*Q:/gm)||[]).length;
+    const blocks=t.replace(/```\w*/g,'').split(/^\s*---\s*$/m).filter(b=>/^\s*Q:/m.test(b));
+    let n=blocks.length;const last=blocks[n-1];
+    if(last&&!/^\s*Answer:/im.test(last))n--;
+    if(n>0&&n>=qc-1)return{ok:true,n,title:base,msg:''};
+    return bad('الأسئلة لازم تتفصل بسطر --- وكل سؤال له Answer:');
+  }
+  return bad('الصيغة مش مفهومة: لازم TXT بصيغة Q: أو JSON');
+}
+const readTxt=f=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result||''));r.onerror=()=>rej(r.error);r.readAsText(f,'UTF-8')});
+
+/* ---------- Supabase (بيتحمّل أول ما تفتح اللوحة) ---------- */
+function loadSdk(){return new Promise((res,rej)=>{
+  if(window.supabase&&window.supabase.createClient)return res();
+  const s=document.createElement('script');s.src=SDK;s.onload=()=>res();s.onerror=()=>rej(new Error('sdk'));document.head.appendChild(s)})}
+async function start(){
+  if(!ready()){view('adSetup');return}
+  if(db)return;
+  msgView('استنى شوية…','بحمّل مكتبة Supabase…',false);
+  try{await loadSdk()}catch(e){msgView('مفيش نت؟','مكتبة supabase-js ما اتحمّلتش. اتأكد من النت وجرب تاني.',false);return}
+  db=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY,{auth:{storageKey:'g22-admin-auth',persistSession:true,autoRefreshToken:true}});
+  /* ملحوظة: مفيش await جوه الـ callback (بيسبب تعليق في supabase-js) */
+  db.auth.onAuthStateChange((ev,session)=>{
+    if(ev==='TOKEN_REFRESHED'||ev==='USER_UPDATED')return;
+    setTimeout(()=>boot(session),0);
+  });
+}
+
+async function boot(session){
+  if(!session){st.user=null;$('adWho').textContent='';view('adLogin');return}
+  if(st.user&&st.user.id===session.user.id)return;
+  const r=await db.rpc('is_admin');
+  if(r.error||r.data!==true){
+    msgView('الحساب ده مش أدمن',r.error?('تعذّر التحقق: '+r.error.message):('الإيميل '+session.user.email+' مش موجود في جدول admins.'),true);return;
+  }
+  st.user=session.user;
+  $('adWho').textContent=session.user.email;
+  view('adApp');
+  await loadAll();
+}
+async function loadAll(){
+  const [f,e]=await Promise.all([
+    db.from('folders').select('id,name,created_at').order('created_at',{ascending:true}),
+    db.from('exams').select('id,folder_id,title,version,created_at,updated_at').order('created_at',{ascending:false})
+  ]);
+  if(f.error||e.error){toast('فشل التحميل: '+((f.error||e.error).message),true);return}
+  st.folders=f.data.sort((a,b)=>collator.compare(a.name,b.name));
+  st.exams=e.data;
+  if(st.fid&&!st.folders.some(x=>x.id===st.fid))st.fid=null;
+  paint();
+}
+
+/* ---------- الرسم ---------- */
+function paint(){paintFolders();paintExams()}
+function paintFolders(){
+  const cnt={};st.exams.forEach(x=>{cnt[x.folder_id]=(cnt[x.folder_id]||0)+1});
+  $('adFList').innerHTML=st.folders.length?st.folders.map(f=>
+    '<div class="ad-frow'+(f.id===st.fid?' sel':'')+'">'+
+      '<button class="nm" type="button" data-ad="pick" data-id="'+f.id+'">'+ic('folder')+'<span class="t">'+esc(f.name)+'</span><span class="c">'+(cnt[f.id]||0)+'</span></button>'+
+      '<button class="ad-ib" type="button" data-ad="fren" data-id="'+f.id+'" aria-label="تعديل الاسم" title="تعديل الاسم">'+ic('edit')+'</button>'+
+      '<button class="ad-ib dng" type="button" data-ad="fdel" data-id="'+f.id+'" aria-label="حذف المادة" title="حذف">'+ic('trash')+'</button>'+
+    '</div>').join(''):'<div class="ad-empty">لسه مفيش مواد.</div>';
+}
+function paintExams(){
+  const f=st.folders.find(x=>x.id===st.fid);
+  $('adXNone').classList.toggle('ad-hid',!!f);
+  $('adXBox').classList.toggle('ad-hid',!f);
+  if(!f)return;
+  $('adXHead').textContent='امتحانات: '+f.name;
+  const list=st.exams.filter(x=>x.folder_id===f.id).sort((a,b)=>collator.compare(a.title,b.title));
+  $('adXList').innerHTML=list.length?list.map(x=>
+    '<div class="ad-xrow"><div class="tt"><b dir="auto">'+esc(x.title)+'</b>'+
+      '<span class="ad-mute">النسخة '+x.version+' · آخر تحديث '+fmt(x.updated_at)+'</span></div>'+
+      '<div class="ac">'+
+        '<button class="ad-ib" type="button" data-ad="xview" data-id="'+x.id+'" aria-label="معاينة الأسئلة" title="معاينة الأسئلة">'+ic('eye')+'</button>'+
+        '<button class="ad-ib" type="button" data-ad="xedit" data-id="'+x.id+'" aria-label="تعديل الاسم أو النقل" title="تعديل">'+ic('edit')+'</button>'+
+        '<button class="ad-ib" type="button" data-ad="xrep" data-id="'+x.id+'" aria-label="استبدال الملف" title="استبدال الملف">'+ic('swap')+'</button>'+
+        '<button class="ad-ib dng" type="button" data-ad="xdel" data-id="'+x.id+'" aria-label="حذف" title="حذف">'+ic('trash')+'</button>'+
+      '</div></div>').join(''):'<div class="ad-empty">المادة دي فاضية. ارفع أول امتحان من فوق.</div>';
+  paintStage();
+}
+function paintStage(){
+  $('adStg').innerHTML=st.staged.map((s,i)=>
+    '<div class="ad-srow">'+
+      '<input type="text" data-i="'+i+'" value="'+esc(s.title)+'" maxlength="120" aria-label="اسم الامتحان" dir="auto"'+(s.ok||s.ai?'':' disabled')+'>'+
+      (s.ok&&s.text?'<button class="ad-ib" type="button" data-ad="sview" data-i="'+i+'" aria-label="معاينة" title="معاينة الأسئلة">'+ic('eye')+'</button>':'<span></span>')+
+      '<button class="ad-ib dng" type="button" data-ad="srm" data-i="'+i+'" aria-label="شيل من القايمة">'+ic('trash')+'</button>'+
+      '<div class="m"><span class="ad-badge'+(s.ok?'':(s.ai&&!/^فشل/.test(s.msg)?' up':' no'))+'">'+(s.ok?s.n+' سؤال':(s.ai?'محتاج تنظيم':'غير صالح'))+'</span> <span class="ad-mute" dir="auto">'+esc(s.fname)+'</span>'+(s.ok?(s.warn?'<div class="ad-warn" dir="rtl">'+esc(s.warn)+'</div>':''):'<div class="ad-err" dir="rtl">'+esc(s.msg)+'</div>')+'</div>'+
+    '</div>').join('');
+  const good=st.staged.filter(s=>s.ok).length;
+  $('adStgAct').classList.toggle('ad-hid',!st.staged.length);
+  $('adUpAll').textContent='رفع '+good+' امتحان';
+  $('adUpAll').disabled=!good;
+  $('adAiGo').classList.toggle('ad-hid',!st.staged.some(s=>s.ai));
+  $('adMergeL').classList.toggle('ad-hid',st.staged.filter(isImg).length<2);
+}
+
+/* ---------- اختيار الملفات ---------- */
+const isTxt=f=>/\.(txt|md|text|json)$/i.test(f.name||'')||f.type==='text/plain'||f.type==='application/json';
+const isImg=s=>!!(s.ai&&s.files&&s.files.length&&s.files.every(f=>/^image\//.test(f.type||'')));
+async function stage(fileList){
+  for(const f of Array.from(fileList)){
+    const base=f.name.replace(/\.[^.]+$/,'');
+    if(!isTxt(f)){st.staged.push({fname:f.name,files:[f],text:'',ok:false,ai:true,n:0,title:base,msg:'ملف خام — محتاج تنظيم بالذكاء الاصطناعي'});continue}
+    try{
+      const text=await readTxt(f),r=inspect(text,f.name);
+      if(r.ok)st.staged.push({fname:f.name,text,ok:true,n:r.n,title:r.title,msg:''});
+      else if(text.trim())st.staged.push({fname:f.name,raw:text,text:'',ok:false,ai:true,n:0,title:base,msg:'نص خام — محتاج تنظيم بالذكاء الاصطناعي'});
+      else st.staged.push({fname:f.name,text:'',ok:false,n:0,title:f.name,msg:'الملف فاضي'});
+    }catch(e){st.staged.push({fname:f.name,text:'',ok:false,n:0,title:f.name,msg:'مقدرتش أقرا الملف'})}
+  }
+  paintStage();
+}
+
+/* ---------- Gemini: نفس منطق الموقع (extract / gem / chunks / parseOut) ---------- */
+const LS=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k)||'';localStorage.setItem(k,v)}catch(e){return ''}};
+const whyText=()=>LS('adm.wl')==='en'?'in clear, simple English, but keep all academic and medical terms exactly as they are.':'in simple Egyptian Arabic, but keep all academic and medical terms in English.';
+async function gem(parts){
+  const key=LS('adm.gk').trim();if(!key)throw Object.assign(new Error('ضيف مفتاح Gemini الأول من الإعدادات.'),{fatal:true});
+  const model=LS('adm.gm').trim()||'gemini-2.5-flash';
+  const body=JSON.stringify({contents:[{parts}],generationConfig:{temperature:0.2,maxOutputTokens:65000}});
+  let r,j;
+  for(let a=0;a<3;a++){
+    r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(model)+':generateContent',{
+      method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body});
+    j=await r.json().catch(()=>({}));
+    if(r.ok||(r.status!==503&&r.status!==429)||a===2)break;
+    $('adAiSt').textContent='⏳ الموديل عليه ضغط، بحاول تاني ('+(a+2)+'/3)…';
+    await new Promise(x=>setTimeout(x,3000*(a+1)));
+  }
+  if(!r.ok)throw Object.assign(new Error((j.error&&j.error.message)||('خطأ '+r.status)),{fatal:[400,401,403,404].includes(r.status)});
+  const c=j.candidates&&j.candidates[0];if(!c||!c.content)throw new Error('Gemini مرجعش رد (ممكن الملف اتحجب).');
+  return c.content.parts.map(p=>p.text||'').join('');
+}
+const b64=f=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]);r.onerror=rej;r.readAsDataURL(f)});
+function chunks(t,n){const o=[];let c='';t.split('\n').forEach(l=>{if(c.length+l.length>n&&c){o.push(c);c=''}c+=l+'\n'});if(c.trim())o.push(c);return o}
+/* رد Gemini → نص بصيغة Q: (لو رجّع JSON بنحوّله) — زي parseOut في الموقع */
+function jq(q,i){
+  let o=q.options,L=[];
+  if(Array.isArray(o))o.forEach((x,k)=>L.push([String.fromCharCode(65+k),typeof x==='string'?x:(x.text||x.t)]));
+  else if(o)Object.keys(o).forEach(k=>L.push([k,o[k]]));
+  const ex=q.explanations||{},s=[];
+  s.push('No: '+(q.number||q.number_in_file||i+1),'Year: '+(q.year||'none'),'Source: '+(q.source||'none'),'Topic: '+(q.topic||'none'),'Q: '+(q.question||''));
+  L.forEach(x=>s.push(x[0]+') '+x[1]));
+  s.push('Answer: '+(q.correct||q.correct_answer||''),'Answer source: '+(q.answer_from_file!==false&&q.answer_source!=='ai_generated'?'File':'AI'));
+  L.forEach(x=>{if(ex[x[0]])s.push('Why '+x[0]+': '+ex[x[0]])});
+  return s.join('\n');
+}
+function toQ(t){
+  const c=String(t||'').replace(/```\w*/g,'').trim();
+  if(/^\s*Q:/m.test(c))return c;
+  try{const d=JSON.parse(String(t).replace(/```json|```/g,'').trim());return((Array.isArray(d)?d:(d&&d.questions)||[]).map(jq)).join('\n---\n')}catch(e){return c}
+}
+/* لو الرد اتقطع، بنشيل آخر سؤال ناقص (من غير Answer:) */
+function trimLast(t){
+  const b=t.split(/^\s*---\s*$/m).filter(x=>x.trim()),last=b[b.length-1];
+  if(last&&/^\s*Q:/m.test(last)&&!/^\s*Answer:/im.test(last)){b.pop();return{text:b.join('\n---\n'),cut:1}}
+  return{text:b.join('\n---\n'),cut:0};
+}
+async function organize(s){
+  const P=TPL.replace(/\{\{WHY_LANG\}\}/g,whyText());
+  if(s.files){
+    let size=0;const parts=[{text:P}];
+    for(const f of s.files){size+=f.size;if(size>14*1048576)throw new Error('حجم الملفات كبير (الحد حوالي 14MB). قسّمها أو صغّر الصور.');
+      parts.push({inline_data:{mime_type:f.type||(/\.pdf$/i.test(f.name)?'application/pdf':'image/jpeg'),data:await b64(f)}})}
+    const r=trimLast(toQ(await gem(parts)));
+    return{text:r.text,warn:r.cut?'اتشال آخر سؤال لأن الرد اتقطع — راجع الملف.':''};
+  }
+  const cs=chunks(s.raw,12000),out=[];let warn='';
+  for(let i=0;i<cs.length;i++){
+    $('adAiSt').textContent='«'+s.fname+'»: جزء '+(i+1)+' من '+cs.length+'…';
+    try{
+      const r=trimLast(toQ(await gem([{text:P+'\n\nINPUT TEXT:\n'+cs[i]}])));
+      out.push(r.text);if(r.cut)warn='اتشال سؤال ناقص من جزء '+(i+1)+' — راجع الملف.';
+    }catch(e){
+      if(out.length&&!e.fatal){warn='اتنظّم '+i+' جزء من '+cs.length+' بس ('+e.message+'). راجع قبل الرفع.';break}
+      throw e;
+    }
+  }
+  return{text:out.join('\n---\n'),warn};
+}
+async function runAI(){
+  if(!LS('adm.gk').trim()){toast('ضيف مفتاح Gemini الأول من الإعدادات.',true);$('adAiBox').open=true;return}
+  if($('adMerge').checked){ /* ضم كل الصور في امتحان واحد */
+    const im=st.staged.filter(isImg);
+    if(im.length>1){const first=im[0];first.files=[].concat(...im.map(s=>s.files));first.fname=im.length+' صور';st.staged=st.staged.filter(s=>s===first||!isImg(s))}
+  }
+  const todo=st.staged.filter(s=>s.ai);if(!todo.length)return;
+  $('adAiGo').disabled=true;$('adUpAll').disabled=true;let done=0;
+  for(const s of todo){
+    $('adAiSt').textContent='بنظّم «'+s.fname+'»…';
+    try{
+      const o=await organize(s),r=inspect(o.text,s.fname);
+      if(!r.ok)throw new Error(r.msg||'النتيجة مش بصيغة مفهومة');
+      s.text=o.text;s.ok=true;s.ai=false;s.n=r.n;s.msg='';s.warn=o.warn;s.raw=null;s.files=null;done++;
+    }catch(e){s.msg='فشل التنظيم: '+e.message;if(e.fatal){paintStage();break}}
+    paintStage();
+  }
+  $('adAiSt').textContent=done?('اتنظّم '+done+' ملف. راجع الأسماء والعدد وبعدين ارفع.'):'';
+  $('adAiGo').disabled=false;paintStage();
+  if(done)toast('اتنظّم '+done+' ملف ✅');
+}
+async function uploadAll(){
+  const f=st.folders.find(x=>x.id===st.fid);if(!f)return;
+  const rows=[];
+  document.querySelectorAll('#adStg input[data-i]').forEach(e=>{const s=st.staged[+e.dataset.i];if(s&&s.ok){s.title=e.value.trim()||s.title}});
+  st.staged.forEach(s=>{if(s.ok)rows.push({folder_id:f.id,title:s.title.trim()||s.fname,content:s.text})});
+  if(!rows.length)return;
+  $('adUpAll').disabled=true;
+  const r=await db.from('exams').insert(rows);
+  if(r.error){toast('فشل الرفع: '+r.error.message,true);$('adUpAll').disabled=false;return}
+  st.staged=st.staged.filter(s=>!s.ok);toast('اترفع '+rows.length+' امتحان ✅');
+  await loadAll();
+}
+
+/* ---------- الإجراءات ---------- */
+async function onClick(e){
+  const b=e.target.closest('#adPanel [data-ad]');if(!b)return;
+  const a=b.dataset.ad,id=b.dataset.id;
+  if(a==='pick'){st.fid=id;st.staged=[];paint();return}
+  if(a==='srm'){st.staged.splice(+b.dataset.i,1);paintStage();return}
+  if(a==='sview'){const s=st.staged[+b.dataset.i];if(s)pv(s.title,s.text);return}
+  if(a==='xview'){const r=await db.from('exams').select('title,content').eq('id',id).single();r.error?toast(r.error.message,true):pv(r.data.title,r.data.content);return}
+  if(a==='fren'){
+    const f=st.folders.find(x=>x.id===id);
+    const v=await ask({title:'تعديل اسم المادة',fields:[{key:'name',label:'الاسم',value:f.name,max:80}],ok:'حفظ'});
+    if(!v)return;
+    const r=await db.from('folders').update({name:v.name}).eq('id',id);
+    r.error?toast(r.error.message,true):(toast('اتعدّل'),loadAll());return;
+  }
+  if(a==='fdel'){
+    const f=st.folders.find(x=>x.id===id),n=st.exams.filter(x=>x.folder_id===id).length;
+    const v=await ask({title:'حذف المادة «'+f.name+'»؟',msg:n?('هيتحذف معاها '+n+' امتحان نهائيًا وهيختفوا من عند الطلاب (النسخ اللي اتحمّلت قبل كده على أجهزتهم هتفضل).'):'المادة فاضية.',ok:'احذف',danger:true});
+    if(!v)return;
+    const r=await db.from('folders').delete().eq('id',id);
+    r.error?toast(r.error.message,true):(toast('اتحذفت'),loadAll());return;
+  }
+  if(a==='xedit'){
+    const x=st.exams.find(z=>z.id===id);
+    const v=await ask({title:'تعديل الامتحان',ok:'حفظ',fields:[
+      {key:'title',label:'اسم الامتحان',value:x.title},
+      {key:'folder_id',label:'المادة',type:'select',value:x.folder_id,options:st.folders.map(f=>({v:f.id,t:f.name}))}]});
+    if(!v)return;
+    const r=await db.from('exams').update({title:v.title,folder_id:v.folder_id}).eq('id',id);
+    r.error?toast(r.error.message,true):(toast('اتحفظ ✅'),loadAll());return;
+  }
+  if(a==='xrep'){st.repId=id;$('adRepFile').value='';$('adRepFile').click();return}
+  if(a==='xdel'){
+    const x=st.exams.find(z=>z.id===id);
+    const v=await ask({title:'حذف «'+x.title+'»؟',msg:'هيختفي من مكتبة الطلاب. اللي حمّله قبل كده هيفضل عنده.',ok:'احذف',danger:true});
+    if(!v)return;
+    const r=await db.from('exams').delete().eq('id',id);
+    r.error?toast(r.error.message,true):(toast('اتحذف'),loadAll());return;
+  }
+}
+async function replaceFile(file){
+  const x=st.exams.find(z=>z.id===st.repId);if(!x||!file)return;
+  let text;try{text=await readTxt(file)}catch(e){toast('مقدرتش أقرا الملف',true);return}
+  const r=inspect(text,file.name);
+  if(!r.ok){toast('الملف مرفوض: '+r.msg,true);return}
+  const v=await ask({title:'استبدال ملف «'+x.title+'»',msg:'الملف الجديد فيه '+r.n+' سؤال. النسخة هتبقى '+(x.version+1)+' وهيظهر للطلاب "تحديث متاح".',ok:'استبدل'});
+  if(!v)return;
+  const u=await db.from('exams').update({content:text}).eq('id',x.id);
+  u.error?toast(u.error.message,true):(toast('اتبدّل ✅'),loadAll());
+}
+
+/* ---------- ربط الأحداث (مرة واحدة) ---------- */
+function init(){
+  if(wired)return;wired=true;
+  $('adLoginForm').addEventListener('submit',async ev=>{
+    ev.preventDefault();$('adLoginErr').textContent='';$('adLoginBtn').disabled=true;
+    const r=await db.auth.signInWithPassword({email:$('adEm').value.trim(),password:$('adPw').value});
+    $('adLoginBtn').disabled=false;
+    if(r.error)$('adLoginErr').textContent='الإيميل أو الباسورد غلط.';
+    else $('adPw').value='';
+  });
+  const out=async()=>{await db.auth.signOut();st.user=null;st.staged=[];view('adLogin')};
+  $('adOut').onclick=out;$('adDeniedOut').onclick=out;
+  $('adFForm').addEventListener('submit',async ev=>{
+    ev.preventDefault();const n=$('adFName').value.trim();if(!n)return;
+    const r=await db.from('folders').insert({name:n}).select('id').single();
+    if(r.error){toast(r.error.message,true);return}
+    $('adFName').value='';st.fid=r.data.id;await loadAll();toast('اتضافت المادة ✅');
+  });
+  $('adPanel').addEventListener('click',onClick);
+  $('adFiles').addEventListener('change',async e=>{await stage(e.target.files);e.target.value=''});
+  $('adRepFile').addEventListener('change',e=>{replaceFile(e.target.files[0])});
+  $('adUpAll').onclick=uploadAll;$('adAiGo').onclick=runAI;
+  $('adAiKey').value=LS('adm.gk');$('adAiModel').value=LS('adm.gm');$('adAiWhy').value=LS('adm.wl')==='en'?'en':'ar';
+  $('adAiKey').onchange=e=>LS('adm.gk',e.target.value.trim());$('adAiModel').onchange=e=>LS('adm.gm',e.target.value.trim());$('adAiWhy').onchange=e=>LS('adm.wl',e.target.value);
+  $('adStgClear').onclick=()=>{st.staged=[];paintStage()};
+  const dz=$('adDrop');
+  ['dragenter','dragover'].forEach(n=>dz.addEventListener(n,e=>{e.preventDefault();dz.classList.add('on')}));
+  ['dragleave','drop'].forEach(n=>dz.addEventListener(n,e=>{e.preventDefault();dz.classList.remove('on')}));
+  dz.addEventListener('drop',e=>{if(e.dataTransfer&&e.dataTransfer.files.length)stage(e.dataTransfer.files)});
+}
+
+/* ---------- معاينة الأسئلة (نفس منطق parseT / parseJ في بنك الأسئلة) ---------- */
+function parseQs(t){
+  t=String(t||'').replace(/^\uFEFF/,'').trim();
+  if(/^[\[{`]/.test(t)){try{const d=JSON.parse(t.replace(/```json|```/g,'').trim());
+    return(Array.isArray(d)?d:(d&&d.questions)||[]).map(q=>{const o=q.options,L=[];
+      if(Array.isArray(o))o.forEach((x,i)=>L.push([String.fromCharCode(65+i),typeof x==='string'?x:(x.text||x.t)]));else if(o)Object.keys(o).forEach(k=>L.push([k,o[k]]));
+      return{no:q.number||q.number_in_file||'',q:q.question||'',opts:L,c:String(q.correct||q.correct_answer||'').charAt(0).toUpperCase(),ai:q.answer_from_file===false||q.answer_source==='ai_generated',ex:q.explanations||{}}})}catch(e){}}
+  const out=[];
+  t.replace(/```\w*/g,'').split(/^\s*---\s*$/m).forEach(b=>{
+    if(!/^\s*Q:/m.test(b))return;
+    const q={no:'',q:'',opts:[],c:'',ai:false,ex:{}};let f=null,k=null;
+    b.split('\n').forEach(l=>{let m;
+      if(m=l.match(/^\s*Q:\s*(.*)/)){f='q';q.q=m[1]}
+      else if(m=l.match(/^\s*([A-F])[\)\.]\s*(.*)/)){f='o';k=m[1];q.opts.push([k,m[2]])}
+      else if(m=l.match(/^\s*Answer source:\s*(.*)/i)){f=null;q.ai=/ai/i.test(m[1])}
+      else if(m=l.match(/^\s*Answer:\s*(.*)/i)){f=null;q.c=m[1].trim().charAt(0).toUpperCase()}
+      else if(m=l.match(/^\s*Why ([A-F]):\s*(.*)/i)){f='e';k=m[1].toUpperCase();q.ex[k]=m[2]}
+      else if(m=l.match(/^\s*No:\s*(.*)/i)){f=null;q.no=m[1].trim()}
+      else if(/^\s*(Year|Source|Topic|Type):/i.test(l)){f=null}
+      else if(f&&l.trim()){const s=' '+l.trim();if(f==='q')q.q+=s;else if(f==='o')q.opts[q.opts.length-1][1]+=s;else q.ex[k]=(q.ex[k]||'')+s}});
+    out.push(q)});
+  return out;
+}
+function pv(title,text){
+  const qs=parseQs(text),sh=qs.slice(0,80);
+  $('adPvT').textContent=title+' — '+qs.length+' سؤال';
+  $('adPvBody').innerHTML=sh.map((q,i)=>'<div class="ad-q"><b dir="auto">'+esc((q.no||i+1)+'. '+q.q)+'</b>'+
+    q.opts.map(o=>'<div class="ad-o'+(o[0]===q.c?' ok':'')+'" dir="auto">'+o[0]+') '+esc(o[1])+(o[0]===q.c?' ✓':'')+(q.ex[o[0]]?'<small>'+esc(q.ex[o[0]])+'</small>':'')+'</div>').join('')+
+    (q.ai?'<span class="ad-badge up">الإجابة من الذكاء الاصطناعي — راجعها</span>':'')+'</div>').join('')+(qs.length>80?'<div class="ad-mute">معروض أول 80 سؤال.</div>':'')||'<div class="ad-empty">مفيش أسئلة.</div>';
+  $('adPv').showModal();
+}
+/* ---------- المظهر + الاتصال ---------- */
+const COLORS=[['green','#1f7a5c'],['red','#d93045'],['blue','#2563eb'],['yellow','#b8860b'],['purple','#7c3aed'],['pink','#db2777']];
+function look(){
+  const r=document.documentElement,c=r.getAttribute('data-color');
+  $('adTheme').textContent=r.getAttribute('data-theme')==='dark'?'☀️':'🌙';
+  $('adSw').innerHTML=COLORS.map(x=>'<button type="button" data-col="'+x[0]+'" style="background:'+x[1]+'" aria-label="'+x[0]+'"'+(x[0]===c?' class="on"':'')+'></button>').join('');
+}
+$('adTheme').onclick=()=>{const r=document.documentElement,m=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',m);LS('g22t',m);look()};
+$('adSw').addEventListener('click',e=>{const b=e.target.closest('[data-col]');if(!b)return;document.documentElement.setAttribute('data-color',b.dataset.col);LS('g22accent',b.dataset.col);look()});
+$('adPvX').onclick=()=>$('adPv').close();
+$('adSetupForm').addEventListener('submit',ev=>{
+  ev.preventDefault();const u=$('adCfgUrl').value.trim().replace(/\/+$/,''),k=$('adCfgKey').value.trim();
+  if(!/^https:\/\/\S+$/.test(u)||k.length<20){$('adSetupErr').textContent='تأكد من الرابط (https://…) والمفتاح.';return}
+  LS('adm.url',u);LS('adm.key',k);SUPABASE_URL=u;SUPABASE_ANON_KEY=k;start();
+});
+$('adCfgReset').onclick=()=>{try{localStorage.removeItem('adm.url');localStorage.removeItem('adm.key')}catch(e){}toast('اتمسحت. اعمل ريفريش.')};
+look();
+init();start();
+})();
+</script>
+</body>
+</html>
