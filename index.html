@@ -5632,11 +5632,11 @@ st.textContent=
 '#g22kb .g22kb-z{flex:none;width:32px;height:32px;border-radius:10px;border:1.5px solid var(--line);background:none;color:var(--mute);font:inherit;cursor:pointer}'+
 '#g22kb .g22kb-z:disabled{opacity:.35;cursor:default}'+
 '#g22kb .g22kb-btn{margin-top:14px;width:100%;padding:10px 14px;border-radius:12px;border:1.5px solid var(--acc);background:var(--accbg);color:var(--acc);font:inherit;font-weight:700;cursor:pointer}'+
-'@media(hover:hover){'+
-'#examApp.exm-kbh .exm-o[data-kb]::after{content:attr(data-kb);flex:none;display:grid;place-items:center;box-sizing:border-box;min-width:24px;height:24px;padding:0 5px;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--x-pr) 32%,transparent);color:var(--x-mut);font-size:.72rem;font-weight:700;line-height:1;opacity:.8}'+
+'#examApp.exm-kbh .exm-o[data-kb]::after{content:attr(data-kb);flex:none;display:grid;place-items:center;box-sizing:border-box;min-width:26px;height:26px;padding:0 6px;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--x-pr) 38%,transparent);background:color-mix(in srgb,var(--x-pr) 8%,transparent);color:var(--x-pr);font-size:.72rem;font-weight:700;line-height:1;direction:ltr;opacity:.85;pointer-events:none;transition:opacity .15s,background-color .15s,border-color .15s}'+
+'#examApp.exm-kbh .exm-o[data-kb]:hover:not(:disabled)::after{opacity:1;background:color-mix(in srgb,var(--x-pr) 18%,transparent);border-color:var(--x-pr)}'+
 '#examApp.exm-kbh [data-kb]:not(.exm-o){position:relative}'+
-'#examApp.exm-kbh [data-kb]:not(.exm-o)::after{content:attr(data-kb);position:absolute;top:-7px;inset-inline-end:-5px;z-index:2;display:grid;place-items:center;box-sizing:border-box;min-width:18px;height:18px;padding:0 4px;border-radius:999px;background:var(--x-card);border:1px solid color-mix(in srgb,var(--x-pr) 35%,transparent);color:var(--x-mut);font-size:.62rem;font-weight:700;line-height:1;pointer-events:none;opacity:.85}'+
-'}';
+'#examApp.exm-kbh [data-kb]:not(.exm-o)::after{content:attr(data-kb);position:absolute;top:-8px;inset-inline-end:-6px;z-index:3;display:grid;place-items:center;box-sizing:border-box;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--x-card);border:1.5px solid color-mix(in srgb,var(--x-pr) 40%,transparent);color:var(--x-pr);font-size:.64rem;font-weight:700;line-height:1;direction:ltr;pointer-events:none;opacity:.9;box-shadow:0 1px 3px rgba(0,0,0,.12)}'+
+'#examApp.exm-kbh .exm-g[data-kb]::after{display:none}';
 document.head.appendChild(st);
 
 /* repaint the circles whenever the exam redraws */
