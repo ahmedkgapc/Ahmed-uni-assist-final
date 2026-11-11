@@ -1091,7 +1091,7 @@ html body:not(.ui-tablet) #examApp #exm-qc .exm-side{flex:1 1 auto;justify-conte
 </head>
 <body>
 <div class="ov" id="ov"></div>
-<div class="dr" id="dr"><h3>القائمة</h3><button type="button" data-view="10" id="m10">🏠 القسم الرئيسي</button><button data-view="1" id="m1">📚 المواد</button><button data-view="2" id="m2">📅 النهارده</button><button data-view="3" id="m3">🚌 الباصات</button><button data-view="4" id="m4">🧪 سكاشن بس</button><button data-view="5" id="m5">🗂️ الأرشيف</button><button type="button" id="ns" style="border-top:1px solid var(--line);margin-top:8px;border-radius:0">🎓 بداية سيمستر جديد</button><button type="button" data-view="6" id="m6">⚙️ الإعدادات</button><button type="button" data-view="7" id="m7">🍅 بومودورو وإحصائيات</button><button type="button" data-view="8" id="m8">📝 الامتحانات</button><button type="button" data-view="11" id="m11">📆 جدول الامتحانات</button><button type="button" data-view="9" id="m9">✅ قائمة المهام</button><button type="button" data-view="12" id="m12">📊 حساب GPA</button><button type="button" data-view="13" id="m13">🗓️ خطط المذاكرة</button><button type="button" data-view="14" id="m14">🧠 بنك الأسئلة</button><div class="social-links" aria-label="حساباتي على مواقع التواصل">
+<div class="dr" id="dr"><h3>القائمة</h3><button type="button" data-view="10" id="m10">🏠 القسم الرئيسي</button><button data-view="1" id="m1">📚 المواد</button><button data-view="2" id="m2">📅 النهارده</button><button data-view="3" id="m3">🚌 الباصات</button><button data-view="4" id="m4">🧪 سكاشن بس</button><button data-view="5" id="m5">🗂️ الأرشيف</button><button type="button" id="ns" style="border-top:1px solid var(--line);margin-top:8px;border-radius:0">🎓 بداية سيمستر جديد</button><button type="button" data-view="6" id="m6">⚙️ الإعدادات</button><button type="button" data-view="7" id="m7">🍅 بومودورو وإحصائيات</button><button type="button" data-view="8" id="m8">📝 الامتحانات</button><button type="button" data-view="11" id="m11">📆 جدول الامتحانات</button><button type="button" data-view="9" id="m9">✅ قائمة المهام</button><button type="button" data-view="12" id="m12">📊 حساب GPA</button><button type="button" data-view="13" id="m13">🗓️ خطط المذاكرة</button><button type="button" data-view="14" id="m14">🧠 بنك الأسئلة</button><button type="button" data-view="15" id="m15"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 11h4M8 9v4"/><path d="M15 12h.01M18 10h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59C2.6 9.42 2 14.46 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.41-1.41A2 2 0 0 1 9.83 16h4.34a2 2 0 0 1 1.42.59L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.55-.6-6.58-.68-7.26A4 4 0 0 0 17.32 5z"/></svg><span class="ent-lb">الترفيه</span></button><div class="social-links" aria-label="حساباتي على مواقع التواصل">
 <a class="social-icon-link" href="intent://www.instagram.com/drahmedk2008/#Intent;scheme=https;package=com.instagram.android;end" aria-label="فتح حساب Instagram في التطبيق" title="Instagram" rel="noopener">
 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.7" cy="6.6" r="1.2" fill="currentColor"/></svg><span>Instagram</span></a>
 <a class="social-icon-link" href="intent://www.tiktok.com/@ahmed1928barca#Intent;scheme=https;package=com.zhiliaoapp.musically;end" aria-label="فتح حساب TikTok في التطبيق" title="TikTok" rel="noopener">
@@ -1146,6 +1146,7 @@ html body:not(.ui-tablet) #examApp #exm-qc .exm-side{flex:1 1 auto;justify-conte
 <div id="v12" style="display:none"></div>
 <div id="v13" style="display:none"></div>
 <div id="v14" style="display:none"><div id="examApp"></div></div>
+<div id="v15" style="display:none"></div>
 <input type="file" id="backupFile" accept=".json,application/json" style="display:none">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
@@ -1327,8 +1328,8 @@ $("tg").onclick=function(){if(document.documentElement.getAttribute("data-color"
 /* views + menu */
 var WD=["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"]; var WD_EN=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 function menu(o){$("dr").classList.toggle("on",o);$("ov").classList.toggle("on",o)}
-function view(n){if(appLocked()&&n!==10)return;if(n===12&&isHighStudent()){appToast(getAppLanguage()==="en"?"🔒 The GPA calculator isn't available for general high-school students.":"🔒 حساب الـ GPA مش متاح لطلاب الثانوي العام.");return}if(n===3&&busesLocked())n=1;if(n===4&&secLocked())n=1;purgeW();try{if(window.curView===14&&n!==14)G22Exam.close()}catch(e){}[1,2,3,4,5,6,7,8,9,10,11,12,13,14].forEach(function(k){$("v"+k).style.display=n===k?"":"none";var m=$("m"+k);if(m)m.className=n===k?"act":""});
- $("loc").textContent="📍 أنت دلوقتي في: "+["المواد","النهارده","الباصات","سكاشن بس","الأرشيف","الإعدادات","بومودورو وإحصائيات","الامتحانات","قائمة المهام","القسم الرئيسي","جدول الامتحانات","حساب الـ GPA","خطط المذاكرة","بنك الأسئلة"][n-1];if(n===2)today();if(n===3)bus();if(n===4)sec();if(n===5)arch();if(n===6)settingsView();if(n===7)studyView();if(n===8)examView();if(n===9)todoView();if(n===10)mainView();if(n===11)examSchedView();if(n===12)gpaView();if(n===13)planView();if(n===14){try{G22Exam.open()}catch(e){console.error(e)}}window.curView=n;try{sessionStorage.setItem('g22lastView',String(n))}catch(e){}menu(false);applyLanguage()}
+function view(n){if(appLocked()&&n!==10)return;if(n===12&&isHighStudent()){appToast(getAppLanguage()==="en"?"🔒 The GPA calculator isn't available for general high-school students.":"🔒 حساب الـ GPA مش متاح لطلاب الثانوي العام.");return}if(n===3&&busesLocked())n=1;if(n===4&&secLocked())n=1;purgeW();try{if(window.curView===14&&n!==14)G22Exam.close();if(window.curView===15&&n!==15&&window.entLeave)window.entLeave()}catch(e){}[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].forEach(function(k){$("v"+k).style.display=n===k?"":"none";var m=$("m"+k);if(m)m.className=n===k?"act":""});
+ $("loc").textContent="📍 أنت دلوقتي في: "+["المواد","النهارده","الباصات","سكاشن بس","الأرشيف","الإعدادات","بومودورو وإحصائيات","الامتحانات","قائمة المهام","القسم الرئيسي","جدول الامتحانات","حساب الـ GPA","خطط المذاكرة","بنك الأسئلة","الترفيه"][n-1];if(n===2)today();if(n===3)bus();if(n===4)sec();if(n===5)arch();if(n===6)settingsView();if(n===7)studyView();if(n===8)examView();if(n===9)todoView();if(n===10)mainView();if(n===11)examSchedView();if(n===12)gpaView();if(n===13)planView();if(n===14){try{G22Exam.open()}catch(e){console.error(e)}}if(n===15&&window.entView)window.entView();window.curView=n;try{sessionStorage.setItem('g22lastView',String(n))}catch(e){}menu(false);applyLanguage()}
 $("mb").onclick=function(){menu(true)};$("ov").onclick=function(){menu(false)};
 document.addEventListener("click",function(e){var v=e.target.getAttribute&&e.target.getAttribute("data-view");if(v)view(+v);
  var k=e.target.getAttribute&&e.target.getAttribute("data-delw");if(k!==null&&k!==undefined&&e.target.hasAttribute("data-delw")){W[+k]=null;sv();today()}});
@@ -4960,6 +4961,776 @@ if(btn){btn.setAttribute('aria-label',T('مكتبة الامتحانات','Exam 
   lib.click()});
  try{new MutationObserver(lab).observe(document.documentElement,{attributes:true,attributeFilter:["lang","dir","class"]})}catch(e){}
  var mb=document.getElementById("mb");if(mb)mb.addEventListener("click",lab);
+})();
+</script>
+
+<style id="g22-ent-css">
+/* ===== قسم الترفيه ===== */
+.dr #m15{display:flex;align-items:center;gap:9px}
+.dr #m15 svg{width:20px;height:20px;flex:none;display:block}
+.dr #m15 .lock-badge{float:none;margin-inline-start:auto}
+.ent-hero{background:linear-gradient(135deg,var(--accbg),var(--card));border:1px solid var(--line);border-radius:18px;padding:18px;margin:0 0 14px}
+.ent-hero h2{display:flex;align-items:center;gap:9px;margin:0 0 4px;font-size:1.1rem;color:var(--ink)}
+.ent-hero h2 svg{width:24px;height:24px;color:var(--acc);flex:none}
+.ent-hero p{margin:0;color:var(--mute);font-size:.85rem;line-height:1.8}
+.ent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.ent-tile{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 10px 16px;background:var(--card);border:1px solid var(--line);border-radius:16px;color:var(--ink);font:inherit;cursor:pointer;text-align:center;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.ent-tile:hover{transform:translateY(-3px);border-color:var(--acc);box-shadow:0 12px 26px -14px color-mix(in srgb,var(--acc) 55%,transparent)}
+.ent-tile:active{transform:scale(.97)}
+.ent-tile:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.ent-ico{position:relative;width:78px;height:78px;border-radius:20px;overflow:hidden;display:block;box-shadow:0 10px 24px -8px color-mix(in srgb,var(--acc) 50%,#000)}
+.ent-ico svg{width:78px;height:78px;display:block}
+.ent-tile b{font-size:1rem;font-weight:800;margin-top:2px}
+.ent-tile small{color:var(--mute);font-size:.72rem;line-height:1.5;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ent-tile small.go{color:var(--acc);font-weight:700}
+html.apple-mode .ent-tile,html.apple-mode .ent-hero{border-radius:var(--ap-r1)}
+html.fx-on .ent-ico::after{content:"";position:absolute;inset:-20%;background:linear-gradient(105deg,transparent 38%,rgba(255,236,170,.5) 50%,transparent 62%);transform:translateX(-120%);animation:entSheen calc(3.6s*var(--fx-k,1)) ease-in-out 1s infinite;pointer-events:none}
+@keyframes entSheen{to{transform:translateX(120%)}}
+html.fx-on .ent-grid>*{animation:fxRise calc(.5s*var(--fx-k,1)) cubic-bezier(.22,.8,.25,1) backwards}
+.ent-frame{display:block;position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100vh;height:100dvh;min-height:0;margin:0;border:0;border-radius:0;background:var(--bg);z-index:2147483000}
+html.ent-playing,html.ent-playing body{overflow:hidden!important}
+@media(prefers-reduced-motion:reduce){.ent-tile,.ent-ico::after{transition:none!important;animation:none!important}}
+</style>
+
+<script type="text/plain" id="g22-game-src"><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>قرينة | لعبة تحقيق</title>
+<style>
+:root{--bg:#0b0a07;--card:#15130d;--ink:#f4ead0;--mute:#a8996f;--line:#3a3220;--acc:#d4a72c;--accbg:rgba(212,167,44,.14);--onacc:#111;--ok:#34d399;--bad:#fb7185;--warn:#fbbf24;--r:16px;--fx-k:1;
+--soft:color-mix(in srgb,var(--ink) 80%,var(--bg));--panel:color-mix(in srgb,var(--card) 86%,var(--bg))}
+[data-scheme="light"]{--ok:#059669;--bad:#e11d48;--warn:#b45309}
+[data-apple="1"]{--r:22px}
+*{box-sizing:border-box;margin:0}
+html,body{background:var(--bg);color:var(--ink);font-family:"Cairo","Segoe UI",Tahoma,sans-serif;line-height:1.7;color-scheme:dark}
+[data-scheme="light"] html,html[data-scheme="light"]{color-scheme:light}
+body{padding:0 0 96px;-webkit-tap-highlight-color:transparent}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.wrap{max-width:980px;margin:auto;padding:0 12px}
+header{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:calc(10px + env(safe-area-inset-top,0px)) 0 10px;position:sticky;top:0;z-index:6;background:color-mix(in srgb,var(--bg) 92%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.logo{display:flex;gap:10px;align-items:center;min-width:0}
+.logo i{width:40px;height:40px;display:block;flex:none;filter:drop-shadow(0 4px 10px color-mix(in srgb,var(--acc) 30%,transparent))}
+.lt{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+.lt b{font-size:1.1rem;font-weight:800}
+.lt small{color:var(--mute);font-size:.7rem;white-space:nowrap}
+.acts{display:flex;gap:6px;flex:none}
+.hb{height:40px;min-width:40px;padding:0 10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--acc);display:inline-flex;align-items:center;justify-content:center;gap:6px;font-size:.8rem;font-weight:700;transition:background .2s,border-color .2s,transform .15s}
+.hb:hover{border-color:var(--acc);background:var(--accbg)}
+.hb:active{transform:scale(.95)}
+.hb .t{display:none}
+.hb.pri{background:var(--acc);border-color:var(--acc);color:var(--onacc)}
+.hb.pri:hover{filter:brightness(1.07);background:var(--acc)}
+.hb.done svg{animation:pop .4s cubic-bezier(.2,.9,.3,1.4)}
+@media(min-width:520px){.hb.pri .t,.hb.ex .t{display:inline}.hb.pri,.hb.ex{padding:0 14px}}
+.brief{background:linear-gradient(135deg,var(--accbg),var(--card));border:1px solid var(--line);border-radius:calc(var(--r) + 2px);padding:20px}
+.tag{display:inline-flex;gap:6px;align-items:center;font-size:.8rem;color:var(--acc);background:var(--accbg);padding:2px 10px;border-radius:99px;font-weight:700}
+.brief h1{font-size:1.5rem;margin:10px 0 6px}
+.brief p{color:var(--soft);max-width:70ch}
+.vic{display:flex;gap:10px;align-items:center;margin-top:14px;padding:10px 14px;border-radius:12px;background:color-mix(in srgb,var(--bg) 60%,transparent);color:var(--acc)}
+.vic span{color:var(--ink)}
+h2{display:flex;align-items:center;gap:8px;font-size:1.05rem;margin:26px 0 12px;color:var(--acc)}
+.cnt{background:var(--acc);color:var(--onacc);border-radius:99px;font-size:.72rem;padding:0 9px;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;text-align:start;display:flex;gap:12px;align-items:flex-start}
+.ev{transition:transform .15s,border-color .15s,box-shadow .15s}
+.ev:hover{transform:translateY(-2px);border-color:var(--acc);box-shadow:0 8px 20px -10px color-mix(in srgb,var(--acc) 45%,transparent)}
+.ev:active{transform:scale(.985)}
+.ev.new{border-color:var(--warn);box-shadow:0 0 0 3px color-mix(in srgb,var(--warn) 18%,transparent);animation:pop .5s}
+@keyframes pop{from{transform:scale(.92);opacity:0}}
+.ico{flex:none;width:48px;height:48px;border-radius:12px;background:var(--accbg);color:var(--acc);display:grid;place-items:center}
+.ev.new .ico{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
+.card h3{font-size:.95rem;font-weight:700;margin-bottom:2px}
+.card p{font-size:.8rem;color:var(--mute);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lock{border-style:dashed;align-items:center;justify-content:center;color:var(--mute);min-height:76px;background:transparent;gap:8px;font-size:.8rem;opacity:.75}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.sus{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 10px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;transition:transform .15s,border-color .15s}
+.sus:hover{border-color:var(--acc);transform:translateY(-2px)}
+.sus:active{transform:scale(.985)}
+.av{width:56px;height:56px;border-radius:50%;background:linear-gradient(140deg,var(--acc),color-mix(in srgb,var(--acc) 45%,#000));color:var(--onacc);display:grid;place-items:center;margin-bottom:6px}
+.sus small{color:var(--mute);font-size:.72rem}
+.bar{position:fixed;inset:auto 0 0 0;background:color-mix(in srgb,var(--card) 94%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));z-index:5}
+.bar form{max-width:980px;margin:auto;display:flex;gap:8px}
+.in{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 14px;transition:border-color .2s}
+.in:focus{border-color:var(--acc);outline:0}
+.btn{background:var(--acc);color:var(--onacc);border-radius:12px;padding:10px 16px;display:inline-flex;gap:6px;align-items:center;justify-content:center;font-weight:700;transition:filter .2s,transform .15s}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:scale(.97)}
+.btn.g{background:transparent;border:1px solid var(--line);color:var(--acc)}
+.btn.g:hover{background:var(--accbg);filter:none}
+.btn.r{background:var(--bad);color:#fff}
+.btn[disabled]{opacity:.5}
+.pts{background:color-mix(in srgb,var(--onacc) 18%,transparent);border-radius:99px;padding:0 8px;font-size:.75rem}
+.modal{position:fixed;inset:0;background:color-mix(in srgb,#000 62%,transparent);z-index:20;display:none;align-items:flex-end;justify-content:center}
+.modal.on{display:flex;animation:fade .2s both}
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:20px 20px 0 0;width:100%;max-width:640px;max-height:90vh;overflow:auto;padding:20px;animation:sheetIn .28s cubic-bezier(.22,.8,.25,1) both}
+.modal .in{background:var(--bg)}
+@media(min-width:700px){.modal{align-items:center}.sheet{border-radius:20px}}
+@keyframes fade{from{opacity:0}}
+@keyframes sheetIn{from{transform:translateY(24px);opacity:0}}
+.sheet h3{font-size:1.2rem;margin-bottom:6px}
+.mrow{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}.mrow .btn{flex:1}
+.row{display:flex;gap:10px;margin:10px 0;padding:10px 12px;background:var(--bg);border:1px solid var(--line);border-radius:10px;font-size:.88rem}
+.row b{color:var(--acc);flex:none;min-width:58px}
+.chat{display:flex;flex-direction:column;gap:8px;margin:12px 0;max-height:34vh;overflow:auto}
+.m{padding:8px 12px;border-radius:12px;max-width:85%;font-size:.88rem}
+.m.u{background:var(--acc);color:var(--onacc);align-self:flex-start}
+.m.a{background:var(--bg);align-self:flex-end;border:1px solid var(--line)}
+label{display:block;font-size:.8rem;color:var(--mute);margin:12px 0 4px}
+select.in,textarea.in{width:100%;display:block}
+.hero{text-align:center;padding:40px 0}
+.hero .big{position:relative;width:96px;height:96px;margin:0 auto 18px;border-radius:21px;display:grid;place-items:center;overflow:hidden;box-shadow:0 14px 40px color-mix(in srgb,var(--acc) 38%,transparent)}
+.hero .big svg{width:96px;height:96px;display:block}
+.hero h1{font-size:2rem}
+.hero p{color:var(--mute);margin:8px auto 22px;max-width:46ch}
+.chips{display:flex;gap:8px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}
+.chip{padding:8px 20px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--mute);font-weight:600;transition:background .2s,color .2s,border-color .2s}
+.chip:hover{border-color:var(--acc)}
+.chip.on{background:var(--acc);border-color:var(--acc);color:var(--onacc)}
+.hero .in{max-width:340px;margin:0 auto 16px;display:block;width:100%;background:var(--card)}
+.ld{position:fixed;inset:0;background:color-mix(in srgb,var(--bg) 92%,transparent);z-index:30;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--acc);font-weight:700}
+.ld.on{display:flex}
+.sp{width:46px;height:46px;border-radius:50%;border:4px solid var(--line);border-top-color:var(--acc);animation:r 1s linear infinite}
+@keyframes r{to{transform:rotate(360deg)}}
+.toast{position:fixed;top:64px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:14px;z-index:40;font-size:.85rem;font-weight:600;display:flex;gap:8px;align-items:center;box-shadow:0 8px 24px #0005;animation:toastIn .3s cubic-bezier(.22,.8,.25,1) both}
+.toast.ok svg{color:var(--ok)}
+@keyframes toastIn{from{opacity:0;transform:translate(-50%,-12px)}}
+.vd{text-align:center}
+.score{font-size:3.4rem;font-weight:800;line-height:1.1}
+.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+.gl{display:flex;gap:8px;justify-content:center;align-items:center;color:var(--mute);font-size:.8rem;margin:-6px 0 16px}
+.note{display:flex;gap:10px;align-items:flex-start;background:color-mix(in srgb,var(--warn) 9%,transparent);border:1px solid color-mix(in srgb,var(--warn) 35%,transparent);color:var(--warn);border-radius:12px;padding:10px 14px;font-size:.8rem;margin-bottom:12px}
+.note svg{flex:none;margin-top:3px}
+.cs{max-width:760px;margin:auto}
+.cc{cursor:pointer;align-items:center}
+.dx{margin-inline-start:auto;color:var(--mute);padding:4px;border-radius:8px}
+.dx:hover{color:var(--bad)}
+/* decorative motion only when the site's animation setting is on (same switch as the site) */
+[data-fx="1"] .hero .big::after{content:"";position:absolute;inset:-20%;background:linear-gradient(105deg,transparent 38%,rgba(255,236,170,.55) 50%,transparent 62%);transform:translateX(-120%);animation:sheen calc(3.6s*var(--fx-k)) ease-in-out 1s infinite;pointer-events:none}
+@keyframes sheen{to{transform:translateX(120%)}}
+[data-fx="1"] .grid>*,[data-fx="1"] .sg>*{animation:rise calc(.45s*var(--fx-k)) cubic-bezier(.22,.8,.25,1) backwards;animation-delay:calc(var(--i,0)*40ms*var(--fx-k))}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="logo"><i id="lg"></i><div class="lt"><b>قرينة</b><small id="stamp">لعبة تحقيق</small></div></div><div class="acts"><button class="hb pri" id="svb" type="button" title="حفظ التقدم" aria-label="حفظ التقدم" style="display:none"></button><button class="hb" id="nb" type="button" title="خروج من القضية" aria-label="خروج من القضية"></button><button class="hb" id="sb" type="button" title="الإعدادات" aria-label="الإعدادات"></button><button class="hb ex" id="xb" type="button" title="خروج من اللعبة" aria-label="خروج من اللعبة"></button></div></header>
+<main id="app"></main>
+</div>
+<div class="bar" id="bar" style="display:none"><form id="af"><input class="in" id="aq" placeholder="اطلب إجراء تحقيق، مثلا: افحص كاميرات المدخل" autocomplete="off"><button class="btn" id="ab"></button><button class="btn r" type="button" id="acc"></button></form></div>
+<div class="modal" id="md"><div class="sheet" id="sh"></div></div>
+<div class="ld" id="ld"><div class="sp"></div><div id="lt">جاري تجهيز القضية...</div></div>
+<\script>
+const I={search:'<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>',file:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',fingerprint:'<path d="M12 11c0 3-1 5-2 7"/><path d="M8 8a5 5 0 0 1 9 2c0 2 0 4-1 7"/><path d="M5 12a7 7 0 0 1 1-4"/><path d="M12 7a3 3 0 0 0-3 3c0 2-.5 4-1.5 6"/><path d="M15 12c0 2-.5 4-1.5 6"/>',time:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',lab:'<path d="M9 3h6M10 3v6l-5.5 10a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9V3"/><path d="M7.5 14h9"/>',phone:'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',camera:'<path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/>',key:'<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3M14 9l2 2"/>',money:'<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 15h2"/>',message:'<path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12z"/>',location:'<path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',drug:'<path d="m10.5 20.5-7-7a5 5 0 0 1 7-7l7 7a5 5 0 0 1-7 7z"/><path d="m8.5 8.5 7 7"/>',blood:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',weapon:'<path d="m14 4 6 6-9 9-6-6z"/><path d="m3 21 4-4"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',skull:'<circle cx="12" cy="10" r="7"/><path d="M9 21v-4M15 21v-4M9 17h6"/><circle cx="9.5" cy="10" r="1"/><circle cx="14.5" cy="10" r="1"/>',shield:'<path d="M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/>',gear:'<path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/>',send:'<path d="m22 2-11 11M22 2l-7 20-4-9-9-4z"/>',plus:'<path d="M12 5v14M5 12h14"/>',other:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>'};
+const ic=(n,s=22)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[n]||I.other}</svg>`;
+const $=s=>document.querySelector(s);
+Object.assign(I,{
+ save:'<path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3"/><path d="M7 21v-7h10v7"/>',
+ exit:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/>',
+ check:'<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+ home:'<path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/>'
+});
+const LOGO=(n,k)=>`<svg width="${n}" height="${n}" viewBox="0 0 512 512" aria-hidden="true"><defs><linearGradient id="bg${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#26221a"/><stop offset=".55" stop-color="#0d0c09"/><stop offset="1" stop-color="#000"/></linearGradient><linearGradient id="gd${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset=".45" stop-color="#e2b93b"/><stop offset="1" stop-color="#9a6f14"/></linearGradient><linearGradient id="gs${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset="1" stop-color="#d4a72c"/></linearGradient></defs><rect width="512" height="512" rx="112" fill="url(#bg${k})"/><rect x="9" y="9" width="494" height="494" rx="104" fill="none" stroke="url(#gd${k})" stroke-width="5" stroke-opacity=".55"/><circle cx="222" cy="222" r="108" fill="#d4a72c" fill-opacity=".10" stroke="url(#gd${k})" stroke-width="28"/><path d="M302 302 396 396" stroke="url(#gd${k})" stroke-width="36" stroke-linecap="round"/><g fill="none" stroke="url(#gs${k})" stroke-width="12" stroke-linecap="round" stroke-opacity=".92"><path d="M200 252V222A22 22 0 0 1 244 222V252"/><path d="M176 240V222A46 46 0 0 1 268 222V240"/><path d="M152 260V222A70 70 0 0 1 292 222V260"/></g></svg>`;
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ICONS=Object.keys(I).filter(k=>!['lock','user','skull','shield','gear','send','plus'].includes(k)).join('|');
+let S=null;
+const SL=()=>{try{const l=JSON.parse(localStorage.getItem('dtv_sl'));return Array.isArray(l)?l:[]}catch(e){return[]}};
+const newId=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+(function(){try{const o=JSON.parse(localStorage.getItem('dtv_s'));if(o&&o.case){const l=SL();if(!o.id)o.id=newId();if(!l.some(x=>x.id===o.id)){l.push(o);localStorage.setItem('dtv_sl',JSON.stringify(l))}}localStorage.removeItem('dtv_s')}catch(e){}})();
+const delSave=id=>localStorage.setItem('dtv_sl',JSON.stringify(SL().filter(x=>x.id!==id)));
+let diff='متوسط',mode='fiction';
+// قايمة القضايا المشهورة: عشان تضيف قضية جديدة ضيف سطر جديد بنفس الشكل
+// n: الاسم اللي يظهر | q: اللي بيتبعت للموديل (الاسم بالإنجليزي + تفصيلة تحدد القضية) | c: البلد | y: السنة | i: اسم الأيقونة
+const CASES=[
+{n:'تيد بندي',q:'Ted Bundy (تيد بندي)',c:'أمريكا',y:'1974 - 1978',i:'fingerprint'},
+{n:'تيد كازينسكي (Unabomber)',q:'Ted Kaczynski the Unabomber (تيد كازينسكي)',c:'أمريكا',y:'1978 - 1996',i:'message'},
+{n:'قاتل BTK',q:'Dennis Rader the BTK killer (دينيس رادر)',c:'أمريكا',y:'1974 - 2005',i:'file'},
+{n:'قتل تيت ولابيانكا (مانسون)',q:'Charles Manson Tate-LaBianca murders (تشارلز مانسون)',c:'أمريكا',y:'1969',i:'blood'},
+{n:'د. هارولد شيبمان',q:'Dr Harold Shipman (هارولد شيبمان)',c:'بريطانيا',y:'1975 - 1998',i:'drug'},
+{n:'ليوبولد ولوب',q:'Leopold and Loeb, murder of Bobby Franks (ليوبولد ولوب)',c:'أمريكا',y:'1924',i:'search'},
+{n:'خطف ابن لندبرغ',q:'Lindbergh kidnapping and Bruno Hauptmann (خطف ابن لندبرغ)',c:'أمريكا',y:'1932',i:'key'},
+{n:'آل كابوني والتهرب الضريبي',q:'Al Capone tax evasion investigation (آل كابوني)',c:'أمريكا',y:'1931',i:'money'},
+{n:'ريا وسكينة',q:'Raya and Sakina serial murders in Alexandria (ريا وسكينة)',c:'مصر',y:'1920',i:'location'},
+{n:'قناص واشنطن',q:'Beltway sniper attacks John Allen Muhammad and Lee Boyd Malvo (قناص واشنطن)',c:'أمريكا',y:'2002',i:'weapon'}
+];
+const mine=()=>{try{return JSON.parse(localStorage.getItem('dtv_c'))||[]}catch(e){return[]}};
+const imp=()=>{try{return JSON.parse(localStorage.getItem('dtv_i'))||[]}catch(e){return[]}};
+const XI=ic('plus',16).replace('<svg','<svg style="transform:rotate(45deg)"');
+function buildPrompt(note){
+return `انت محرر ملفات تحقيق لواجهة لعبة تحقيق. حوّل القضية دي لملف JSON بالشكل بالظبط، وارجّع الـ JSON فقط داخل كتلة كود واحدة، من غير أي شرح قبله أو بعده.
+
+القضية: ${note||'[اكتب هنا اسم القضية أو تفاصيلها]'}
+
+القواعد:
+1. لو القضية حقيقية اكتب "real": true والتزم بالوقائع الموثقة بس (محاضر، أحكام، تقارير، شهادات). التاريخ والمكان والأسماء زي السجلات العامة. أي معلومة مش متأكد منها اكتب جنبها "غير موثق" ومتخترعش. لو القضية خيالية أو من تأليفك اكتب "real": false وخلي اللغز قابل للحل بالمنطق ومعاه دليل مضلل وتناقض واحد على الأقل.
+2. لو عندك وصول للإنترنت راجع الوقائع قبل ما تكتب.
+3. "intro" يبدأ من لحظة اكتشاف الجريمة من وجهة نظر المحقق، ومن غير ما يكشف الجاني.
+4. "suspects": من 3 لـ 6 أشخاص. الـ id بالشكل s1 وs2 وs3 وهكذا، ومش مكرر. الجاني الفعلي لازم يكون واحد منهم. لكل واحد نبذة ودافع محتمل وأقوال (في القضايا الحقيقية أقواله الموثقة بس).
+5. "evidence": من 6 لـ 10 أدلة ظاهرة في بداية التحقيق. كل دليل عنوان قصير ووصف من 1 لـ 3 جمل. "icon" لازم تكون واحدة من: ${ICONS}
+6. "truth.killer" هو id الجاني الفعلي. "truth.accomplice" هو id الشريك أو null. "truth.key_clue" هو الدليل اللي حسم القضية. "truth.summary" هو النتيجة الفعلية (الحكم والمصير في القضايا الحقيقية).
+7. اللغة: عربي مصري بسيط. اوصف الضحايا باحترام ومن غير عنف صادم.
+
+الشكل المطلوب:
+{"title":"","real":true,"intro":"","victim":{"name":"","desc":""},"suspects":[{"id":"s1","name":"","role":"","bio":"","motive":"","alibi":""}],"evidence":[{"title":"","icon":"fingerprint","detail":""}],"truth":{"killer":"s1","accomplice":null,"method":"","motive":"","key_clue":"","summary":""}}`}
+function validateCase(txt){
+  const a=txt.indexOf('{'),b=txt.lastIndexOf('}');
+  if(a<0||b<a)throw new Error('مفيش JSON في النص ده');
+  let c;try{c=JSON.parse(txt.slice(a,b+1))}catch(e){throw new Error('الـ JSON فيه خطأ في الصياغة: '+e.message)}
+  const need=(v,m)=>{if(!v)throw new Error(m)};
+  need(c.title&&c.intro,'ناقص title أو intro');
+  need(c.victim&&c.victim.name,'ناقص victim.name');c.victim.desc=c.victim.desc||'';
+  need(Array.isArray(c.suspects)&&c.suspects.length>=2,'لازم مشتبه فيهم اتنين على الأقل');
+  c.suspects.forEach((x,i)=>{x.id=String(x.id||'s'+(i+1));need(x.name,'فيه مشتبه فيه من غير اسم');['role','bio','motive','alibi'].forEach(k=>x[k]=x[k]||'')});
+  need(new Set(c.suspects.map(x=>x.id)).size===c.suspects.length,'فيه id مكرر في المشتبه فيهم');
+  need(Array.isArray(c.evidence)&&c.evidence.length>=3,'لازم 3 أدلة على الأقل');
+  c.evidence.forEach(e=>{need(e.title,'فيه دليل من غير title');e.detail=e.detail||'';if(!I[e.icon])e.icon='other'});
+  const t=c.truth||{};need(c.suspects.some(x=>x.id===String(t.killer)),'truth.killer لازم يطابق id مشتبه فيه');
+  t.killer=String(t.killer);if(t.accomplice==null||!c.suspects.some(x=>x.id===String(t.accomplice)))t.accomplice=null;else t.accomplice=String(t.accomplice);
+  ['method','motive','key_clue','summary'].forEach(k=>t[k]=t[k]||'');
+  c.truth=t;c.real=c.real===true;return c;
+}
+const SCH='{"title":"","real":true,"intro":"","victim":{"name":"","desc":""},"suspects":[{"id":"s1","name":"","role":"","bio":"","motive":"","alibi":""}],"evidence":[{"title":"","icon":"fingerprint","detail":""}],"truth":{"killer":"s1","accomplice":null,"method":"","motive":"","key_clue":"","summary":""}}';
+function lenient(txt){
+  const a=txt.indexOf('{'),b=txt.lastIndexOf('}');
+  if(a<0||b<a)return null;
+  let c;try{c=JSON.parse(txt.slice(a,b+1))}catch(e){return null}
+  if(!c||typeof c!=='object')return null;
+  if(Array.isArray(c.suspects))c.suspects.forEach((x,i)=>{if(x&&typeof x==='object'&&(x.id==null||x.id===''))x.id='s'+(i+1)});
+  return c;
+}
+function gaps(c){
+  const g=[],ar=Array.isArray,e=v=>!(v&&String(v).trim());
+  if(e(c.title)||e(c.intro))g.push('العنوان أو المقدمة');
+  if(!c.victim||e(c.victim.name)||e(c.victim.desc))g.push('بيانات الضحية');
+  const su=ar(c.suspects)?c.suspects:[];
+  if(su.length<3)g.push('عدد المشتبه فيهم أقل من 3');
+  if(su.some(x=>!x||e(x.name)||e(x.role)||e(x.bio)||e(x.motive)||e(x.alibi)))g.push('بيانات ناقصة في مشتبه فيه');
+  const ev=ar(c.evidence)?c.evidence:[];
+  if(ev.length<6)g.push('عدد الأدلة أقل من 6');
+  if(ev.some(x=>!x||e(x.title)||e(x.detail)))g.push('دليل من غير وصف');
+  const t=c.truth||{};
+  if(!su.some(x=>x&&String(x.id)===String(t.killer)))g.push('تحديد الجاني');
+  if(['method','motive','key_clue','summary'].some(k=>e(t[k])))g.push('تفاصيل الحل');
+  if(typeof c.real!=='boolean')g.push('نوع القضية (حقيقية أو خيالية)');
+  return g;
+}
+async function completeCase(c,raw,note,g){
+  const real=!!(c&&c.real===true);
+  const p=`${c?'عندك ملف تحقيق ناقص':'عندك رد جاي من ذكاء اصطناعي تاني لكنه مقطوع أو مش JSON سليم'}.
+${note?'القضية المطلوبة: '+note+'\\n':''}${c?'الملف الحالي:\\n'+JSON.stringify(c):'النص الخام:\\n'+raw}
+
+الأجزاء الناقصة: ${g.join('، ')}
+
+المطلوب: كمّل الأجزاء الناقصة بس وارجّع الملف كامل بالشكل المطلوب. ما تمسحش ولا تغيّر أي حاجة موجودة، ولا تغيّر id أي مشتبه فيه. لو في نص خام استخرج منه كل البيانات الأول. المشتبه فيهم من 3 لـ 6، والأدلة من 6 لـ 10، وكل icon من: ${ICONS}. "truth.killer" لازم يكون id موجود في المشتبه فيهم. لو القضية حقيقية اكتب real=true والتزم بالوقائع الموثقة بس واكتب "غير موثق" لأي معلومة مش متأكد منها. لو خيالية اكتب real=false وخلي اللغز متسق مع الموجود وقابل للحل بالمنطق.
+الشكل المطلوب: ${SCH}`;
+  return gem(real?SYSR:SYS,p,real&&localStorage.getItem('dtv_g')==='1',0.4);
+}
+function startCase(c){S={case:c,ev:c.evidence.map(e=>({...e})),pts:8,chat:{}};save();closeM();render()}
+function importUI(){
+  modal(`<h3>استيراد قضية من أي ذكاء اصطناعي</h3>
+  <label>1) اكتب اسم القضية أو بياناتها</label><textarea class="in" id="imn" rows="2" placeholder="مثال: قضية ريا وسكينة، أو الصق تفاصيل قضية كاملة"></textarea>
+  <label>2) انسخ البرومت وابعته لأي ذكاء اصطناعي</label><textarea class="in" id="imp" rows="5" readonly></textarea>
+  <button class="btn g" style="margin-top:8px" id="imc">${ic('file',18)} نسخ البرومت</button>
+  <label>3) الصق رد الذكاء الاصطناعي هنا</label><p style="color:var(--mut);font-size:12px">لو الرد ناقص أو اتقطع، Gemini هيكمّله تلقائي (محتاج API Key).</p><textarea class="in" id="imj" rows="5" dir="ltr" placeholder="{ ... }"></textarea>
+  <div id="ime" class="bad" style="font-size:13px;margin-top:6px"></div>
+  <div style="display:flex;gap:8px;margin-top:12px"><button class="btn" id="imgo" style="flex:1">${ic('search',18)} ابدأ التحقيق</button><button class="btn g" id="imsv">احفظ في قضاياي</button></div>`);
+  const up=()=>{$('#imp').value=buildPrompt($('#imn').value.trim())};up();$('#imn').oninput=up;
+  $('#imc').onclick=async()=>{const el=$('#imp');try{await navigator.clipboard.writeText(el.value)}catch(e){el.select();document.execCommand('copy')}toast('البرومت اتنسخ')};
+  const run=async sv=>{
+    const txt=$('#imj').value,note=$('#imn').value.trim();$('#ime').textContent='';
+    try{
+      let c=lenient(txt);const g=c?gaps(c):['الرد مقطوع أو مش JSON سليم'];
+      if(g.length){
+        if(!cfg().k)throw new Error('الرد ناقص ('+g.join('، ')+'). ضيف Gemini API Key في الإعدادات عشان يكمّله.');
+        busy(true,'Gemini بيكمّل الأجزاء الناقصة...');
+        try{c=await completeCase(c,txt,note,g)}finally{busy(false)}
+        toast('Gemini كمّل الأجزاء الناقصة');
+      }
+      c=validateCase(JSON.stringify(c));
+      if(sv){const l=imp();l.push(c);localStorage.setItem('dtv_i',JSON.stringify(l));closeM();render();toast('القضية اتحفظت')}else startCase(c);
+    }catch(e){$('#ime').textContent=e.message}
+  };
+  $('#imgo').onclick=()=>run(false);$('#imsv').onclick=()=>run(true);
+}
+
+
+const cfg=()=>({k:localStorage.getItem('dtv_k')||localStorage.getItem('g22k')||'',m:localStorage.getItem('dtv_m')||localStorage.getItem('g22m')||'gemini-2.5-flash'});
+const save=()=>{if(!S)return;S.at=Date.now();if(!S.id)S.id=newId();const l=SL().filter(x=>x.id!==S.id);l.unshift(S);localStorage.setItem('dtv_sl',JSON.stringify(l));try{hdr()}catch(e){}};
+const busy=(on,t)=>{$('#ld').classList.toggle('on',on);if(t)$('#lt').textContent=t};
+function toast(t,ok){const d=document.createElement('div');d.className='toast'+(ok?' ok':'');d.setAttribute('role','status');d.innerHTML=ic(ok?'check':'search',16)+esc(t);document.body.append(d);setTimeout(()=>d.remove(),3200)}
+function modal(h){$('#sh').innerHTML=h;$('#md').classList.add('on')}
+const closeM=()=>$('#md').classList.remove('on');
+$('#md').onclick=e=>{if(e.target.id==='md')closeM()};
+
+async function gem(sys,prompt,g,t){
+  const{k,m}=cfg();
+  if(!k){settings();throw new Error('ضيف الـ API Key الأول')}
+  const url='https://generativelanguage.googleapis.com/v1beta/'+(m.startsWith('models/')?m:'models/'+encodeURIComponent(m))+':generateContent';
+  const temp=t??((S&&S.case&&S.case.real)?0.3:0.9);
+  const call=async(lite,gr)=>{
+    const body={contents:[{role:'user',parts:[{text:lite?sys+'\n\n'+prompt+'\n\nرد بـ JSON صالح فقط.':prompt}]}],generationConfig:{temperature:temp}};
+    if(!lite)body.systemInstruction={parts:[{text:sys}]};
+    if(gr)body.tools=[{google_search:{}}];else if(!lite)body.generationConfig.responseMimeType='application/json';
+    const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':k},body:JSON.stringify(body)});
+    return{r,j:await r.json()};
+  };
+  let{r,j}=await call(false,g);
+  if(!r.ok&&r.status===400)({r,j}=await call(true,g));
+  if(!r.ok&&g)({r,j}=await call(false,false));
+  if(!r.ok)throw new Error(j.error?.message||'حصل خطأ في الاتصال');
+  const tx=(j.candidates?.[0]?.content?.parts||[]).filter(p=>!p.thought).map(p=>p.text||'').join('');
+  const a=tx.indexOf('{'),b=tx.lastIndexOf('}');
+  if(a<0)throw new Error('الموديل ما رجعش JSON، جرب موديل تاني');
+  return JSON.parse(tx.slice(a,b+1));
+}
+const SYS='انت مصمم ألغاز جرائم محترف. بتكتب بالعربي المصري البسيط. بترد بـ JSON صالح فقط من غير أي شرح برا الـ JSON. اللغز لازم يتحل بالمنطق من الأدلة، ومفيش حل مبني على صدفة.';
+const SYSR='انت باحث جنايات ومؤرخ قضايا حقيقية. بتكتب بالعربي المصري البسيط وبترد بـ JSON صالح فقط. بتلتزم بالوقائع الموثقة (محاضر، أحكام، تقارير، شهادات) وما بتخترعش تفاصيل. لو معلومة مش متأكد منها اكتب إنها غير موثقة. بتعرض الجريمة بشكل تحقيقي ووقائعي من غير تمجيد للجاني ومن غير وصف عنف صادم.';
+const sy=()=>S&&S.case&&S.case.real?SYSR:SYS;
+const GR=()=>!!(S&&S.case&&S.case.real)&&localStorage.getItem('dtv_g')==='1';
+const evShape=`{"title":"اسم الدليل قصير","icon":"واحدة من: ${ICONS}","detail":"وصف الدليل في 1-3 جمل"}`;
+
+async function newCase(arg){
+  const real=mode==='real';
+  busy(true,real?'بنجمع وقائع القضية...':'جاري تجهيز القضية...');
+  try{
+    let c;
+    if(real){
+      const who=(typeof arg==='string'?arg:($('#who')?.value||'')).trim(),gr=localStorage.getItem('dtv_g')==='1';
+      c=await gem(SYSR,`${who?'القضية المطلوبة (اسم المجرم أو القضية): '+who+'.':'اختار انت قضية جنائية حقيقية مشهورة وموثقة كويس ومحلولة، من أي بلد، وما تكشفش اسم الجاني في المقدمة.'}
+اعمل ملف تحقيق مبني على الوقائع الموثقة بس، بحيث المحقق يعيش القضية كأنه كان موجود. التاريخ والمكان والأسماء حقيقية زي ما في السجلات العامة. المقدمة تبدأ من لحظة اكتشاف الجريمة من وجهة نظر المحقق. المشتبه فيهم (3 إلى 6) هما الأشخاص الحقيقيين المرتبطين بالتحقيق بمن فيهم الجاني الفعلي، وكل واحد بنبذة ودافع محتمل وأقوال موثقة بس. الأدلة (6) هي الأدلة الحقيقية اللي ظهرت أول التحقيق، والباقي هتكشفه الإجراءات والاستجواب بعدين. وصف الضحايا باحترام.
+لو الاسم مش معروف عندك كفاية، أو القضية مش موثقة على نطاق واسع، أو الشخص مش مدان فعلا، رجّع {"error":"سبب قصير بالعربي"} بدل ما تخترع.
+الشكل المطلوب:
+{"title":"","intro":"","victim":{"name":"","desc":""},"suspects":[{"id":"s1","name":"","role":"","bio":"","motive":"","alibi":""}],"evidence":[${evShape}],"truth":{"killer":"id الجاني الفعلي","accomplice":"id أو null","method":"","motive":"","key_clue":"الدليل اللي حسم القضية فعلا","summary":"النتيجة الفعلية: الحكم والمصير"}}`,gr,0.3);
+      if(c.error)throw new Error(c.error);
+      c.real=true;
+    }else{
+      const place=$('#place')?.value||'';
+      c=await gem(SYS,`اكتب لغز جريمة قتل أصلي، المستوى: ${diff}. ${place?'المكان/الأجواء: '+place+'.':''}
+الشروط: 5 مشتبه فيهم، 6 أدلة ظاهرة من البداية، دليل واحد مضلل، تناقض واحد على الأقل في كلام مشتبه فيه، ودليل واحد دقيق يحسم القضية. القاتل مش لازم يكون الأوضح. ممكن يكون في شريك.
+الشكل المطلوب:
+{"title":"","intro":"مقدمة القصة في 3-4 جمل","victim":{"name":"","desc":""},"suspects":[{"id":"s1","name":"","role":"","bio":"","motive":"","alibi":""}],"evidence":[${evShape}],"truth":{"killer":"id","accomplice":"id أو null","method":"","motive":"","key_clue":"","summary":""}}`);
+    }
+    S={case:c,ev:c.evidence.map(e=>({...e})),pts:8,chat:{}};save();render();
+  }catch(e){toast(e.message)}finally{busy(false)}
+}
+const ctx=()=>'ملف القضية الكامل (الحقيقة السرية جواه ما تكشفهاش مباشرة):\n'+JSON.stringify(S.case);
+const addEv=e=>{if(e&&e.title&&!S.ev.some(x=>x.title===e.title)){S.ev.push({...e,n:true});return true}};
+
+function render(){
+  const A=$('#app');
+  $('#bar').style.display=S?'block':'none';hdr();setTimeout(()=>A.querySelectorAll('.grid>*,.sg>*').forEach((e,i)=>e.style.setProperty('--i',Math.min(i,12))),0);
+  if(!S){
+    const all=[...CASES,...mine().map((x,u)=>({n:x,q:x,c:'قضيتي',y:'',i:'file',u}))];
+    A.innerHTML=`<section class="hero"><div class="big">${LOGO(84,'b')}</div><h1>قرينة</h1><p>${mode==='real'?'اكتب اسم مجرم أو قضية مشهورة، وهنرجعك لموقع الجريمة بالوقائع الموثقة. سيبها فاضية لو عايز قضية مفاجأة.':'قضية جديدة بتتولد في كل مرة. افحص الأدلة، استجوب المشتبه فيهم، وسمّي القاتل.'}</p>
+    <div class="chips">${[['fiction','قضية خيالية'],['real','قضية حقيقية']].map(([v,l])=>`<button class="chip ${v===mode?'on':''}" data-m="${v}">${l}</button>`).join('')}</div>
+    ${mode==='real'?`<input class="in" id="who" placeholder="اسم المجرم أو القضية (اختياري)" autocomplete="off"><label class="gl"><input type="checkbox" id="gr" ${localStorage.getItem('dtv_g')==='1'?'checked':''}> اعتمد على بحث جوجل لدقة أعلى</label>`:`<div class="chips">${['سهل','متوسط','صعب'].map(d=>`<button class="chip ${d===diff?'on':''}" data-d="${d}">${d}</button>`).join('')}</div><input class="in" id="place" placeholder="مكان القضية (اختياري): فيلا، مستشفى، قطر...">`}
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn" id="go">${ic('plus',18)} ابدأ قضية جديدة</button>${mode==='real'?`<button class="btn g" id="sv">${ic('file',18)} احفظ في قضاياي</button>`:''}<button class="btn g" id="im">${ic('send',18)} استيراد قضية</button></div>
+    ${SL().length?`<h2 style="justify-content:center;margin-top:30px">${ic('save',20)} قضايا محفوظة <span class="cnt">${SL().length}</span></h2><div class="grid cs">${SL().map(x=>`<div class="card ev cc sv2" role="button" tabindex="0" data-id="${esc(x.id)}"><div class="ico">${ic(x.case.real?'shield':'search',26)}</div><div><h3>${esc(x.case.title)}</h3><p>${esc(x.case.victim&&x.case.victim.name||'')} · كمّل من مكانك · ${x.at?new Date(x.at).toLocaleDateString('ar-EG',{day:'numeric',month:'short'})+' '+new Date(x.at).toLocaleTimeString('ar-EG',{hour:'2-digit',minute:'2-digit'}):''}</p></div><button class="dx" data-id="${esc(x.id)}" aria-label="مسح">${XI}</button></div>`).join('')}</div>`:''}
+    ${imp().length?`<h2 style="justify-content:center;margin-top:30px">${ic('file',20)} قضايا مستوردة <span class="cnt">${imp().length}</span></h2><div class="grid cs">${imp().map((x,j)=>`<div class="card ev cc ci" role="button" tabindex="0" data-j="${j}"><div class="ico">${ic(x.real?'shield':'search',26)}</div><div><h3>${esc(x.title)}</h3><p>${esc(x.victim.name)}</p></div><button class="dx" data-j="${j}" aria-label="مسح">${XI}</button></div>`).join('')}</div>`:''}
+    ${mode==='real'?`<h2 style="justify-content:center;margin-top:34px">${ic('shield',20)} قضايا مشهورة <span class="cnt">${all.length}</span></h2><div class="grid cs">${all.map((x,k)=>`<div class="card ev cc" role="button" tabindex="0" data-k="${k}"><div class="ico">${ic(x.i,26)}</div><div><h3>${esc(x.n)}</h3><p>${esc(x.c)}${x.y?'، '+esc(x.y):''}</p></div>${x.u!=null?`<button class="dx" data-u="${x.u}" title="مسح" aria-label="مسح">${ic('plus',16).replace('<svg','<svg style="transform:rotate(45deg)"')}</button>`:''}</div>`).join('')}</div>`:''}</section>`;
+    A.querySelectorAll('.chip[data-d]').forEach(b=>b.onclick=()=>{diff=b.dataset.d;render()});
+    A.querySelectorAll('.chip[data-m]').forEach(b=>b.onclick=()=>{mode=b.dataset.m;render()});
+    if($('#gr'))$('#gr').onchange=e=>localStorage.setItem('dtv_g',e.target.checked?'1':'0');
+    A.querySelectorAll('.sv2').forEach(d=>{const go=e=>{const id=d.dataset.id;if(e.target.closest('.dx')){modal(`<h3>مسح القضية المحفوظة</h3><p style="color:var(--soft)">القضية دي هتتمسح ومش هتقدر ترجعلها.</p><div class="mrow"><button class="btn r" id="dy">امسح</button><button class="btn g" onclick="closeM()">إلغاء</button></div>`);$('#dy').onclick=()=>{delSave(id);closeM();render()};return}const x=SL().find(v=>v.id===id);if(x){S=x;render();try{window.scrollTo(0,0)}catch(_){}}};d.onclick=go;d.onkeydown=e=>{if(e.key==='Enter')go(e)}});
+    $('#go').onclick=()=>newCase();
+    $('#im').onclick=importUI;
+    A.querySelectorAll('.ci').forEach(d=>{const go=e=>{const x=e.target.closest('.dx'),l=imp();if(x){l.splice(+x.dataset.j,1);localStorage.setItem('dtv_i',JSON.stringify(l));render();return}startCase(l[+d.dataset.j])};d.onclick=go;d.onkeydown=e=>{if(e.key==='Enter')go(e)}});
+    if($('#sv'))$('#sv').onclick=()=>{const v=($('#who').value||'').trim();if(!v)return toast('اكتب اسم القضية الأول');const l=mine();if(!l.includes(v))l.push(v);localStorage.setItem('dtv_c',JSON.stringify(l));toast('اتحفظت في قضاياي');render()};
+    A.querySelectorAll('.cc:not(.ci)').forEach(d=>{const go=e=>{const x=e.target.closest('.dx');if(x){const l=mine();l.splice(+x.dataset.u,1);localStorage.setItem('dtv_c',JSON.stringify(l));render();return}newCase(all[+d.dataset.k].q)};d.onclick=go;d.onkeydown=e=>{if(e.key==='Enter')go(e)}});
+    return;
+  }
+  const c=S.case;
+  A.innerHTML=`${c.real?'<div class="note">'+ic('shield',18)+'<span>قضية حقيقية. المعلومات من معرفة الموديل وممكن فيها أخطاء، فراجع مصادر موثوقة. الاستجواب إعادة تمثيل مش اقتباسات حرفية.</span></div>':''}<section class="brief"><span class="tag">${ic('file',15)} ملف القضية</span><h1>${esc(c.title)}</h1><p>${esc(c.intro)}</p><div class="vic">${ic('skull',20)}<span><b>${esc(c.victim.name)}</b>، ${esc(c.victim.desc)}</span></div></section>
+  <h2>${ic('fingerprint',20)} لوحة الأدلة <span class="cnt">${S.ev.length}</span></h2>
+  <div class="grid">${S.ev.map((e,i)=>`<button class="card ev ${e.n?'new':''}" data-i="${i}"><div class="ico">${ic(e.icon,26)}</div><div><h3>${esc(e.title)}</h3><p>${esc(e.detail)}</p></div></button>`).join('')}${Array.from({length:S.pts},()=>`<div class="card lock">${ic('lock',22)}دليل لسه ما اتكشفش</div>`).join('')}</div>
+  <h2>${ic('user',20)} المشتبه فيهم <span class="cnt">${c.suspects.length}</span></h2>
+  <div class="sg">${c.suspects.map((s,i)=>`<button class="sus" data-s="${i}"><div class="av">${ic('user',28)}</div><b>${esc(s.name)}</b><small>${esc(s.role)}</small></button>`).join('')}</div>`;
+  A.querySelectorAll('.ev').forEach(b=>b.onclick=()=>showEv(+b.dataset.i));
+  A.querySelectorAll('.sus').forEach(b=>b.onclick=()=>openSus(+b.dataset.s));
+  $('#ab').innerHTML=`${ic('send',18)} تحقيق <span class="pts">${S.pts}</span>`;
+}
+function showEv(i){
+  const e=S.ev[i];e.n=false;save();
+  modal(`<div class="ico" style="width:64px;height:64px;margin-bottom:12px">${ic(e.icon,34)}</div><h3>${esc(e.title)}</h3><p style="color:var(--soft)">${esc(e.detail)}</p><button class="btn g" style="margin-top:18px" onclick="closeM();render()">إغلاق</button>`);
+}
+function openSus(i){
+  const s=S.case.suspects[i];S.chat[s.id]=S.chat[s.id]||[];
+  const draw=()=>S.chat[s.id].map(m=>`<div class="m ${m.r}">${esc(m.t)}</div>`).join('')||'<div style="color:var(--mut);font-size:14px">اسأله عن مكانه، علاقته بالضحية، أو واجهه بدليل.</div>';
+  modal(`<div style="display:flex;gap:12px;align-items:center"><div class="av" style="margin:0">${ic('user',28)}</div><div><h3>${esc(s.name)}</h3><span class="tag">${esc(s.role)}</span></div></div>
+  <div class="row"><b>نبذة</b><span>${esc(s.bio)}</span></div><div class="row"><b>الدافع</b><span>${esc(s.motive)}</span></div><div class="row"><b>أقواله</b><span>${esc(s.alibi)}</span></div>
+  ${S.case.real?'<p style="color:var(--mut);font-size:12px">إعادة تمثيل مبنية على الوثائق، مش اقتباس حرفي.</p>':''}<div class="chat" id="ch">${draw()}</div>
+  <form id="qf" style="display:flex;gap:8px"><input class="in" id="qi" placeholder="اسأل ${esc(s.name)}..." autocomplete="off"><button class="btn">${ic('send',18)}</button></form>
+  <button class="btn g" style="margin-top:12px" onclick="closeM();render()">إغلاق</button>`);
+  const ch=$('#ch');ch.scrollTop=ch.scrollHeight;
+  $('#qf').onsubmit=async e=>{
+    e.preventDefault();const q=$('#qi').value.trim();if(!q)return;$('#qi').value='';
+    S.chat[s.id].push({r:'u',t:q});ch.innerHTML=draw();ch.scrollTop=ch.scrollHeight;
+    try{
+      const r=await gem(sy(),`${ctx()}\n\n${S.case.real?`انت بتمثل "${s.name}" (id: ${s.id}) في إعادة تمثيل لقضية حقيقية. اتكلم بس بناء على الوقائع والتصريحات والشهادات الموثقة. لو السؤال عن حاجة مفيهاش تصريح موثق قول إن ده غير موثق في سجلات القضية بدل ما تخترع. لو الشخص كان بيكدب أو بيتناقض في الواقع اعكس ده زي ما اتوثق. ما تكشفش نتيجة القضية ولا تخرج عن الشخصية.`:`انت بتمثل المشتبه فيه "${s.name}" (id: ${s.id}). لو مش القاتل: بتقول الحقيقة بس ممكن تتحرج أو تخبي حاجة شخصية. لو القاتل أو الشريك: بتكدب بذكاء وما بتعترفش بسهولة، ولو اتحاصرت بدليل حقيقي من الملف بتعمل زلة صغيرة. ما تكشفش الحقيقة السرية ولا تخرج عن الشخصية.`}
+محادثة سابقة: ${JSON.stringify(S.chat[s.id].slice(-8))}
+سؤال المحقق: ${q}
+رد بـ JSON: {"answer":"ردك في 1-4 جمل","evidence":null أو ${evShape} (بس لو الاستجواب كشف تناقض أو معلومة جديدة فعلا)}`);
+      S.chat[s.id].push({r:'a',t:r.answer});
+      if(addEv(r.evidence))toast('دليل جديد اتضاف للوحة');
+    }catch(err){S.chat[s.id].push({r:'a',t:'(حصل خطأ: '+err.message+')'})}
+    save();ch.innerHTML=draw();ch.scrollTop=ch.scrollHeight;
+  };
+}
+$('#af').onsubmit=async e=>{
+  e.preventDefault();const q=$('#aq').value.trim();if(!q)return;
+  if(S.pts<1)return toast('خلصت إجراءات التحقيق، وقت الاتهام');
+  busy(true,'جاري تنفيذ الإجراء...');
+  try{
+    const r=await gem(sy(),`${ctx()}\n\nالأدلة المتاحة حاليا: ${JSON.stringify(S.ev.map(x=>x.title))}\nالمحقق طلب إجراء: "${q}"\nلو الإجراء منطقي ومفيد نفّذه بنتيجة حقيقية متوافقة مع الملف. لو غير منطقي أو مفيهوش حاجة اقول كده من غير ما تخترع. ما تكشفش القاتل مباشرة.${S.case.real?' القضية حقيقية: النتيجة لازم تكون من الوقائع الموثقة بس (محاضر، تقارير، شهادات). لو الإجراء ما اتعملش في الواقع أو نتيجته غير موثقة قول كده وما تختلقش.':''}
+رد بـ JSON: {"ok":true/false,"result":"نتيجة الإجراء","evidence":null أو ${evShape}}`,GR());
+    if(r.ok!==false)S.pts--;
+    addEv(r.evidence);save();render();$('#aq').value='';
+    modal(`<h3>نتيجة الإجراء</h3><div class="row"><b>الطلب</b><span>${esc(q)}</span></div><p style="color:var(--soft)">${esc(r.result)}</p>${r.evidence?`<p class="warn" style="margin-top:10px">اتضاف دليل جديد: ${esc(r.evidence.title)}</p>`:''}<button class="btn g" style="margin-top:14px" onclick="closeM()">تمام</button>`);
+  }catch(err){toast(err.message)}finally{busy(false)}
+};
+$('#acc').onclick=()=>{
+  const o=S.case.suspects.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join('');
+  modal(`<h3>الاتهام النهائي</h3><label>مين القاتل؟</label><select class="in" id="k">${o}</select><label>في شريك؟</label><select class="in" id="p"><option value="">مفيش شريك</option>${o}</select><label>${S.case.real?'ابني القضية: إزاي حصلت الجريمة، وإيه الأدلة اللي بتثبتها؟':'نظريتك: إزاي حصلت وليه؟ وأنهي دليل حسم عندك؟'}</label><textarea class="in" id="th" rows="4"></textarea><button class="btn r" style="margin-top:16px;width:100%" id="sub">${ic('shield',18)} قدّم الاتهام</button>`);
+  $('#sub').onclick=async()=>{
+    const k=$('#k').value,p=$('#p').value,th=$('#th').value;closeM();busy(true,'القاضي بيراجع ملفك...');
+    try{
+      const r=await gem(sy(),`${ctx()}\n\nالمحقق اتهم: القاتل=${k}، الشريك=${p||'لا يوجد'}. نظريته: ${th}\n${S.case.real?"القضية حقيقية: التقييم وكشف الحل لازم يطابقوا الواقع الموثق (الحكم والمصير الفعلي). ":""}قيّم بعدل: correct لو القاتل صح ونظريته منطقية، partial لو القاتل صح بس النظرية ناقصة أو الشريك غلط، wrong لو القاتل غلط.
+رد بـ JSON: {"verdict":"correct|partial|wrong","score":0-100,"feedback":"تقييم لطريقة تفكيره في 2-4 جمل","reveal":"الحل الكامل الحقيقي في 3-5 جمل"}`);
+      const cl={correct:'ok',partial:'warn',wrong:'bad'}[r.verdict]||'warn',lb={correct:'القضية اتحلت',partial:'حل ناقص',wrong:'المتهم غلط'}[r.verdict]||'';
+      modal(`<div class="vd"><span class="tag">${lb}</span><div class="score ${cl}">${esc(r.score)}</div></div><div class="row"><b>تقييمك</b><span>${esc(r.feedback)}</span></div><div class="row"><b>الحل</b><span>${esc(r.reveal)}</span></div><button class="btn" style="width:100%;margin-top:14px" id="again">${ic('plus',18)} قضية جديدة</button>`);
+      $('#again').onclick=()=>{closeM();if(S)delSave(S.id);S=null;render()};
+    }catch(err){toast(err.message)}finally{busy(false)}
+  };
+};
+function settings(){
+  const{k,m}=cfg();
+  modal(`<h3>الإعدادات</h3><label>Gemini API Key (بيتخزن في متصفحك بس)</label><input class="in" id="ak" type="password" dir="ltr" value="${esc(localStorage.getItem('dtv_k')||'')}" placeholder="AIza... (سيبه فاضي لاستخدام مفتاح الموقع)" style="width:100%"><label>الموديل: اكتب أي اسم موديل، أو اجلب القائمة الكاملة من حسابك</label><div style="display:flex;gap:8px"><input class="in" id="am" dir="ltr" value="${esc(m)}" style="min-width:0"><button class="btn g" type="button" id="fm">جلب الموديلات</button></div><select class="in" id="ms" dir="ltr" style="display:none;margin-top:8px;width:100%"></select><p style="color:var(--mut);font-size:13px;margin-top:8px">اللعبة بتشتغل مع أي موديل Gemini بيدعم generateContent. الموديلات اللي مش بتدعم وضع JSON بتتعامل معاها اللعبة تلقائيا.</p><button class="btn" style="margin-top:14px" id="ss">حفظ</button>`);
+  $('#fm').onclick=async()=>{
+    const key=$('#ak').value.trim();if(!key)return toast('ضيف الـ API Key الأول');
+    $('#fm').disabled=true;
+    try{
+      let all=[],tok='';
+      do{const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000'+(tok?'&pageToken='+encodeURIComponent(tok):''),{headers:{'x-goog-api-key':key}});const j=await r.json();if(!r.ok)throw new Error(j.error?.message||'فشل جلب الموديلات');all=all.concat(j.models||[]);tok=j.nextPageToken||''}while(tok);
+      const L=all.filter(x=>(x.supportedGenerationMethods||[]).includes('generateContent')).map(x=>x.name.replace('models/',''));
+      const sel=$('#ms');sel.innerHTML=L.map(n=>`<option ${n===$('#am').value?'selected':''}>${esc(n)}</option>`).join('');sel.style.display='block';sel.onchange=()=>{$('#am').value=sel.value};
+      toast('لقيت '+L.length+' موديل');
+    }catch(e){toast(e.message)}finally{$('#fm').disabled=false}
+  };
+  $('#ss').onclick=()=>{localStorage.setItem('dtv_k',$('#ak').value.trim());localStorage.setItem('dtv_m',$('#am').value.trim()||'gemini-2.5-flash');closeM()};
+}
+$('#sb').onclick=settings;
+const stampTxt=()=>{if(!S||!S.at)return'لعبة تحقيق';return'آخر حفظ '+new Date(S.at).toLocaleTimeString('ar-EG',{hour:'2-digit',minute:'2-digit'})};
+function hdr(){const b=$('#svb');if(!b)return;b.style.display=S?'':'none';const nb=$('#nb');if(nb)nb.style.display=S?'':'none';$('#stamp').textContent=stampTxt()}
+const SV_HTML=()=>ic('save',18)+'<span class="t">حفظ التقدم</span>';
+function saveProgress(){
+  if(!S)return;save();
+  const b=$('#svb');b.classList.add('done');b.innerHTML=ic('check',18)+'<span class="t">اتحفظ</span>';
+  toast('تقدمك اتحفظ',true);
+  clearTimeout(saveProgress.t);saveProgress.t=setTimeout(()=>{b.classList.remove('done');b.innerHTML=SV_HTML()},1800);
+}
+function exitGame(){
+  const go=()=>{if(S)save();closeM();
+    if(window.parent&&window.parent!==window)parent.postMessage({g22game:'exit'},'*');else location.href='index.html'};
+  if(!S){go();return}
+  modal(`<h3>خروج من اللعبة</h3><p style="color:var(--soft)">تقدمك في القضية هيتحفظ، وتقدر ترجع تكمّلها في أي وقت.</p><div class="mrow"><button class="btn" id="xy">${ic('exit',18)} احفظ واخرج</button><button class="btn g" onclick="closeM()">كمّل لعب</button></div>`);
+  $('#xy').onclick=go;
+}
+$('#nb').onclick=()=>{if(S){save();S=null;render();try{window.scrollTo(0,0)}catch(e){}}};
+$('#svb').onclick=saveProgress;$('#xb').onclick=exitGame;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#md').classList.contains('on'))closeM()});
+$('#lg').innerHTML=LOGO(40,'a');$('#sb').innerHTML=ic('gear',20);$('#nb').innerHTML=ic('home',18)+'<span class="t">القضايا</span>';$('#nb').classList.add('ex');$('#nb').title=$('#nb').ariaLabel='خروج من القضية للقائمة الرئيسية';
+$('#svb').innerHTML=SV_HTML();$('#xb').innerHTML=ic('exit',18)+'<span class="t">خروج</span>';
+$('#acc').innerHTML=ic('shield',18)+' اتهام';
+render();
+<\/script>
+</body>
+</html>
+</script>
+<script id="g22-exam-kb">
+/* ===== Exam keyboard shortcuts - isolated add-on. Only global added: window.g22ExmKb.
+   It never touches the exam logic: it just clicks the existing buttons of #examApp. ===== */
+(function(){
+'use strict';
+var KE='exam.kb',KH='exam.kbh',KM='exam.kbm',cap=null,tmr=null;
+function gs(k,d){try{var v=localStorage.getItem(k);return v===null?d:v}catch(e){return d}}
+function ss(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function rmk(k){try{localStorage.removeItem(k)}catch(e){}}
+function en(){try{return typeof getAppLanguage==='function'&&getAppLanguage()==='en'}catch(e){return false}}
+function T(a,b){return en()?b:a}
+function rtl(){return document.documentElement.dir!=='ltr'}
+function toast(m){try{if(typeof appToast==='function')appToast(m)}catch(e){}}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var SVGA='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
+var ICO={
+  kb:SVGA+'<rect x="2" y="5" width="20" height="14" rx="3"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 13h.01M18 13h.01M9 15.5h6"/></svg>',
+  reset:SVGA+'<path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>'
+};
+function rootEl(){return document.getElementById('examApp')}
+function enabled(){return gs(KE,'0')==='1'}
+function hintOn(){return gs(KH,'1')==='1'}
+
+/* ---------- the actions: id, group, labels, default key (KeyboardEvent.code), where to click ---------- */
+var G={a:['الإجابات','Answers'],n:['التنقل','Navigation'],t:['أدوات السؤال','Question tools'],s:['الشاشة','Screen'],h:['الصفحة الرئيسية والنتيجة','Home and results']};
+var ACT=[];
+['A','B','C','D','E','F'].forEach(function(k,i){ACT.push({id:'opt'+k,g:'a',ar:'الإجابة '+k,en:'Answer '+k,d:'Digit'+(i+1),sel:'#exm-qc .exm-o[data-k="'+k+'"]'})});
+ACT.push(
+{id:'next',g:'n',ar:'السؤال التالي',en:'Next question',d:function(){return rtl()?'ArrowLeft':'ArrowRight'},sel:'#exm-nx'},
+{id:'prev',g:'n',ar:'السؤال السابق',en:'Previous question',d:function(){return rtl()?'ArrowRight':'ArrowLeft'},sel:'#exm-pv'},
+{id:'finish',g:'n',ar:'إنهاء الامتحان',en:'Finish exam',d:'End',sel:'#exm-fn'},
+{id:'grid',g:'n',ar:'إظهار/إخفاء شبكة الأسئلة',en:'Show/hide question grid',d:'KeyG',sel:'#exm-qgt'},
+{id:'explain',g:'t',ar:'عرض الشرح',en:'Show explanation',d:'KeyE',sel:'#exm-qc [data-a="se"]'},
+{id:'flag',g:'t',ar:'تعليم السؤال',en:'Flag question',d:'KeyF',sel:'#exm-qc [data-a="flag"]'},
+{id:'mist',g:'t',ar:'بنك الأخطاء',en:'Mistakes bank',d:'KeyM',sel:'#exm-qc [data-a="mst"]'},
+{id:'strike',g:'t',ar:'وضع الشطب',en:'Strike-out mode',d:'KeyX',sel:'#exm-qc [data-a="xmode"]'},
+{id:'del',g:'t',ar:'حذف السؤال',en:'Delete question',d:'Delete',sel:'#exm-qc [data-a="dq"]'},
+{id:'filters',g:'t',ar:'الفلاتر',en:'Filters',d:'KeyL',sel:'#exm-ftg'},
+{id:'side',g:'s',ar:'القائمة الجانبية (إخفاء/إظهار)',en:'Side menu (hide/show)',d:'CapsLock',sel:['#exm-dtg','#exm-mnb'],one:true},
+{id:'pause',g:'s',ar:'إيقاف مؤقت وحفظ',en:'Pause and save',d:'KeyP',sel:'#exm-ps'},
+{id:'home',g:'s',ar:'رجوع للرئيسية',en:'Back to home',d:'KeyH',sel:'[data-a="home"]'},
+{id:'redo',g:'h',ar:'إعادة الامتحان',en:'Redo exam',d:'KeyR',sel:'#exm-rx,[data-a="redocur2"]'},
+{id:'revwrong',g:'h',ar:'مراجعة الأخطاء',en:'Review wrong answers',d:'KeyW',sel:'[data-a="revwrong"]'},
+{id:'revall',g:'h',ar:'مراجعة الكل',en:'Review all',d:'KeyA',sel:'[data-a="revall"]'},
+{id:'new',g:'h',ar:'امتحان جديد',en:'New exam',d:'KeyN',sel:'#exm-home [data-a="new"]'},
+{id:'mix',g:'h',ar:'امتحان مختلط',en:'Mixed exam',d:'KeyI',sel:'#exm-mxb'},
+{id:'newfd',g:'h',ar:'مجلد جديد',en:'New folder',d:'KeyD',sel:'[data-a="newfd"]'},
+{id:'mstopen',g:'h',ar:'فتح بنك الأخطاء',en:'Open mistakes bank',d:'KeyB',sel:'[data-a="mstopen"]'},
+{id:'confirm',g:'h',ar:'ابدأ / تأكيد',en:'Start / confirm',d:'Enter',sel:'#exm-gob,#exm-mxg,[data-a="mstgo"]'}
+);
+
+function dflt(a){return typeof a.d==='function'?a.d():a.d}
+function stored(){var s={};try{s=JSON.parse(gs(KM,'{}'))||{}}catch(e){}return(s&&typeof s==='object')?s:{}}
+function map(){var s=stored(),m={};ACT.forEach(function(a){m[a.id]=(typeof s[a.id]==='string')?s[a.id]:dflt(a)});return m}
+function norm(c){return String(c||'').replace(/^Numpad(\d)$/,'Digit$1').replace('NumpadEnter','Enter')}
+var NAMES={CapsLock:'Caps',ArrowLeft:'\u2190',ArrowRight:'\u2192',ArrowUp:'\u2191',ArrowDown:'\u2193',Space:'Space',Enter:'Enter',Escape:'Esc',Backspace:'\u232B',Delete:'Del',PageUp:'PgUp',PageDown:'PgDn',Semicolon:';',Comma:',',Period:'.',Slash:'/',Backquote:'`',BracketLeft:'[',BracketRight:']',Minus:'-',Equal:'=',Backslash:'\\',Quote:"'",NumpadAdd:'Num+',NumpadSubtract:'Num-',NumpadMultiply:'Num*',NumpadDivide:'Num/',NumpadDecimal:'Num.'};
+function lab(c){if(!c)return T('\u0628\u062f\u0648\u0646','None');if(NAMES[c])return NAMES[c];var m=c.match(/^(?:Key|Digit)(.)$/);return m?m[1]:c}
+function vis(el){return !!(el&&(el.offsetWidth||el.offsetHeight||el.getClientRects().length))&&!el.classList.contains('exm-hid')}
+function ok(el){return vis(el)&&!el.disabled}
+function find(a){
+  var r=rootEl(),out=[];if(!r)return out;
+  if(a.one){for(var i=0;i<a.sel.length;i++){var e=r.querySelector(a.sel[i]);if(ok(e))return[e]}return out}
+  Array.prototype.forEach.call(r.querySelectorAll(a.sel),function(e){if(ok(e))out.push(e)});
+  return out;
+}
+
+/* ---------- the light circle with the key, next to each button ---------- */
+function paint(){
+  var r=rootEl();if(!r)return;
+  var on=enabled()&&hintOn();
+  r.classList.toggle('exm-kbh',on);
+  Array.prototype.forEach.call(r.querySelectorAll('[data-kb]'),function(e){e.removeAttribute('data-kb')});
+  if(!on)return;
+  var m=map();
+  ACT.forEach(function(a){var c=m[a.id];if(!c)return;find(a).forEach(function(e){e.setAttribute('data-kb',lab(c))})});
+}
+function sched(){clearTimeout(tmr);tmr=setTimeout(paint,40)}
+
+/* ---------- settings block (inside the existing exam settings) ---------- */
+function swHTML(id,on,txt){return '<button type="button" class="g22kb-sw'+(on?' on':'')+'" role="switch" aria-checked="'+on+'" data-kbt="'+id+'"><span class="g22kb-swt"></span><span>'+txt+'</span></button>'}
+function paintSw(){
+  var h=document.getElementById('g22kb-sw');if(!h)return;
+  h.innerHTML=swHTML('on',enabled(),T('\u062a\u0634\u063a\u064a\u0644 \u0627\u062e\u062a\u0635\u0627\u0631\u0627\u062a \u0627\u0644\u0643\u064a\u0628\u0648\u0631\u062f','Enable keyboard shortcuts'))+swHTML('hint',hintOn(),T('\u0625\u0638\u0647\u0627\u0631 \u0627\u0644\u0632\u0631\u0627\u0631 \u0628\u062c\u0627\u0646\u0628 \u0643\u0644 \u0645\u0643\u0627\u0646 (\u062f\u0627\u064a\u0631\u0629 \u062e\u0641\u064a\u0641\u0629)','Show the key next to each button (light circle)'));
+}
+function paintList(){
+  var h=document.getElementById('g22kb-l');if(!h)return;
+  var m=map(),o='',cg='';
+  ACT.forEach(function(a){
+    if(a.g!==cg){cg=a.g;o+='<div class="g22kb-g">'+G[cg][en()?1:0]+'</div>'}
+    var isCap=cap===a.id,dflCode=dflt(a),chg=m[a.id]!==dflCode;
+    o+='<div class="g22kb-r"><span>'+esc(a[en()?'en':'ar'])+'</span><button type="button" class="g22kb-k'+(isCap?' cap':'')+'" data-kba="'+a.id+'">'+(isCap?T('\u0627\u0636\u063a\u0637 \u0632\u0631\u0627\u0631\u2026','Press a key\u2026'):esc(lab(m[a.id])))+'</button><button type="button" class="g22kb-z" data-kbr="'+a.id+'"'+(chg?'':' disabled')+' title="'+T('\u0631\u062c\u0648\u0639 \u0644\u0644\u0627\u0641\u062a\u0631\u0627\u0636\u064a','Reset')+'" aria-label="'+T('\u0631\u062c\u0648\u0639 \u0644\u0644\u0627\u0641\u062a\u0631\u0627\u0636\u064a','Reset')+'">'+ICO.reset+'</button></div>';
+  });
+  o+='<button type="button" class="g22kb-btn" data-kbr="all">'+T('\u0631\u062c\u0648\u0639 \u0643\u0644 \u0627\u0644\u0623\u0632\u0631\u0627\u0631 \u0644\u0644\u0627\u0641\u062a\u0631\u0627\u0636\u064a','Reset all keys')+'</button>';
+  h.innerHTML=o;
+}
+function mount(){
+  var v=document.getElementById('v6');if(!v||document.getElementById('g22kb'))return;
+  var card=document.createElement('div');card.className='settings-card';card.id='g22kb';
+  card.innerHTML='<h2 class="g22kb-h">'+ICO.kb+'<span>'+T('\u0632\u0631\u0627\u0631 \u0627\u0644\u0643\u064a\u0628\u0648\u0631\u062f (\u0627\u0644\u0627\u0645\u062a\u062d\u0627\u0646\u0627\u062a)','Keyboard (exams)')+'</span></h2>'+
+  '<div class="sub">'+T('\u062a\u062a\u062d\u0643\u0645 \u0641\u064a \u0628\u0646\u0643 \u0627\u0644\u0623\u0633\u0626\u0644\u0629 \u0628\u0627\u0644\u0643\u064a\u0628\u0648\u0631\u062f \u0628\u062f\u0644 \u0627\u0644\u0645\u0627\u0648\u0633\u060c \u0645\u062b\u0644\u0627\u064b 1 \u0644\u0644\u0625\u062c\u0627\u0628\u0629 A \u0648 2 \u0644\u0644\u0625\u062c\u0627\u0628\u0629 B.','Control the question bank with the keyboard instead of the mouse, e.g. 1 for answer A and 2 for answer B.')+'</div>'+
+  '<div id="g22kb-sw"></div>'+
+  '<details class="g22kb-d"><summary>'+T('\u062a\u062e\u0635\u064a\u0635 \u0627\u0644\u0623\u0632\u0631\u0627\u0631','Customize keys')+'</summary><div class="sub" style="margin-top:6px">'+T('\u0627\u0636\u063a\u0637 \u0639\u0644\u0649 \u0627\u0644\u0632\u0631\u0627\u0631 \u0627\u0644\u062d\u0627\u0644\u064a \u062b\u0645 \u0627\u0636\u063a\u0637 \u0627\u0644\u0632\u0631\u0627\u0631 \u0627\u0644\u062c\u062f\u064a\u062f. Backspace \u064a\u0645\u0633\u062d \u0627\u0644\u062a\u0639\u064a\u064a\u0646\u060c \u0648 Esc \u064a\u0644\u063a\u064a.','Click the current key, then press the new one. Backspace clears it, Esc cancels.')+'</div><div id="g22kb-l"></div></details>';
+  var bk=document.getElementById('backupExport'),bc=bk&&bk.closest?bk.closest('.settings-card'):null;
+  if(bc&&bc.parentNode===v)v.insertBefore(card,bc);else v.appendChild(card);
+  paintSw();paintList();
+}
+
+function setMap(id,code){
+  var s=stored(),m=map(),moved=null;
+  if(code){ACT.forEach(function(o){if(o.id!==id&&m[o.id]===code){s[o.id]='';moved=o}})}
+  s[id]=code;ss(KM,JSON.stringify(s));
+  if(moved)toast(T('\u0627\u0644\u0632\u0631\u0627\u0631 \u0643\u0627\u0646 \u0645\u062a\u0639\u064a\u0646 \u0644\u0640 ','That key was used by ')+moved[en()?'en':'ar']+T(' \u0648\u0627\u062a\u0634\u0627\u0644',' and was removed from it'));
+}
+function resetOne(id){
+  var a=ACT.filter(function(x){return x.id===id})[0];if(!a)return;
+  var s=stored();delete s[id];var d=dflt(a),m=map();
+  ACT.forEach(function(o){if(o.id!==id&&m[o.id]===d)s[o.id]=''});
+  ss(KM,JSON.stringify(s));
+}
+
+document.addEventListener('click',function(ev){
+  var t=ev.target,el=t&&t.closest?t.closest('#g22kb'):null;
+  if(!el){if(cap){cap=null;paintList()}return}
+  var b;
+  if((b=t.closest('[data-kbt]'))){var k=b.getAttribute('data-kbt');if(k==='on')ss(KE,enabled()?'0':'1');else ss(KH,hintOn()?'0':'1');paintSw();paint();return}
+  if((b=t.closest('[data-kba]'))){cap=(cap===b.getAttribute('data-kba'))?null:b.getAttribute('data-kba');paintList();return}
+  if((b=t.closest('[data-kbr]'))){var r=b.getAttribute('data-kbr');if(r==='all')rmk(KM);else resetOne(r);cap=null;paintList();paint();return}
+});
+
+document.addEventListener('keydown',function(e){
+  if(cap){
+    var c=e.code;
+    if(/^(Shift|Control|Alt|Meta|OS)(Left|Right)?$/.test(c)||c==='ContextMenu')return;
+    e.preventDefault();e.stopPropagation();
+    if(c==='Escape'){cap=null;paintList();return}
+    if(c==='Tab'){toast(T('\u0632\u0631\u0627\u0631 Tab \u0645\u062d\u062c\u0648\u0632 \u0644\u0644\u062a\u0646\u0642\u0644 \u0628\u064a\u0646 \u0627\u0644\u0639\u0646\u0627\u0635\u0631.','Tab is reserved for moving between elements.'));return}
+    setMap(cap,c==='Backspace'?'':norm(c));cap=null;paintList();paint();return;
+  }
+  if(!enabled())return;
+  var v=document.getElementById('v14');
+  if(!v||v.style.display==='none'||window.curView!==14)return;
+  if(e.ctrlKey||e.altKey||e.metaKey||e.shiftKey)return;
+  var t=e.target,tag=t&&t.tagName;
+  if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||(t&&t.isContentEditable))return;
+  var code=norm(e.code);
+  if(document.getElementById('mdl')){
+    if((code==='Enter')&&!(t.closest&&t.closest('#mdl'))){var bt=document.querySelector('#mdl .xs-btn:not(.cancel)');if(bt){e.preventDefault();bt.click()}}
+    return;
+  }
+  if(e.repeat&&code!=='ArrowLeft'&&code!=='ArrowRight')return;
+  if((code==='Enter'||code==='Space')&&t.closest&&t.closest('button,a,summary,[role="button"]'))return;
+  var m=map(),hit=null;
+  for(var i=0;i<ACT.length;i++){if(m[ACT[i].id]&&m[ACT[i].id]===code){hit=ACT[i];break}}
+  if(!hit)return;
+  var els=find(hit);
+  if(!els.length)return;
+  e.preventDefault();
+  els[0].click();
+},true);
+
+/* ---------- styles: follow the exam's own colour tokens ---------- */
+var st=document.createElement('style');st.id='g22-exam-kb-css';
+st.textContent=
+'#g22kb .g22kb-sw{display:flex;align-items:center;gap:12px;width:100%;margin-top:12px;background:none;border:0;color:var(--ink);font:inherit;font-size:.92rem;text-align:start;cursor:pointer;padding:6px 0}'+
+'#g22kb .g22kb-swt{flex:none;width:46px;height:28px;border-radius:999px;background:var(--line);position:relative;transition:background-color .2s}'+
+'#g22kb .g22kb-swt::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:inset-inline-start .2s}'+
+'#g22kb .g22kb-sw.on .g22kb-swt{background:var(--acc)}'+
+'#g22kb .g22kb-sw.on .g22kb-swt::after{inset-inline-start:21px}'+
+'#g22kb .g22kb-d{margin-top:10px}'+
+'#g22kb .g22kb-d summary{cursor:pointer;color:var(--acc);font-weight:700}'+
+'#g22kb .g22kb-g{margin:14px 0 2px;font-size:.8rem;font-weight:700;color:var(--mute)}'+
+'#g22kb .g22kb-r{display:flex;align-items:center;gap:8px;padding:5px 0}'+
+'#g22kb .g22kb-r>span{flex:1;min-width:0;font-size:.9rem}'+
+'#g22kb .g22kb-k{flex:none;min-width:76px;padding:6px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:.84rem;font-weight:700;cursor:pointer;direction:ltr}'+
+'#g22kb .g22kb-k:hover{border-color:var(--acc)}'+
+'#g22kb .g22kb-k.cap{border-color:var(--acc);background:var(--accbg);color:var(--acc)}'+
+'#g22kb .g22kb-h{display:flex;align-items:center;gap:9px}'+
+'#g22kb .g22kb-h svg{width:22px;height:22px;flex:none;color:var(--acc)}'+
+'#g22kb .g22kb-z svg{width:16px;height:16px;display:block;margin:auto}'+
+'#g22kb .g22kb-z{flex:none;width:32px;height:32px;border-radius:10px;border:1.5px solid var(--line);background:none;color:var(--mute);font:inherit;cursor:pointer}'+
+'#g22kb .g22kb-z:disabled{opacity:.35;cursor:default}'+
+'#g22kb .g22kb-btn{margin-top:14px;width:100%;padding:10px 14px;border-radius:12px;border:1.5px solid var(--acc);background:var(--accbg);color:var(--acc);font:inherit;font-weight:700;cursor:pointer}'+
+'@media(hover:hover){'+
+'#examApp.exm-kbh .exm-o[data-kb]::after{content:attr(data-kb);flex:none;display:grid;place-items:center;box-sizing:border-box;min-width:24px;height:24px;padding:0 5px;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--x-pr) 32%,transparent);color:var(--x-mut);font-size:.72rem;font-weight:700;line-height:1;opacity:.8}'+
+'#examApp.exm-kbh [data-kb]:not(.exm-o){position:relative}'+
+'#examApp.exm-kbh [data-kb]:not(.exm-o)::after{content:attr(data-kb);position:absolute;top:-7px;inset-inline-end:-5px;z-index:2;display:grid;place-items:center;box-sizing:border-box;min-width:18px;height:18px;padding:0 4px;border-radius:999px;background:var(--x-card);border:1px solid color-mix(in srgb,var(--x-pr) 35%,transparent);color:var(--x-mut);font-size:.62rem;font-weight:700;line-height:1;pointer-events:none;opacity:.85}'+
+'}';
+document.head.appendChild(st);
+
+/* repaint the circles whenever the exam redraws */
+function watch(){
+  var r=rootEl();if(!r)return;
+  try{new MutationObserver(sched).observe(r,{childList:true,subtree:true,attributes:true,attributeFilter:['class','disabled','style']})}catch(e){}
+}
+window.g22ExmKb={mount:function(){mount()},paint:sched};
+try{var oSV=window.settingsView;if(typeof oSV==='function')window.settingsView=function(){var r=oSV.apply(this,arguments);try{mount()}catch(e){}return r}}catch(e){}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watch);else watch();
+})();
+</script>
+<script id="g22-ent-js">
+(function(){
+ var frame=null,obs=null,tmr=null,mode="list";
+ var TILE='<svg viewBox="0 0 512 512" aria-hidden="true"><defs><linearGradient id="entBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#26221a"/><stop offset=".55" stop-color="#0d0c09"/><stop offset="1" stop-color="#000"/></linearGradient><linearGradient id="entGd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset=".45" stop-color="#e2b93b"/><stop offset="1" stop-color="#9a6f14"/></linearGradient><linearGradient id="entGs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset="1" stop-color="#d4a72c"/></linearGradient></defs><rect width="512" height="512" rx="112" fill="url(#entBg)"/><rect x="9" y="9" width="494" height="494" rx="104" fill="none" stroke="url(#entGd)" stroke-width="5" stroke-opacity=".55"/><circle cx="222" cy="222" r="108" fill="#d4a72c" fill-opacity=".10" stroke="url(#entGd)" stroke-width="28"/><path d="M302 302 396 396" stroke="url(#entGd)" stroke-width="36" stroke-linecap="round"/><g fill="none" stroke="url(#entGs)" stroke-width="12" stroke-linecap="round" stroke-opacity=".92"><path d="M200 252V222A22 22 0 0 1 244 222V252"/><path d="M176 240V222A46 46 0 0 1 268 222V240"/><path d="M152 260V222A70 70 0 0 1 292 222V260"/></g></svg>',PAD='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 11h4M8 9v4"/><path d="M15 12h.01M18 10h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59C2.6 9.42 2 14.46 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.41-1.41A2 2 0 0 1 9.83 16h4.34a2 2 0 0 1 1.42.59L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.55-.6-6.58-.68-7.26A4 4 0 0 0 17.32 5z"/></svg>';
+ function $i(i){return document.getElementById(i)}
+ function en(){try{return getAppLanguage()==="en"}catch(e){return false}}
+ function T(a,e){return en()?e:a}
+ function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+ function gameSrc(){var el=$i("g22-game-src");return el?el.textContent.replace(/<\\(\/script|script|!--)/g,"<$1"):""}
+ function savedTitle(){try{var l=JSON.parse(localStorage.getItem("dtv_sl"));if(Array.isArray(l)&&l[0]&&l[0].case&&l[0].case.title)return String(l[0].case.title);var s=JSON.parse(localStorage.getItem("dtv_s"));return s&&s.case&&s.case.title?String(s.case.title):""}catch(e){return""}}
+ function listHTML(){
+  var t=savedTitle();
+  return '<div class="ent-hero"><h2>'+PAD+T("الترفيه","Entertainment")+'</h2><p>'+T("استراحة بين المذاكرة. اختار لعبة وكمّل من مكانك في أي وقت.","A break between study sessions. Pick a game and continue where you left off.")+'</p></div>'
+   +'<div class="ent-grid"><button type="button" class="ent-tile" data-ent="detective" aria-label="قرينة"><span class="ent-ico">'+TILE+'</span><b>قرينة</b>'
+   +(t?'<small class="go" title="'+esc(t)+'">'+T("كمّل: ","Continue: ")+esc(t)+'</small>':'<small>'+T("لعبة تحقيق","Detective game")+'</small>')+'</button></div>';
+ }
+ function showList(){
+  var v=$i("v15");if(!v)return;
+  mode="list";v.innerHTML=listHTML();
+  var b=v.querySelector("[data-ent=detective]");if(b)b.onclick=openGame;
+ }
+ /* ---- theme: the game takes the site's colours / light-dark / animation switch live ---- */
+ function rgbOf(v){var p=document.createElement("span");p.style.cssText="position:absolute;visibility:hidden;color:"+v;document.body.appendChild(p);var c=getComputedStyle(p).color;document.body.removeChild(p);var m=c.match(/[\d.]+/g);return m?[+m[0],+m[1],+m[2]]:null}
+ function lum(c){if(!c)return .5;function f(x){x/=255;return x<=.03928?x/12.92:Math.pow((x+.055)/1.055,2.4)}return .2126*f(c[0])+.7152*f(c[1])+.0722*f(c[2])}
+ function syncTheme(){
+  if(!frame)return;var d;try{d=frame.contentDocument}catch(e){return}
+  if(!d||!d.documentElement)return;
+  var R=document.documentElement,cs=getComputedStyle(R),r=d.documentElement;
+  ["--bg","--card","--ink","--mute","--line","--acc","--accbg"].forEach(function(k){var v=cs.getPropertyValue(k).trim();if(v)r.style.setProperty(k,v)});
+  var La=lum(rgbOf("var(--acc)"));r.style.setProperty("--onacc",(La+.05)/.0556>1.05/(La+.05)?"#111":"#fff");
+  r.setAttribute("data-scheme",lum(rgbOf("var(--bg)"))<.4?"dark":"light");
+  r.setAttribute("data-fx",R.classList.contains("fx-on")?"1":"0");
+  r.setAttribute("data-apple",R.classList.contains("apple-mode")?"1":"0");
+  var k=R.style.getPropertyValue("--fx-k");if(k)r.style.setProperty("--fx-k",k.trim());
+ }
+ function soon(){clearTimeout(tmr);tmr=setTimeout(syncTheme,80)}
+ function watch(on){
+  if(obs){obs.disconnect();obs=null}
+  if(!on)return;
+  try{obs=new MutationObserver(soon);
+   obs.observe(document.documentElement,{attributes:true,attributeFilter:["data-color","data-theme","class","style"]});
+   obs.observe(document.head,{childList:true,subtree:true,characterData:true})}catch(e){}
+ }
+ /* ---- game lifecycle ---- */
+ function openGame(){
+  var v=$i("v15");if(!v)return;
+  mode="game";v.innerHTML="";document.documentElement.classList.add("ent-playing");
+  var f=document.createElement("iframe");
+  f.className="ent-frame";f.title="قرينة";f.setAttribute("loading","eager");
+  f.onload=function(){syncTheme();watch(true)};
+  f.srcdoc=gameSrc();frame=f;v.appendChild(f);
+  try{window.scrollTo({top:0})}catch(e){window.scrollTo(0,0)}
+ }
+ function closeGame(){
+  watch(false);document.documentElement.classList.remove("ent-playing");
+  if(frame){try{frame.remove()}catch(e){}frame=null}
+  showList();
+  try{window.scrollTo({top:0})}catch(e){window.scrollTo(0,0)}
+ }
+ window.addEventListener("message",function(e){
+  if(frame&&e.source===frame.contentWindow&&e.data&&e.data.g22game==="exit")closeGame();
+ });
+ window.entView=function(){if(mode==="game"&&frame)return;showList()};
+ window.entLeave=function(){watch(false);document.documentElement.classList.remove("ent-playing");if(frame){try{frame.remove()}catch(e){}frame=null}mode="list"};
+ /* ---- drawer button: label language + lock state, same behaviour as the other sections ---- */
+ function fixLabel(){var l=document.querySelector("#m15 .ent-lb");if(l)l.textContent=T("الترفيه","Entertainment")}
+ function fixLock(){
+  var el=$i("m15");if(!el)return;
+  var lk=false;try{lk=typeof appLocked==="function"&&appLocked()}catch(e){}
+  var b=el.querySelector(".lock-badge");if(b)b.remove();
+  el.classList.toggle("locked",lk);
+  if(lk){var sp=document.createElement("span");sp.className="lock-badge";sp.textContent="\uD83D\uDD12";el.appendChild(sp)}
+ }
+ try{var oS=window.syncLocks;if(typeof oS==="function")window.syncLocks=function(){var r=oS.apply(this,arguments);fixLock();return r}}catch(e){}
+ try{var oL=window.applyLanguage;if(typeof oL==="function")window.applyLanguage=function(){var r=oL.apply(this,arguments);fixLabel();if(window.curView===15&&mode==="list")showList();return r}}catch(e){}
+ /* the site's global click handler reads data-view from e.target only, so a tap on the icon/label inside #m15 was ignored; handle those taps here */
+ document.addEventListener("click",function(e){
+  var t=e.target,b=t&&t.closest?t.closest("#m15"):null;
+  if(b&&t!==b){try{view(15)}catch(x){console.error(x)}}
+ });
+ fixLabel();fixLock();
+ if(window.curView===15)window.entView();
 })();
 </script>
 </body>
