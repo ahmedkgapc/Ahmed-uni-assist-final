@@ -5117,6 +5117,14 @@ select.in,textarea.in{width:100%;display:block}
 @keyframes rise{from{opacity:0;transform:translateY(12px)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+/* ===== lite mode (manual, off by default) ===== */
+html.lite *,html.lite *::before,html.lite *::after{animation:none!important;transition:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;text-shadow:none!important;filter:none!important}
+html.lite body{background-image:none!important;background-attachment:scroll!important}
+html.lite header,html.lite .bar{background:var(--bg)!important}
+html.lite header::after,html.lite .hero .big::after{display:none!important}
+#lb{display:none}
+#lb.on{background:var(--acc);border-color:var(--acc);color:var(--onacc)}
+
 /* ===== detective look ===== */
 body{background-image:radial-gradient(900px 420px at 50% -8%,color-mix(in srgb,var(--acc) 11%,transparent),transparent),repeating-linear-gradient(0deg,color-mix(in srgb,var(--ink) 3%,transparent) 0 1px,transparent 1px 30px);background-attachment:fixed}
 header{border-bottom:1px solid var(--line)}
@@ -5192,7 +5200,7 @@ label.pick span{display:flex;align-items:center;gap:8px;color:var(--soft)}
 </head>
 <body>
 <div class="wrap">
-<header><div class="logo"><i id="lg"></i><div class="lt"><b>قرينة</b><small id="stamp">لعبة تحقيق</small></div></div><div class="acts"><button class="hb pri" id="svb" type="button" title="حفظ التقدم" aria-label="حفظ التقدم" style="display:none"></button><button class="hb" id="nb" type="button" title="خروج من القضية" aria-label="خروج من القضية"></button><button class="hb" id="sb" type="button" title="الإعدادات" aria-label="الإعدادات"></button><button class="hb ex" id="xb" type="button" title="خروج من اللعبة" aria-label="خروج من اللعبة"></button></div></header>
+<header><div class="logo"><i id="lg"></i><div class="lt"><b>قرينة</b><small id="stamp">لعبة تحقيق</small></div></div><div class="acts"><button class="hb pri" id="svb" type="button" title="حفظ التقدم" aria-label="حفظ التقدم" style="display:none"></button><button class="hb" id="nb" type="button" title="خروج من القضية" aria-label="خروج من القضية"></button><button class="hb" id="lb" type="button" title="وضع الأداء" aria-label="وضع الأداء"></button><button class="hb" id="sb" type="button" title="الإعدادات" aria-label="الإعدادات"></button><button class="hb ex" id="xb" type="button" title="خروج من اللعبة" aria-label="خروج من اللعبة"></button></div></header>
 <main id="app"></main>
 </div>
 <div class="bar" id="bar" style="display:none"><form id="af"><input class="in" id="aq" placeholder="اطلب إجراء تحقيق، مثلا: افحص كاميرات المدخل" autocomplete="off"><button class="btn" id="ab"></button><button class="btn g" type="button" id="hn" title="تلميح (بنقطة تحقيق)" aria-label="تلميح بنقطة تحقيق"></button><button class="btn r" type="button" id="acc"></button></form></div>
@@ -5225,7 +5233,8 @@ Object.assign(I,{
  scale:'<path d="M12 3v18M7 21h10M5 7h14"/><path d="m5 7-3 7a3.5 3.5 0 0 0 6 0zM19 7l-3 7a3.5 3.5 0 0 0 6 0z"/>',
  users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M17.5 14.2a5 5 0 0 1 4 4.8"/>',
  share:'<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="m8.2 10.8 7.6-3.6M8.2 13.2l7.6 3.6"/>',
- copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>'
+ copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>',
+ bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>'
 });
 let S=null;
 const SL=()=>{try{const l=JSON.parse(localStorage.getItem('dtv_sl'));return Array.isArray(l)?l:[]}catch(e){return[]}};
@@ -5522,7 +5531,7 @@ function render(){
     $('#im').onclick=importUI;
     A.querySelectorAll('.ci').forEach(d=>{const go=e=>{const x=e.target.closest('.dx'),l=imp();if(x){l.splice(+x.dataset.j,1);localStorage.setItem('dtv_i',JSON.stringify(l));render();return}startCase(l[+d.dataset.j])};d.onclick=go;d.onkeydown=e=>{if(e.key==='Enter')go(e)}});
     if($('#sv'))$('#sv').onclick=()=>{const v=($('#who').value||'').trim();if(!v)return toast('اكتب اسم القضية الأول');const l=mine();if(!l.includes(v))l.push(v);localStorage.setItem('dtv_c',JSON.stringify(l));toast('اتحفظت في قضاياي');render()};
-    A.querySelectorAll('.cc:not(.ci)').forEach(d=>{const go=e=>{const x=e.target.closest('.dx');if(x){const l=mine();l.splice(+x.dataset.u,1);localStorage.setItem('dtv_c',JSON.stringify(l));render();return}begin(all[+d.dataset.k].q)};d.onclick=go;d.onkeydown=e=>{if(e.key==='Enter')go(e)}});
+    A.querySelectorAll('.cc:not(.ci):not(.sv2)').forEach(d=>{const go=e=>{const x=e.target.closest('.dx');if(x){const l=mine();l.splice(+x.dataset.u,1);localStorage.setItem('dtv_c',JSON.stringify(l));render();return}begin(all[+d.dataset.k].q)};d.onclick=go;d.onkeydown=e=>{if(e.key==='Enter')go(e)}});
     return;
   }
   const c=S.case;
@@ -5623,7 +5632,7 @@ function settings(){
 }
 $('#sb').onclick=settings;
 const stampTxt=()=>{if(!S||!S.at)return'لعبة تحقيق';return'آخر حفظ '+new Date(S.at).toLocaleTimeString('ar-EG',{hour:'2-digit',minute:'2-digit'})};
-function hdr(){const b=$('#svb');if(!b)return;b.style.display=S?'':'none';const nb=$('#nb');if(nb)nb.style.display=S?'':'none';$('#stamp').textContent=stampTxt()}
+function hdr(){const b=$('#svb');if(!b)return;b.style.display=S?'':'none';const nb=$('#nb');if(nb)nb.style.display=S?'':'none';const lb=$('#lb');if(lb)lb.style.display=S?'inline-flex':'none';$('#stamp').textContent=stampTxt()}
 const SV_HTML=()=>ic('save',18)+'<span class="t">حفظ التقدم</span>';
 function saveProgress(){
   if(!S)return;save();
@@ -5653,7 +5662,14 @@ function hint(){
   };
 }
 $('#nb').onclick=()=>{if(S){save();S=null;render();try{window.scrollTo(0,0)}catch(e){}}};
-$('#svb').onclick=saveProgress;$('#xb').onclick=exitGame;
+$('#svb').onclick=saveProgress;
+(function(){const lb=$('#lb');if(!lb)return;const K='dtv_lite';
+const set=on=>{document.documentElement.classList.toggle('lite',on);lb.classList.toggle('on',on);lb.setAttribute('aria-pressed',on?'true':'false');lb.title=on?'وضع الأداء: شغال':'وضع الأداء';lb.innerHTML=ic('bolt',18)};
+let on=false;try{on=localStorage.getItem(K)==='1'}catch(e){}
+set(on);
+lb.onclick=()=>{on=!on;try{localStorage.setItem(K,on?'1':'0')}catch(e){}set(on);try{toast(on?'وضع الأداء شغال':'وضع الأداء اتقفل')}catch(e){}};
+})();
+$('#xb').onclick=exitGame;
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#md').classList.contains('on'))closeM()});
 $('#lg').innerHTML=LOGO(40,'a');$('#sb').innerHTML=ic('gear',20);$('#nb').innerHTML=ic('home',18)+'<span class="t">القضايا</span>';$('#nb').classList.add('ex');$('#nb').title=$('#nb').ariaLabel='خروج من القضية للقائمة الرئيسية';
 $('#svb').innerHTML=SV_HTML();$('#xb').innerHTML=ic('exit',18)+'<span class="t">خروج</span>';
