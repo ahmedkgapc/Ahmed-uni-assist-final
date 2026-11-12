@@ -4987,6 +4987,7 @@ html.apple-mode .ent-tile,html.apple-mode .ent-hero{border-radius:var(--ap-r1)}
 html.fx-on .ent-ico::after{content:"";position:absolute;inset:-20%;background:linear-gradient(105deg,transparent 38%,rgba(255,236,170,.5) 50%,transparent 62%);transform:translateX(-120%);animation:entSheen calc(3.6s*var(--fx-k,1)) ease-in-out 1s infinite;pointer-events:none}
 @keyframes entSheen{to{transform:translateX(120%)}}
 html.fx-on .ent-grid>*{animation:fxRise calc(.5s*var(--fx-k,1)) cubic-bezier(.22,.8,.25,1) backwards}
+html.ent-playing,html.ent-playing body{overscroll-behavior:none}
 .ent-frame{display:block;position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100vh;height:100dvh;min-height:0;margin:0;border:0;border-radius:0;background:var(--bg);z-index:2147483000}
 html.ent-playing,html.ent-playing body{overflow:hidden!important}
 @media(prefers-reduced-motion:reduce){.ent-tile,.ent-ico::after{transition:none!important;animation:none!important}}
@@ -5005,6 +5006,7 @@ html.ent-playing,html.ent-playing body{overflow:hidden!important}
 [data-apple="1"]{--r:22px}
 *{box-sizing:border-box;margin:0}
 html,body{background:var(--bg);color:var(--ink);font-family:"Cairo","Segoe UI",Tahoma,sans-serif;line-height:1.7;color-scheme:dark}
+html,body{overscroll-behavior-y:none;overscroll-behavior:none}
 [data-scheme="light"] html,html[data-scheme="light"]{color-scheme:light}
 body{padding:0 0 96px;-webkit-tap-highlight-color:transparent}
 button,input,select,textarea{font:inherit;color:inherit}
