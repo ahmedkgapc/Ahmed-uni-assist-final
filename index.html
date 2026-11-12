@@ -5114,6 +5114,78 @@ select.in,textarea.in{width:100%;display:block}
 [data-fx="1"] .grid>*,[data-fx="1"] .sg>*{animation:rise calc(.45s*var(--fx-k)) cubic-bezier(.22,.8,.25,1) backwards;animation-delay:calc(var(--i,0)*40ms*var(--fx-k))}
 @keyframes rise{from{opacity:0;transform:translateY(12px)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===== detective look ===== */
+body{background-image:radial-gradient(900px 420px at 50% -8%,color-mix(in srgb,var(--acc) 11%,transparent),transparent),repeating-linear-gradient(0deg,color-mix(in srgb,var(--ink) 3%,transparent) 0 1px,transparent 1px 30px);background-attachment:fixed}
+header{border-bottom:1px solid var(--line)}
+header::after{content:"";position:absolute;inset:auto 0 -1px 0;height:3px;background:repeating-linear-gradient(135deg,var(--acc) 0 9px,#0b0a07 9px 18px);opacity:.5;pointer-events:none}
+h2{padding-bottom:7px;border-bottom:1px dashed var(--line)}
+.sheet{border-top:3px solid var(--acc)}
+.tape{height:28px;margin:0 -12px 6px;transform:rotate(-1.5deg);background:repeating-linear-gradient(135deg,var(--acc) 0 14px,#0b0a07 14px 28px);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px -10px #000}
+.tape span{background:var(--bg);color:var(--acc);font-weight:800;font-size:.7rem;padding:0 14px;border-radius:99px;letter-spacing:1px;line-height:1.9;white-space:nowrap}
+.stats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:-8px 0 16px}
+.stats span{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;color:var(--acc);background:var(--accbg);border:1px solid var(--line);border-radius:99px;padding:2px 12px;font-weight:700}
+.brief{position:relative;overflow:hidden;border-style:dashed}
+.brief::before{content:"";position:absolute;top:0;inset-inline-start:22px;width:74px;height:8px;background:var(--acc);border-radius:0 0 6px 6px;opacity:.85}
+.brief::after{content:"سري للغاية";position:absolute;top:16px;inset-inline-end:16px;transform:rotate(-7deg);border:2px solid color-mix(in srgb,var(--bad) 75%,transparent);color:color-mix(in srgb,var(--bad) 85%,transparent);padding:1px 10px;border-radius:6px;font-weight:800;font-size:.78rem;opacity:.8;pointer-events:none}
+.cno{margin-inline-start:8px;font-size:.75rem;color:var(--mute);letter-spacing:.5px;border:1px dashed var(--line);padding:1px 8px;border-radius:6px}
+.evb{counter-reset:ev}
+.evb .ev{position:relative;counter-increment:ev;padding-top:22px;border-inline-start:3px solid var(--acc)}
+.evb .ev.new{border-inline-start-color:var(--warn)}
+.evb .ev::after{content:"دليل رقم " counter(ev,arabic-indic);position:absolute;top:5px;inset-inline-end:10px;font-size:.62rem;font-weight:800;letter-spacing:.4px;color:var(--mute)}
+.evb .ev::before{content:"";position:absolute;top:-5px;left:50%;width:46px;height:12px;margin-left:-23px;background:color-mix(in srgb,var(--acc) 35%,transparent);transform:rotate(-2deg);border-radius:2px}
+.lock{background:repeating-linear-gradient(-45deg,transparent 0 10px,color-mix(in srgb,var(--acc) 7%,transparent) 10px 20px)}
+.sg{counter-reset:su}
+.sus{position:relative;counter-increment:su;padding-top:26px}
+.sus::after{content:"مشتبه فيه " counter(su,arabic-indic);position:absolute;top:6px;inset-inline:0;font-size:.62rem;font-weight:800;color:var(--mute);letter-spacing:.4px;text-align:center}
+.sus .av{border-radius:12px;width:58px;height:68px;border:2px solid color-mix(in srgb,var(--acc) 60%,transparent)}
+.fb{position:absolute;top:24px;inset-inline-start:8px;display:inline-flex;align-items:center;gap:3px;font-size:.68rem;font-weight:800;color:var(--warn);background:color-mix(in srgb,var(--warn) 14%,transparent);border-radius:99px;padding:0 7px}
+.chat{background:repeating-linear-gradient(0deg,transparent 0 27px,color-mix(in srgb,var(--line) 55%,transparent) 27px 28px);padding:8px;border:1px solid var(--line);border-radius:12px}
+.m.a{border-inline-start:3px solid var(--acc)}
+.cx{display:flex;gap:6px;align-items:flex-start;align-self:flex-end;max-width:85%;font-size:.76rem;color:var(--warn);background:color-mix(in srgb,var(--warn) 10%,transparent);border:1px dashed color-mix(in srgb,var(--warn) 45%,transparent);border-radius:10px;padding:5px 9px;margin-top:-4px}
+.cx svg{flex:none;margin-top:3px}
+.cfw{display:flex;align-items:center;gap:8px;color:var(--acc);margin-bottom:8px}
+.cfw select{font-size:.82rem;padding:8px 10px}
+.picks{display:grid;gap:6px;max-height:190px;overflow:auto;margin:4px 0}
+label.pick{display:flex;align-items:center;gap:10px;margin:0;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font-size:.85rem;cursor:pointer}
+label.pick:has(input:checked){border-color:var(--acc);background:var(--accbg)}
+label.pick input{accent-color:var(--acc);width:18px;height:18px;flex:none}
+label.pick span{display:flex;align-items:center;gap:8px;color:var(--soft)}
+.lg{display:grid;gap:8px}
+.lgi{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px dashed color-mix(in srgb,var(--warn) 50%,transparent);border-radius:12px;background:color-mix(in srgb,var(--warn) 7%,transparent);color:var(--warn)}
+.lgi svg{flex:none;margin-top:4px}
+.lgi b{color:var(--ink);font-size:.9rem}
+.lgi p{color:var(--soft);font-size:.82rem;margin:0}
+.lgm{color:var(--mute);font-size:.82rem}
+.rk{display:inline-flex;align-items:center;gap:6px;margin-top:4px;padding:3px 14px;border-radius:99px;background:var(--accbg);color:var(--acc);font-size:.9rem}
+#hn{padding:10px 12px}
+
+/* ===== modes & add-ons ===== */
+.chip.ic{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;font-size:.85rem}
+.mh{justify-content:center;font-size:.9rem;margin:16px 0 8px;border-bottom:0;padding-bottom:0}
+.duel{max-width:340px;margin:0 auto 12px;display:grid;gap:8px}
+.map{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;padding:12px;border:1px solid var(--line);border-radius:var(--r);background:repeating-linear-gradient(0deg,transparent 0 23px,color-mix(in srgb,var(--acc) 9%,transparent) 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,color-mix(in srgb,var(--acc) 9%,transparent) 23px 24px),var(--card)}
+.zn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:14px 8px;border:2px solid color-mix(in srgb,var(--acc) 55%,transparent);border-radius:6px;background:color-mix(in srgb,var(--bg) 70%,transparent);color:var(--acc);text-align:center;transition:transform .15s,background .2s}
+.zn b{color:var(--ink);font-size:.88rem}
+.zn small{color:var(--mute);font-size:.7rem}
+.zn:hover{background:var(--accbg);transform:translateY(-2px)}
+.zn.seen{border-style:dashed;opacity:.85}
+.zn.seen small{color:var(--ok)}
+.note.info{background:var(--accbg);border-color:color-mix(in srgb,var(--acc) 40%,transparent);color:var(--acc)}
+.tg{position:absolute;top:24px;inset-inline-end:8px;font-size:.62rem;font-weight:800;color:var(--onacc);background:var(--acc);border-radius:99px;padding:0 8px}
+.lv{display:flex;align-items:center;gap:8px;align-self:flex-end;max-width:85%;flex-wrap:wrap;font-size:.74rem;color:var(--acc)}
+.lvb{width:90px;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.lvb i{display:block;height:100%;background:linear-gradient(90deg,var(--ok),var(--warn),var(--bad))}
+.lv small{color:var(--mute);font-size:.72rem}
+.ldr{margin-bottom:8px}
+.achl{display:grid;gap:8px;margin-top:10px}
+.ach{display:flex;gap:12px;align-items:center;padding:10px 12px;border:1px dashed var(--line);border-radius:12px;color:var(--mute)}
+.ach b{display:block;color:var(--soft);font-size:.9rem}
+.ach small{font-size:.76rem}
+.ach.on{border-style:solid;border-color:var(--acc);color:var(--acc);background:var(--accbg)}
+.ach.on b{color:var(--ink)}
+.dtl{max-width:340px;margin:14px auto 0}.dtl summary{cursor:pointer;color:var(--acc);font-weight:700;text-align:center;list-style:none;display:flex;align-items:center;justify-content:center;gap:6px}.dtl summary::-webkit-details-marker{display:none}.dtl .duel{margin-top:10px}
+@media(max-width:560px){.bar form{flex-wrap:wrap}.bar form .in{flex:1 1 100%}.bar form .btn{flex:1 1 auto}.bar form #hn{flex:0 0 auto}body{padding-bottom:150px}}
 </style>
 </head>
 <body>
@@ -5121,7 +5193,7 @@ select.in,textarea.in{width:100%;display:block}
 <header><div class="logo"><i id="lg"></i><div class="lt"><b>قرينة</b><small id="stamp">لعبة تحقيق</small></div></div><div class="acts"><button class="hb pri" id="svb" type="button" title="حفظ التقدم" aria-label="حفظ التقدم" style="display:none"></button><button class="hb" id="nb" type="button" title="خروج من القضية" aria-label="خروج من القضية"></button><button class="hb" id="sb" type="button" title="الإعدادات" aria-label="الإعدادات"></button><button class="hb ex" id="xb" type="button" title="خروج من اللعبة" aria-label="خروج من اللعبة"></button></div></header>
 <main id="app"></main>
 </div>
-<div class="bar" id="bar" style="display:none"><form id="af"><input class="in" id="aq" placeholder="اطلب إجراء تحقيق، مثلا: افحص كاميرات المدخل" autocomplete="off"><button class="btn" id="ab"></button><button class="btn r" type="button" id="acc"></button></form></div>
+<div class="bar" id="bar" style="display:none"><form id="af"><input class="in" id="aq" placeholder="اطلب إجراء تحقيق، مثلا: افحص كاميرات المدخل" autocomplete="off"><button class="btn" id="ab"></button><button class="btn g" type="button" id="hn" title="تلميح (بنقطة تحقيق)" aria-label="تلميح بنقطة تحقيق"></button><button class="btn r" type="button" id="acc"></button></form></div>
 <div class="modal" id="md"><div class="sheet" id="sh"></div></div>
 <div class="ld" id="ld"><div class="sp"></div><div id="lt">جاري تجهيز القضية...</div></div>
 <\script>
@@ -5137,12 +5209,28 @@ Object.assign(I,{
 const LOGO=(n,k)=>`<svg width="${n}" height="${n}" viewBox="0 0 512 512" aria-hidden="true"><defs><linearGradient id="bg${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#26221a"/><stop offset=".55" stop-color="#0d0c09"/><stop offset="1" stop-color="#000"/></linearGradient><linearGradient id="gd${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset=".45" stop-color="#e2b93b"/><stop offset="1" stop-color="#9a6f14"/></linearGradient><linearGradient id="gs${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset="1" stop-color="#d4a72c"/></linearGradient></defs><rect width="512" height="512" rx="112" fill="url(#bg${k})"/><rect x="9" y="9" width="494" height="494" rx="104" fill="none" stroke="url(#gd${k})" stroke-width="5" stroke-opacity=".55"/><circle cx="222" cy="222" r="108" fill="#d4a72c" fill-opacity=".10" stroke="url(#gd${k})" stroke-width="28"/><path d="M302 302 396 396" stroke="url(#gd${k})" stroke-width="36" stroke-linecap="round"/><g fill="none" stroke="url(#gs${k})" stroke-width="12" stroke-linecap="round" stroke-opacity=".92"><path d="M200 252V222A22 22 0 0 1 244 222V252"/><path d="M176 240V222A46 46 0 0 1 268 222V240"/><path d="M152 260V222A70 70 0 0 1 292 222V260"/></g></svg>`;
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const ICONS=Object.keys(I).filter(k=>!['lock','user','skull','shield','gear','send','plus'].includes(k)).join('|');
+Object.assign(I,{
+ flag:'<path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/>',
+ bulb:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/>',
+ link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+ badge:'<circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/>',
+ trophy:'<path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4v2a3 3 0 0 0 3 3M17 6h3v2a3 3 0 0 1-3 3"/>',
+ list:'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
+ eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+ pulse:'<path d="M3 12h4l2-6 4 12 2-6h6"/>',
+ calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+ snow:'<path d="M12 2v20M4.9 7l14.2 10M4.9 17 19.1 7"/>',
+ scale:'<path d="M12 3v18M7 21h10M5 7h14"/><path d="m5 7-3 7a3.5 3.5 0 0 0 6 0zM19 7l-3 7a3.5 3.5 0 0 0 6 0z"/>',
+ users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M17.5 14.2a5 5 0 0 1 4 4.8"/>',
+ share:'<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="m8.2 10.8 7.6-3.6M8.2 13.2l7.6 3.6"/>',
+ copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>'
+});
 let S=null;
 const SL=()=>{try{const l=JSON.parse(localStorage.getItem('dtv_sl'));return Array.isArray(l)?l:[]}catch(e){return[]}};
 const newId=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 (function(){try{const o=JSON.parse(localStorage.getItem('dtv_s'));if(o&&o.case){const l=SL();if(!o.id)o.id=newId();if(!l.some(x=>x.id===o.id)){l.push(o);localStorage.setItem('dtv_sl',JSON.stringify(l))}}localStorage.removeItem('dtv_s')}catch(e){}})();
 const delSave=id=>localStorage.setItem('dtv_sl',JSON.stringify(SL().filter(x=>x.id!==id)));
-let diff='متوسط',mode='fiction';
+let diff='متوسط',mode='fiction',gm='classic',opts={map:false,lie:false};
 // قايمة القضايا المشهورة: عشان تضيف قضية جديدة ضيف سطر جديد بنفس الشكل
 // n: الاسم اللي يظهر | q: اللي بيتبعت للموديل (الاسم بالإنجليزي + تفصيلة تحدد القضية) | c: البلد | y: السنة | i: اسم الأيقونة
 const CASES=[
@@ -5229,7 +5317,7 @@ ${note?'القضية المطلوبة: '+note+'\\n':''}${c?'الملف الحا�
 الشكل المطلوب: ${SCH}`;
   return gem(real?SYSR:SYS,p,real&&localStorage.getItem('dtv_g')==='1',0.4);
 }
-function startCase(c){S={case:c,ev:c.evidence.map(e=>({...e})),pts:8,chat:{}};save();closeM();render()}
+function startCase(c){norm(c,'classic');S=mkS(c,{gm:'classic',map:false,lie:false});save();closeM();render()}
 function importUI(){
   modal(`<h3>استيراد قضية من أي ذكاء اصطناعي</h3>
   <label>1) اكتب اسم القضية أو بياناتها</label><textarea class="in" id="imn" rows="2" placeholder="مثال: قضية ريا وسكينة، أو الصق تفاصيل قضية كاملة"></textarea>
@@ -5264,7 +5352,7 @@ const busy=(on,t)=>{$('#ld').classList.toggle('on',on);if(t)$('#lt').textContent
 function toast(t,ok){const d=document.createElement('div');d.className='toast'+(ok?' ok':'');d.setAttribute('role','status');d.innerHTML=ic(ok?'check':'search',16)+esc(t);document.body.append(d);setTimeout(()=>d.remove(),3200)}
 function modal(h){$('#sh').innerHTML=h;$('#md').classList.add('on')}
 const closeM=()=>$('#md').classList.remove('on');
-$('#md').onclick=e=>{if(e.target.id==='md')closeM()};
+$('#md').onclick=e=>{if(e.target.id==='md'){closeM();if(S)render()}};
 
 async function gem(sys,prompt,g,t){
   const{k,m}=cfg();
@@ -5287,8 +5375,8 @@ async function gem(sys,prompt,g,t){
   if(a<0)throw new Error('الموديل ما رجعش JSON، جرب موديل تاني');
   return JSON.parse(tx.slice(a,b+1));
 }
-const SYS='انت مصمم ألغاز جرائم محترف. بتكتب بالعربي المصري البسيط. بترد بـ JSON صالح فقط من غير أي شرح برا الـ JSON. اللغز لازم يتحل بالمنطق من الأدلة، ومفيش حل مبني على صدفة.';
-const SYSR='انت باحث جنايات ومؤرخ قضايا حقيقية. بتكتب بالعربي المصري البسيط وبترد بـ JSON صالح فقط. بتلتزم بالوقائع الموثقة (محاضر، أحكام، تقارير، شهادات) وما بتخترعش تفاصيل. لو معلومة مش متأكد منها اكتب إنها غير موثقة. بتعرض الجريمة بشكل تحقيقي ووقائعي من غير تمجيد للجاني ومن غير وصف عنف صادم.';
+const SYS='انت مصمم ألغاز جرائم محترف. بتكتب بالعربي المصري البسيط. بترد بـ JSON صالح فقط من غير أي شرح برا الـ JSON. اللغز لازم يتحل بالمنطق من الأدلة، ومفيش حل مبني على صدفة. قاعدة صارمة: ممنوع تكتب في أي دليل (العنوان أو الوصف) أو نتيجة إجراء أو رد مشتبه فيه أي كلمة أو تلميح إن الدليل مضلل أو تمويه أو مش مهم. الدليل المضلل لازم يظهر كأي دليل عادي ووصفه ملاحظات خام بس، واللاعب هو اللي يكتشف لوحده إنه مضلل.';
+const SYSR='انت باحث جنايات ومؤرخ قضايا حقيقية. بتكتب بالعربي المصري البسيط وبترد بـ JSON صالح فقط. بتلتزم بالوقائع الموثقة (محاضر، أحكام، تقارير، شهادات) والأحداث الأساسية (الضحية والجاني والحكم) لازم تطابق الواقع، ومسموح بتعديل تفاصيل صغيرة عشان القضية تتلعب. بتعرض الجريمة بشكل تحقيقي ووقائعي من غير تمجيد للجاني ومن غير وصف عنف صادم. قاعدة صارمة: ممنوع تكتب في أي دليل (العنوان أو الوصف) أو نتيجة إجراء أو رد مشتبه فيه أي كلمة أو تلميح إن الدليل مضلل أو تمويه أو مش مهم. الدليل المضلل لازم يظهر كأي دليل عادي ووصفه ملاحظات خام بس، واللاعب هو اللي يكتشف لوحده إنه مضلل.';
 const sy=()=>S&&S.case&&S.case.real?SYSR:SYS;
 const GR=()=>!!(S&&S.case&&S.case.real)&&localStorage.getItem('dtv_g')==='1';
 const evShape=`{"title":"اسم الدليل قصير","icon":"واحدة من: ${ICONS}","detail":"وصف الدليل في 1-3 جمل"}`;
@@ -5298,60 +5386,154 @@ async function newCase(arg){
   busy(true,real?'بنجمع وقائع القضية...':'جاري تجهيز القضية...');
   try{
     let c;
-    if(real){
+    const dg=gm==='daily'?dailyGet():null;
+    if(dg&&dg.c){c=dg.c}else if(real){
       const who=(typeof arg==='string'?arg:($('#who')?.value||'')).trim(),gr=localStorage.getItem('dtv_g')==='1';
-      c=await gem(SYSR,`${who?'القضية المطلوبة (اسم المجرم أو القضية): '+who+'.':'اختار انت قضية جنائية حقيقية مشهورة وموثقة كويس ومحلولة، من أي بلد، وما تكشفش اسم الجاني في المقدمة.'}
-اعمل ملف تحقيق مبني على الوقائع الموثقة بس، بحيث المحقق يعيش القضية كأنه كان موجود. التاريخ والمكان والأسماء حقيقية زي ما في السجلات العامة. المقدمة تبدأ من لحظة اكتشاف الجريمة من وجهة نظر المحقق. المشتبه فيهم (3 إلى 6) هما الأشخاص الحقيقيين المرتبطين بالتحقيق بمن فيهم الجاني الفعلي، وكل واحد بنبذة ودافع محتمل وأقوال موثقة بس. الأدلة (6) هي الأدلة الحقيقية اللي ظهرت أول التحقيق، والباقي هتكشفه الإجراءات والاستجواب بعدين. وصف الضحايا باحترام.
+      c=await gem(SYSR,`${who?'القضية المطلوبة (اسم المجرم أو القضية): '+who+'.':'اختار انت قضية جنائية حقيقية مشهورة وموثقة كويس ومحلولة، من أي بلد.'}
+المطلوب: نسخة "قابلة للعب" من القضية الحقيقية، مش ملخص ليها. اللاعب هو المحقق وهو اللي هيوصل للحل بنفسه، فالملف لازم يديله مادة للتفكير مش إجابات جاهزة.
+قواعد الثبات (ما تغيّرهاش): هوية الضحية، والجاني الحقيقي والشريك، والدافع الأساسي، وطريقة الجريمة، والحكم النهائي لازم تفضل مطابقة للواقع الموثق.
+مسموح لك تعدّل أو تضيف تفاصيل صغيرة عشان القضية تتلعب: أقوال وحجج غياب المشتبه فيهم، علاقات ثانوية، مشتبه فيه ثانوي أو اتنين (ممكن يكونوا مركّبين من أشخاص حقيقيين في نفس الوقائع)، أدلة تفصيلية، ودليل مضلل. سجّل كل تعديل في "adaptations" بجملة قصيرة، عشان نكشفها للاعب في الآخر.
+قواعد الإخفاء:
+1. "title" اسم كودي محايد للقضية (مثلا "جريمة الشقة رقم 4") من غير اسم الجاني ومن غير الاسم المشهور للقضية. الاسم الحقيقي يتكتب في "real_name" وما بيتعرضش غير في الآخر.
+2. "intro" بتحكي لحظة اكتشاف الجريمة والمكان والوقت بس، من غير أي استنتاج أو اسم جاني أو دافع.
+3. "evidence" (5 أدلة): ملاحظات خام بس (إيه اللي اتلاقى، فين، إمتى). ممنوع أي تفسير أو استنتاج أو عبارة زي "ده بيثبت". لازم دليل منهم يشاور ظاهريا على بريء، ودليل مضلل.
+4. "suspects" (4 إلى 5): كل واحد بيبان محتمل بنفس القدر. "bio" معلومات محايدة (الشغل والعلاقة بالضحية) من غير ما تلمّح للجاني. "motive" الدافع الظاهر أو المشاع بس (لكل مشتبه فيه دافع معقول). "alibi" هو اللي بيقوله المشتبه فيه، وللجاني الحقيقي لازم يكون فيه ثغرة أو كدبة ممكن تتكشف بدليل مخفي.
+5. "hidden" (6 أدلة مخفية): مش هتظهر غير لما اللاعب يطلبها بإجراء تحقيق أو يسأل سؤال ذكي. فيها الدليل الحاسم، وأدلة بتكشّف كدبة الجاني، وأدلة بتبرّئ أبرياء.
 لو الاسم مش معروف عندك كفاية، أو القضية مش موثقة على نطاق واسع، أو الشخص مش مدان فعلا، رجّع {"error":"سبب قصير بالعربي"} بدل ما تخترع.
+${extra()}
 الشكل المطلوب:
-{"title":"","intro":"","victim":{"name":"","desc":""},"suspects":[{"id":"s1","name":"","role":"","bio":"","motive":"","alibi":""}],"evidence":[${evShape}],"truth":{"killer":"id الجاني الفعلي","accomplice":"id أو null","method":"","motive":"","key_clue":"الدليل اللي حسم القضية فعلا","summary":"النتيجة الفعلية: الحكم والمصير"}}`,gr,0.3);
+{"title":"","real_name":"","intro":"","victim":{"name":"","desc":""},"suspects":[{"id":"s1","name":"","role":"","bio":"","motive":"","alibi":""}],"evidence":[${evShape}],"hidden":[${evShape}],"adaptations":[""],"truth":{"killer":"id الجاني الفعلي","accomplice":"id أو null","method":"","motive":"","key_clue":"الدليل اللي حسم القضية فعلا","summary":"النتيجة الفعلية: الحكم والمصير"}}`,gr,0.4);
       if(c.error)throw new Error(c.error);
-      c.real=true;
+      c.real=true;c.hidden=Array.isArray(c.hidden)?c.hidden:[];c.adaptations=Array.isArray(c.adaptations)?c.adaptations:[];c.real_name=c.real_name||'';
     }else{
       const place=$('#place')?.value||'';
       c=await gem(SYS,`اكتب لغز جريمة قتل أصلي، المستوى: ${diff}. ${place?'المكان/الأجواء: '+place+'.':''}
 الشروط: 5 مشتبه فيهم، 6 أدلة ظاهرة من البداية، دليل واحد مضلل، تناقض واحد على الأقل في كلام مشتبه فيه، ودليل واحد دقيق يحسم القضية. القاتل مش لازم يكون الأوضح. ممكن يكون في شريك.
+قواعد الإخفاء: "intro" بتحكي لحظة اكتشاف الجريمة بس من غير أي استنتاج. "evidence" ملاحظات خام بس (إيه اللي اتلاقى وفين) من غير أي تفسير أو عبارة زي "ده بيثبت". "bio" معلومات محايدة، و"motive" الدافع الظاهر بس (لكل مشتبه فيه دافع معقول)، و"alibi" هو اللي بيقوله المشتبه فيه، وللقاتل ثغرة فيه ممكن تتكشف بدليل مخفي. "hidden" 6 أدلة مخفية مش هتظهر غير لما اللاعب يطلبها بإجراء تحقيق أو بسؤال ذكي، فيها الدليل الحاسم، وأدلة بتكشّف كدبة القاتل، وأدلة بتبرّئ أبرياء.
+${extra()}
 الشكل المطلوب:
-{"title":"","intro":"مقدمة القصة في 3-4 جمل","victim":{"name":"","desc":""},"suspects":[{"id":"s1","name":"","role":"","bio":"","motive":"","alibi":""}],"evidence":[${evShape}],"truth":{"killer":"id","accomplice":"id أو null","method":"","motive":"","key_clue":"","summary":""}}`);
+{"title":"","intro":"مقدمة القصة في 3-4 جمل","victim":{"name":"","desc":""},"suspects":[{"id":"s1","name":"","role":"","bio":"","motive":"","alibi":""}],"evidence":[${evShape}],"hidden":[${evShape}],"truth":{"killer":"id","accomplice":"id أو null","method":"","motive":"","key_clue":"","summary":""}}`);
     }
-    S={case:c,ev:c.evidence.map(e=>({...e})),pts:8,chat:{}};save();render();
+    norm(c,gm);if(gm==='daily'&&!(dg&&dg.c))dailySet({c,done:false});S=mkS(c);save();render();
   }catch(e){toast(e.message)}finally{busy(false)}
 }
 const ctx=()=>'ملف القضية الكامل (الحقيقة السرية جواه ما تكشفهاش مباشرة):\n'+JSON.stringify(S.case);
-const addEv=e=>{if(e&&e.title&&!S.ev.some(x=>x.title===e.title)){S.ev.push({...e,n:true});return true}};
+const BADW=/مضلل|مضلّل|تضليل|يضلل|تمويه|مموّه|مموه|red\s*herring|misleading|decoy|خادع|مخادع|ملغّم|ملغم/i;
+const scrub=t=>{t=String(t==null?'':t);if(!BADW.test(t))return t;
+ let o=t.replace(/[\(\[（][^\)\]）]*(?:مضلل|مضلّل|تضليل|تمويه|مموّه|مموه|red\s*herring|misleading|decoy|خادع|مخادع)[^\)\]）]*[\)\]）]/gi,'');
+ o=o.split(/(?<=[.!؟?۔])\s+/).filter(x=>!BADW.test(x)).join(' ').replace(/\s{2,}/g,' ').trim();
+ return o||t.replace(BADW,'').replace(/[\(\[]\s*[\)\]]/g,'').replace(/\s{2,}/g,' ').trim()};
+const cleanEv=e=>{if(e&&typeof e==='object'){e.title=scrub(e.title);e.detail=scrub(e.detail)}return e};
+const addEv=e=>{if(e&&e.title){cleanEv(e);if(!S.ev.some(x=>x.title===e.title)){S.ev.push({...e,n:true});return true}}};
+const ST=()=>{try{return Object.assign({solved:0,played:0,best:0},JSON.parse(localStorage.getItem('dtv_st')))}catch(e){return{solved:0,played:0,best:0}}};
+const RANKS=[[90,'مفتش أول'],[75,'مفتش'],[55,'محقق'],[35,'محقق مبتدئ'],[0,'متدرب']];
+const rankOf=n=>(RANKS.find(r=>n>=r[0])||RANKS[4])[1];
+const caseNo=()=>{const t=String((S&&S.id)||(S&&S.case&&S.case.title)||'');let h=0;for(let i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))%9000;return String(1000+h).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d])};
+const flagsOf=s=>((S&&S.chat&&S.chat[s.id])||[]).filter(m=>m.x);
+const statHtml=()=>{const t=ST();if(!t.played)return'';const td=dstr(new Date()),yd=dstr(new Date(Date.now()-864e5)),sk=(t.lastDaily===td||t.lastDaily===yd)&&t.streak>0?`<span>${ic('calendar',16)} سلسلة ${t.streak} يوم</span>`:'';return `<div class="stats"><span>${ic('badge',16)} ${esc(rankOf(t.best||0))}</span><span>${ic('check',16)} ${t.solved||0} قضية اتحلت</span><span>${ic('trophy',16)} أعلى درجة ${t.best||0}</span>${sk}</div>`};
+const dstr=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const dailyGet=()=>{try{const d=JSON.parse(localStorage.getItem('dtv_dy'));return d&&d.d===dstr(new Date())?d:null}catch(e){return null}};
+const dailySet=o=>{try{localStorage.setItem('dtv_dy',JSON.stringify({...o,d:dstr(new Date())}))}catch(e){}};
+const GM=()=>(S&&S.opts&&S.opts.gm)||'classic';
+const DF=()=>GM()==='defense';
+const GMS=[['classic','كلاسيك','search','تحقيق عادي بالطريقة المعتادة.'],['daily','قضية اليوم','calendar','قضية واحدة كل يوم على جهازك، وحلها بيزوّد سلسلة أيامك.'],['cold','القضية الباردة','snow','قضية قديمة اتقفلت بإدانة بريء، وإنت بتدوّر على القاتل الحقيقي.'],['defense','تمثيل الدفاع','scale','إنت محامي دفاع عن متهم مظلوم، وبتنقض أدلة الاتهام وتقدّم مرافعة.']];
+const OPT=[['map','خريطة مسرح الجريمة','location','مناطق في مكان الجريمة تفحصها بنقطة تحقيق لكل منطقة.'],['lie','جهاز كشف الكدب','pulse','مرتين في القضية تقيس توتر المشتبه فيه وهو بيرد، والجهاز مش دليل قاطع.']];
+const modePanel=()=>{const g=GMS.find(x=>x[0]===gm)||GMS[0],d=dailyGet();return `<h2 class="mh">${ic('list',18)} طور اللعب</h2><div class="chips">${GMS.map(x=>`<button class="chip ic ${x[0]===gm?'on':''}" data-g="${x[0]}" aria-pressed="${x[0]===gm}">${ic(x[2],16)} ${x[1]}</button>`).join('')}</div><p class="mdesc">${esc(g[3])}${gm==='daily'?' '+(d&&d.done?'حليت قضية النهارده، ارجع بكرة.':d?'قضية النهارده جاهزة.':'لسه ما بدأتش قضية النهارده.'):''}</p><h2 class="mh">${ic('gear',18)} ميزات إضافية</h2><div class="chips">${OPT.map(o=>`<button class="chip ic ${opts[o[0]]?'on':''}" data-o="${o[0]}" aria-pressed="${!!opts[o[0]]}">${ic(o[2],16)} ${o[1]}</button>`).join('')}</div><p class="mdesc">${esc(OPT.filter(o=>opts[o[0]]).map(o=>o[3]).join(' ')||'اختار ميزة لو عايز تضيفها للقضية.')}</p><details class="dtl"><summary>${ic('link',16)} عندك كود تحدي من صاحبك؟</summary><div class="duel"><textarea class="in" id="dc" rows="2" dir="ltr" placeholder="الصق كود التحدي هنا"></textarea><button class="btn g" id="dj">${ic('link',16)} انضم للتحدي بالكود</button></div></details>`};
+const extra=()=>{let t='';
+ if(gm==='cold')t+='\nطور القضية الباردة: القضية حصلت من سنين واتقفلت بإدانة شخص بريء. ضيف المفتاح "convicted" (id مشتبه فيه بريء اتدان رسميا، ومش القاتل الفعلي). الأدلة الظاهرة بتشاور عليه ظاهريا، وفي أدلة مخفية بتبرّئه وبتشاور على القاتل الحقيقي. الـ intro تبدأ من لحظة إعادة فتح الملف.';
+ if(gm==='defense')t+='\nطور الدفاع: اللاعب محامي دفاع عن "defendant" (ضيف المفتاح ده: id مشتبه فيه بريء اتهم ظلم، ومش القاتل الفعلي). ضيف "prosecution" بنظرية الاتهام في جملتين. "evidence" هي أدلة الاتهام الظاهرة وكل واحد فيهم ليه ثغرة، و"hidden" فيها الثغرات والأدلة اللي بتنقض الاتهام وبتشاور على القاتل الحقيقي. الـ intro تبدأ من لحظة توكيل المحامي.';
+ if(opts.map)t+='\nخريطة المكان: ضيف "zones" (5 لـ 6 مناطق في مكان الجريمة) كل واحدة {"id":"z1","name":"اسم المنطقة","detail":"وصف محايد في جملة","body":true أو false} وواحدة بس فيها الضحية body:true، واربط كل دليل في hidden بمنطقة بالمفتاح "zone" لو مناسب.';
+ return t};
+const pickNon=c=>{const k=String(c.truth&&c.truth.killer),o=c.suspects.find(x=>x.id!==k);return o?o.id:c.suspects[0].id};
+const norm=(c,g)=>{c.hidden=Array.isArray(c.hidden)?c.hidden:[];(c.evidence||[]).forEach(cleanEv);c.hidden.forEach(cleanEv);
+ c.zones=Array.isArray(c.zones)?c.zones.filter(z=>z&&z.name).map((z,i)=>({id:String(z.id||'z'+(i+1)),name:String(z.name),detail:String(z.detail||''),body:!!z.body})):[];
+ const ids=c.suspects.map(x=>x.id),k=String(c.truth&&c.truth.killer);
+ ['convicted','defendant'].forEach(f=>{if(c[f]!=null){c[f]=String(c[f]);if(!ids.includes(c[f])||c[f]===k)c[f]=pickNon(c)}});
+ if(g==='cold'&&c.convicted==null)c.convicted=pickNon(c);
+ if(g==='defense'&&c.defendant==null)c.defendant=pickNon(c);
+ return c};
+const mkS=(c,o)=>{o=o||{gm,map:!!opts.map,lie:!!opts.lie};return{case:c,ev:c.evidence.map(e=>({...e})),pts:8,chat:{},hints:0,opts:o,ld:o.lie?2:0,zr:{},duel:o.gm==='duel'}};
+const nm=id=>{const x=S.case.suspects.find(v=>v.id===id);return x?x.name:''};
+const modeBanner=()=>{const c=S.case,g=GM();let t='';
+ if(g==='cold'&&c.convicted)t+=`<div class="note info">${ic('lock',18)}<span>قضية باردة: الملف اتقفل بإدانة ${esc(nm(c.convicted))}. مهمتك تعيد فتحه وتلاقي القاتل الحقيقي.</span></div>`;
+ if(g==='defense'&&c.defendant)t+=`<div class="note info">${ic('scale',18)}<span>إنت محامي الدفاع عن ${esc(nm(c.defendant))}. نظرية الاتهام: ${esc(c.prosecution||'')} مهمتك تنقض الأدلة وتثبت الشك المعقول، وبعدها تقدّم مرافعتك.</span></div>`;
+ if(g==='daily')t+=`<div class="note info">${ic('calendar',18)}<span>قضية اليوم: نفس القضية طول اليوم على جهازك، وحلها بيزوّد سلسلة أيامك.</span></div>`;
+ if(S.ch||S.duel)t+=`<div class="note info">${ic('users',18)}<span>تحدي من صاحبك: نفس القضية عند الكل، وبعد الحل هتتقارن درجتك بدرجة صاحبك.</span></div>`;
+ return t};
+const tagOf=s=>{const c=S.case,g=GM();if(g==='cold'&&c.convicted===s.id)return'<span class="tg">المدان</span>';if(g==='defense'&&c.defendant===s.id)return'<span class="tg">موكلك</span>';return''};
+const mapHtml=()=>{const z=(S.case.zones||[]);if(!(S.opts&&S.opts.map)||!z.length)return'';S.zr=S.zr||{};return `<h2>${ic('location',20)} خريطة مسرح الجريمة <span class="cnt">${z.length}</span></h2><div class="map">${z.map(x=>`<button class="zn ${S.zr[x.id]?'seen':''}" data-z="${esc(x.id)}">${ic(x.body?'skull':'location',22)}<b>${esc(x.name)}</b><small>${S.zr[x.id]?'اتفحصت':'اضغط للفحص'}</small></button>`).join('')}</div>`};
+const ldHtml=()=>(S.opts&&S.opts.lie)?`<label class="pick ldr"><input type="checkbox" id="ld"${S.ld>0?'':' disabled'}><span>${ic('pulse',16)} كشف الكدب على السؤال ده (متبقي <b id="ldn">${S.ld}</b> من 2)</span></label>`:'';
+const ACH=[['first','أول قضية','حل قضية واحدة بنجاح','badge'],['nohint','من غير تلميح','حل قضية من غير ما تاخد تلميح','bulb'],['saver','موفّر','حل قضية وفاضلك 6 نقاط تحقيق أو أكتر','check'],['catcher','صائد التناقضات','سجّل 3 تناقضات في قضية واحدة','flag'],['chief','مفتش أول','وصّل درجتك لـ 90 أو أكتر','trophy'],['five','مثابر','حل 5 قضايا','list'],['cold','فاتح القضايا الباردة','حل قضية باردة','snow'],['defender','محامي الشيطان','كسب قضية دفاع','scale'],['daily3','مواظب','حل قضية اليوم 3 أيام ورا بعض','calendar'],['scout','عين الصقر','افحص كل مناطق مسرح الجريمة','location'],['polygraph','جهاز ما بيكدبش','حل قضية بعد ما استخدمت كشف الكدب','pulse'],['challenger','متحدّي','ابعت كود تحدي لصاحبك بعد ما تخلص قضية','users'],['rival','منافس شرس','اتفوق على درجة صاحبك في تحدي','trophy']];
+const achGet=()=>{try{return JSON.parse(localStorage.getItem('dtv_ac'))||{}}catch(e){return{}}};
+let _un=0;
+const unlock=id=>{const a=achGet();if(a[id])return;a[id]=Date.now();try{localStorage.setItem('dtv_ac',JSON.stringify(a))}catch(e){}const x=ACH.find(v=>v[0]===id);if(x){_un++;setTimeout(()=>{toast('إنجاز جديد: '+x[1],true);_un=Math.max(0,_un-1)},500+(_un-1)*1700)}};
+function achModal(){const a=achGet(),n=ACH.filter(x=>a[x[0]]).length;modal(`<h3>${ic('trophy',22)} الإنجازات <span class="cnt">${n}/${ACH.length}</span></h3><div class="achl">${ACH.map(x=>`<div class="ach ${a[x[0]]?'on':''}">${ic(a[x[0]]?x[3]:'lock',22)}<div><b>${esc(x[1])}</b><small>${esc(x[2])}</small></div></div>`).join('')}</div><button class="btn g" style="margin-top:14px" onclick="closeM()">إغلاق</button>`)}
+const enc=o=>btoa(unescape(encodeURIComponent(JSON.stringify(o))));
+const dec=t=>JSON.parse(decodeURIComponent(escape(atob(t))));
+function askStart(rows,fn){modal(`<h3>${ic('shield',22)} تأكيد بداية القضية</h3>${rows}<p class="lgm">الاختيارات دي هتتثبت للقضية اللي هتبدأها.</p><div class="mrow"><button class="btn" id="bgo">${ic('search',18)} ابدأ التحقيق</button><button class="btn g" onclick="closeM()">رجوع</button></div>`);$('#bgo').onclick=()=>{closeM();fn()}}
+function begin(arg){
+  if(gm==='daily'){const d=dailyGet();if(d&&d.done)return toast('حليت قضية النهارده، ارجع بكرة')}
+  const g=GMS.find(x=>x[0]===gm)||GMS[0],on=OPT.filter(o=>opts[o[0]]);
+  askStart(`<div class="row"><b>النوع</b><span>${mode==='real'?'قضية حقيقية':'قضية خيالية'}</span></div><div class="row"><b>الطور</b><span>${esc(g[1])}: ${esc(g[3])}</span></div>${on.length?`<div class="row"><b>ميزات</b><span>${on.map(o=>esc(o[1]+': '+o[3])).join('<br>')}</span></div>`:''}`,()=>newCase(arg));
+}
+function chCode(fin,rk,used,v){const g=GM();return 'DTV2:'+enc({c:S.case,o:{gm:(g==='cold'||g==='defense')?g:'classic',map:!!S.opts.map,lie:!!S.opts.lie},s:fin,r:rk,u:used,v:v})}
+function joinDuel(){const raw=($('#dc')&&$('#dc').value||'').trim();if(!raw)return toast('الصق كود التحدي الأول');
+  let o;const v2=raw.startsWith('DTV2:');
+  try{if(!v2&&!raw.startsWith('DTV1:'))throw 0;o=dec(raw.slice(5));if(!o||!o.c||!o.c.suspects||!o.c.evidence||!o.c.truth)throw 0}catch(e){return toast('الكود مش سليم')}
+  const op=o.o||{},g=(op.gm==='cold'||op.gm==='defense')?op.gm:'classic',ch=(v2&&typeof o.s==='number')?{s:o.s,r:String(o.r||''),u:+o.u||0}:null;
+  askStart(`<div class="row"><b>الطور</b><span>تحدي من صاحبك: قضية "${esc(o.c.title)}"</span></div><div class="row"><b>ميزات</b><span>${esc([op.map?'خريطة مسرح الجريمة':'',op.lie?'جهاز كشف الكدب':''].filter(Boolean).join('، ')||'من غير ميزات إضافية')}</span></div>`,()=>{norm(o.c,g);S=mkS(o.c,{gm:g,map:!!op.map,lie:!!op.lie});S.ch=ch;S.duel=true;save();render()});}
+function openZone(id){
+  const z=(S.case.zones||[]).find(x=>x.id===id);if(!z)return;S.zr=S.zr||{};const done=S.zr[id];
+  modal(`<div class="ico" style="width:64px;height:64px;margin-bottom:12px">${ic(z.body?'skull':'location',34)}</div><h3>${esc(z.name)}</h3><p style="color:var(--soft)">${esc(z.detail)}</p>${done?`<div class="row"><b>نتيجة الفحص</b><span>${esc(done)}</span></div>`:`<p class="lgm">فحص المنطقة بيكلّفك نقطة تحقيق واحدة (متبقي ${S.pts}).</p>`}<div class="mrow">${done?'':`<button class="btn" id="zi">${ic('search',18)} افحص المنطقة</button>`}<button class="btn g" onclick="closeM();render()">إغلاق</button></div>`);
+  if(!done)$('#zi').onclick=async()=>{
+    if(S.pts<1)return toast('خلصت إجراءات التحقيق');
+    closeM();busy(true,'بتفحص المنطقة...');
+    try{
+      const r=await gem(sy(),`${ctx()}\n\nالأدلة المتاحة حاليا: ${JSON.stringify(S.ev.map(x=>x.title))}\nالمحقق بيفحص منطقة "${z.name}" (id: ${z.id}) بدقة. لو فيه دليل من hidden مربوط بالمنطقة دي (أو منطقي إنه يتلاقى فيها) اكشفه كدليل جديد. لو لأ اوصف اللي اتلاقى فعلا من غير استنتاج ولا إشارة للجاني.\nرد بـ JSON: {"result":"وصف الملاحظات في جملتين","evidence":null أو ${evShape}}`);
+      S.pts--;S.zr[id]=scrub(r.result||'مفيش حاجة لافتة.');addEv(r.evidence);save();
+      if(Object.keys(S.zr).length>=S.case.zones.length)unlock('scout');
+      render();openZone(id);
+    }catch(err){toast(err.message)}finally{busy(false)}
+  };
+}
+const logHtml=()=>{const rows=[];S.case.suspects.forEach(s=>flagsOf(s).forEach(m=>rows.push({n:s.name,t:m.x})));return `<h2>${ic('list',20)} سجل التناقضات <span class="cnt">${rows.length}</span></h2>`+(rows.length?`<div class="lg">${rows.map(r=>`<div class="lgi">${ic('flag',18)}<div><b>${esc(r.n)}</b><p>${esc(r.t)}</p></div></div>`).join('')}</div>`:`<p class="lgm">هيتسجل هنا أي تناقض بيحصل في أقوال المشتبه فيهم أثناء الاستجواب.</p>`)};
 
 function render(){
   const A=$('#app');
   $('#bar').style.display=S?'block':'none';hdr();setTimeout(()=>A.querySelectorAll('.grid>*,.sg>*').forEach((e,i)=>e.style.setProperty('--i',Math.min(i,12))),0);
   if(!S){
     const all=[...CASES,...mine().map((x,u)=>({n:x,q:x,c:'قضيتي',y:'',i:'file',u}))];
-    A.innerHTML=`<section class="hero"><div class="big">${LOGO(84,'b')}</div><h1>قرينة</h1><p>${mode==='real'?'اكتب اسم مجرم أو قضية مشهورة، وهنرجعك لموقع الجريمة بالوقائع الموثقة. سيبها فاضية لو عايز قضية مفاجأة.':'قضية جديدة بتتولد في كل مرة. افحص الأدلة، استجوب المشتبه فيهم، وسمّي القاتل.'}</p>
-    <div class="chips">${[['fiction','قضية خيالية'],['real','قضية حقيقية']].map(([v,l])=>`<button class="chip ${v===mode?'on':''}" data-m="${v}">${l}</button>`).join('')}</div>
+    A.innerHTML=`<section class="hero"><div class="tape" aria-hidden="true"><span>خط التحقيق، لا تعبر</span></div><div class="big">${LOGO(84,'b')}</div><h1>قرينة</h1><p>${mode==='real'?'نسخة قابلة للعب من قضية حقيقية: استجوب، افحص الأدلة، واستنتج الدافع والجاني بنفسك. اختار قضية مفاجأة عشان متعرفش اسمها قبل الحل.':'قضية جديدة بتتولد في كل مرة. افحص الأدلة، استجوب المشتبه فيهم، وسمّي القاتل.'}</p>
+    ${statHtml()}<div class="chips">${[['fiction','قضية خيالية'],['real','قضية حقيقية']].map(([v,l])=>`<button class="chip ${v===mode?'on':''}" data-m="${v}">${l}</button>`).join('')}</div>
     ${mode==='real'?`<input class="in" id="who" placeholder="اسم المجرم أو القضية (اختياري)" autocomplete="off"><label class="gl"><input type="checkbox" id="gr" ${localStorage.getItem('dtv_g')==='1'?'checked':''}> اعتمد على بحث جوجل لدقة أعلى</label>`:`<div class="chips">${['سهل','متوسط','صعب'].map(d=>`<button class="chip ${d===diff?'on':''}" data-d="${d}">${d}</button>`).join('')}</div><input class="in" id="place" placeholder="مكان القضية (اختياري): فيلا، مستشفى، قطر...">`}
-    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn" id="go">${ic('plus',18)} ابدأ قضية جديدة</button>${mode==='real'?`<button class="btn g" id="sv">${ic('file',18)} احفظ في قضاياي</button>`:''}<button class="btn g" id="im">${ic('send',18)} استيراد قضية</button></div>
+    ${modePanel()}<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn" id="go">${ic('plus',18)} ابدأ قضية جديدة</button>${mode==='real'?`<button class="btn g" id="sur">${ic('search',18)} قضية مفاجأة</button>`:''}${mode==='real'?`<button class="btn g" id="sv">${ic('file',18)} احفظ في قضاياي</button>`:''}<button class="btn g" id="im">${ic('send',18)} استيراد قضية</button><button class="btn g" id="ach">${ic('trophy',18)} الإنجازات</button></div>
     ${SL().length?`<h2 style="justify-content:center;margin-top:30px">${ic('save',20)} قضايا محفوظة <span class="cnt">${SL().length}</span></h2><div class="grid cs">${SL().map(x=>`<div class="card ev cc sv2" role="button" tabindex="0" data-id="${esc(x.id)}"><div class="ico">${ic(x.case.real?'shield':'search',26)}</div><div><h3>${esc(x.case.title)}</h3><p>${esc(x.case.victim&&x.case.victim.name||'')} · كمّل من مكانك · ${x.at?new Date(x.at).toLocaleDateString('ar-EG',{day:'numeric',month:'short'})+' '+new Date(x.at).toLocaleTimeString('ar-EG',{hour:'2-digit',minute:'2-digit'}):''}</p></div><button class="dx" data-id="${esc(x.id)}" aria-label="مسح">${XI}</button></div>`).join('')}</div>`:''}
     ${imp().length?`<h2 style="justify-content:center;margin-top:30px">${ic('file',20)} قضايا مستوردة <span class="cnt">${imp().length}</span></h2><div class="grid cs">${imp().map((x,j)=>`<div class="card ev cc ci" role="button" tabindex="0" data-j="${j}"><div class="ico">${ic(x.real?'shield':'search',26)}</div><div><h3>${esc(x.title)}</h3><p>${esc(x.victim.name)}</p></div><button class="dx" data-j="${j}" aria-label="مسح">${XI}</button></div>`).join('')}</div>`:''}
     ${mode==='real'?`<h2 style="justify-content:center;margin-top:34px">${ic('shield',20)} قضايا مشهورة <span class="cnt">${all.length}</span></h2><div class="grid cs">${all.map((x,k)=>`<div class="card ev cc" role="button" tabindex="0" data-k="${k}"><div class="ico">${ic(x.i,26)}</div><div><h3>${esc(x.n)}</h3><p>${esc(x.c)}${x.y?'، '+esc(x.y):''}</p></div>${x.u!=null?`<button class="dx" data-u="${x.u}" title="مسح" aria-label="مسح">${ic('plus',16).replace('<svg','<svg style="transform:rotate(45deg)"')}</button>`:''}</div>`).join('')}</div>`:''}</section>`;
     A.querySelectorAll('.chip[data-d]').forEach(b=>b.onclick=()=>{diff=b.dataset.d;render()});
-    A.querySelectorAll('.chip[data-m]').forEach(b=>b.onclick=()=>{mode=b.dataset.m;render()});
+    A.querySelectorAll('.chip[data-m]').forEach(b=>b.onclick=()=>{mode=b.dataset.m;if(mode==='real'&&['daily','cold','defense'].includes(gm))gm='classic';render()});
+    A.querySelectorAll('.chip[data-g]').forEach(b=>b.onclick=()=>{gm=b.dataset.g;if(['daily','cold','defense'].includes(gm))mode='fiction';render()});
+    A.querySelectorAll('.chip[data-o]').forEach(b=>b.onclick=()=>{opts[b.dataset.o]=!opts[b.dataset.o];render()});
     if($('#gr'))$('#gr').onchange=e=>localStorage.setItem('dtv_g',e.target.checked?'1':'0');
     A.querySelectorAll('.sv2').forEach(d=>{const go=e=>{const id=d.dataset.id;if(e.target.closest('.dx')){modal(`<h3>مسح القضية المحفوظة</h3><p style="color:var(--soft)">القضية دي هتتمسح ومش هتقدر ترجعلها.</p><div class="mrow"><button class="btn r" id="dy">امسح</button><button class="btn g" onclick="closeM()">إلغاء</button></div>`);$('#dy').onclick=()=>{delSave(id);closeM();render()};return}const x=SL().find(v=>v.id===id);if(x){S=x;render();try{window.scrollTo(0,0)}catch(_){}}};d.onclick=go;d.onkeydown=e=>{if(e.key==='Enter')go(e)}});
-    $('#go').onclick=()=>newCase();
+    $('#go').onclick=()=>begin();if($('#sur'))$('#sur').onclick=()=>begin('');if($('#dj'))$('#dj').onclick=joinDuel;if($('#ach'))$('#ach').onclick=achModal;
     $('#im').onclick=importUI;
     A.querySelectorAll('.ci').forEach(d=>{const go=e=>{const x=e.target.closest('.dx'),l=imp();if(x){l.splice(+x.dataset.j,1);localStorage.setItem('dtv_i',JSON.stringify(l));render();return}startCase(l[+d.dataset.j])};d.onclick=go;d.onkeydown=e=>{if(e.key==='Enter')go(e)}});
     if($('#sv'))$('#sv').onclick=()=>{const v=($('#who').value||'').trim();if(!v)return toast('اكتب اسم القضية الأول');const l=mine();if(!l.includes(v))l.push(v);localStorage.setItem('dtv_c',JSON.stringify(l));toast('اتحفظت في قضاياي');render()};
-    A.querySelectorAll('.cc:not(.ci)').forEach(d=>{const go=e=>{const x=e.target.closest('.dx');if(x){const l=mine();l.splice(+x.dataset.u,1);localStorage.setItem('dtv_c',JSON.stringify(l));render();return}newCase(all[+d.dataset.k].q)};d.onclick=go;d.onkeydown=e=>{if(e.key==='Enter')go(e)}});
+    A.querySelectorAll('.cc:not(.ci)').forEach(d=>{const go=e=>{const x=e.target.closest('.dx');if(x){const l=mine();l.splice(+x.dataset.u,1);localStorage.setItem('dtv_c',JSON.stringify(l));render();return}begin(all[+d.dataset.k].q)};d.onclick=go;d.onkeydown=e=>{if(e.key==='Enter')go(e)}});
     return;
   }
   const c=S.case;
-  A.innerHTML=`${c.real?'<div class="note">'+ic('shield',18)+'<span>قضية حقيقية. المعلومات من معرفة الموديل وممكن فيها أخطاء، فراجع مصادر موثوقة. الاستجواب إعادة تمثيل مش اقتباسات حرفية.</span></div>':''}<section class="brief"><span class="tag">${ic('file',15)} ملف القضية</span><h1>${esc(c.title)}</h1><p>${esc(c.intro)}</p><div class="vic">${ic('skull',20)}<span><b>${esc(c.victim.name)}</b>، ${esc(c.victim.desc)}</span></div></section>
+  A.innerHTML=`${c.real?'<div class="note">'+ic('shield',18)+'<span>قضية مبنية على أحداث حقيقية بتعديلات بسيطة عشان تتلعب. الجاني والنتيجة مطابقين للواقع، والأقوال والتفاصيل ممكن تكون معدّلة. الاستجواب إعادة تمثيل مش اقتباسات حرفية، والاسم الأصلي والحل بيظهروا في الآخر.</span></div>':''}${modeBanner()}<section class="brief"><span class="tag">${ic('file',15)} ملف القضية</span><span class="cno">رقم ${caseNo()}</span><h1>${esc(c.title)}</h1><p>${esc(c.intro)}</p><div class="vic">${ic('skull',20)}<span><b>${esc(c.victim.name)}</b>، ${esc(c.victim.desc)}</span></div></section>
   <h2>${ic('fingerprint',20)} لوحة الأدلة <span class="cnt">${S.ev.length}</span></h2>
-  <div class="grid">${S.ev.map((e,i)=>`<button class="card ev ${e.n?'new':''}" data-i="${i}"><div class="ico">${ic(e.icon,26)}</div><div><h3>${esc(e.title)}</h3><p>${esc(e.detail)}</p></div></button>`).join('')}${Array.from({length:S.pts},()=>`<div class="card lock">${ic('lock',22)}دليل لسه ما اتكشفش</div>`).join('')}</div>
-  <h2>${ic('user',20)} المشتبه فيهم <span class="cnt">${c.suspects.length}</span></h2>
-  <div class="sg">${c.suspects.map((s,i)=>`<button class="sus" data-s="${i}"><div class="av">${ic('user',28)}</div><b>${esc(s.name)}</b><small>${esc(s.role)}</small></button>`).join('')}</div>`;
+  <div class="grid evb">${S.ev.map((e,i)=>`<button class="card ev ${e.n?'new':''}" data-i="${i}"><div class="ico">${ic(e.icon,26)}</div><div><h3>${esc(e.title)}</h3><p>${esc(e.detail)}</p></div></button>`).join('')}${Array.from({length:S.pts},()=>`<div class="card lock">${ic('lock',22)}دليل لسه ما اتكشفش</div>`).join('')}</div>
+  ${mapHtml()}<h2>${ic('user',20)} المشتبه فيهم <span class="cnt">${c.suspects.length}</span></h2>
+  <div class="sg">${c.suspects.map((s,i)=>`<button class="sus" data-s="${i}"><div class="av">${ic('user',28)}</div><b>${esc(s.name)}</b><small>${esc(s.role)}</small>${flagsOf(s).length?'<span class="fb">'+ic('flag',13)+flagsOf(s).length+'</span>':''}${tagOf(s)}</button>`).join('')}</div>
+  ${logHtml()}`;
   A.querySelectorAll('.ev').forEach(b=>b.onclick=()=>showEv(+b.dataset.i));
   A.querySelectorAll('.sus').forEach(b=>b.onclick=()=>openSus(+b.dataset.s));
-  $('#ab').innerHTML=`${ic('send',18)} تحقيق <span class="pts">${S.pts}</span>`;
+  A.querySelectorAll('.zn').forEach(b=>b.onclick=()=>openZone(b.dataset.z));
+  $('#ab').innerHTML=`${ic('send',18)} تحقيق <span class="pts">${S.pts}</span>`;$('#acc').innerHTML=ic('shield',18)+' '+(DF()?'مرافعة':'اتهام');
 }
 function showEv(i){
   const e=S.ev[i];e.n=false;save();
@@ -5359,22 +5541,27 @@ function showEv(i){
 }
 function openSus(i){
   const s=S.case.suspects[i];S.chat[s.id]=S.chat[s.id]||[];
-  const draw=()=>S.chat[s.id].map(m=>`<div class="m ${m.r}">${esc(m.t)}</div>`).join('')||'<div style="color:var(--mut);font-size:14px">اسأله عن مكانه، علاقته بالضحية، أو واجهه بدليل.</div>';
+  const draw=()=>S.chat[s.id].map(m=>`<div class="m ${m.r}">${esc(m.t)}</div>${m.x?'<div class="cx">'+ic('flag',14)+'<span>'+esc(m.x)+'</span></div>':''}${m.lv?'<div class="lv">'+ic('pulse',14)+'<div class="lvb"><i style="width:'+m.lv.s+'%"></i></div><span>'+m.lv.s+'</span><small>'+esc(m.lv.t)+'</small></div>':''}`).join('')||'<div style="color:var(--mut);font-size:14px">اسأله عن مكانه، علاقته بالضحية، أو واجهه بدليل.</div>';
   modal(`<div style="display:flex;gap:12px;align-items:center"><div class="av" style="margin:0">${ic('user',28)}</div><div><h3>${esc(s.name)}</h3><span class="tag">${esc(s.role)}</span></div></div>
-  <div class="row"><b>نبذة</b><span>${esc(s.bio)}</span></div><div class="row"><b>الدافع</b><span>${esc(s.motive)}</span></div><div class="row"><b>أقواله</b><span>${esc(s.alibi)}</span></div>
-  ${S.case.real?'<p style="color:var(--mut);font-size:12px">إعادة تمثيل مبنية على الوثائق، مش اقتباس حرفي.</p>':''}<div class="chat" id="ch">${draw()}</div>
-  <form id="qf" style="display:flex;gap:8px"><input class="in" id="qi" placeholder="اسأل ${esc(s.name)}..." autocomplete="off"><button class="btn">${ic('send',18)}</button></form>
+  <div class="row"><b>نبذة</b><span>${esc(s.bio)}</span></div><div class="row"><b>الدافع الظاهر</b><span>${esc(s.motive)}</span></div><div class="row"><b>أقواله الأولية</b><span>${esc(s.alibi)}</span></div>
+  ${S.case.real?'<p style="color:var(--mut);font-size:12px">إعادة تمثيل متخيّلة مبنية على الواقعة، مش اقتباس حرفي.</p>':''}<div class="chat" id="ch">${draw()}</div>
+  <div class="cfw">${ic('link',16)}<select class="in" id="cf" aria-label="مواجهة بدليل"><option value="">واجهه بدليل من لوحة الأدلة (اختياري)</option>${S.ev.map((e,i)=>`<option value="${i}">${esc(e.title)}</option>`).join('')}</select></div>
+  ${ldHtml()}<form id="qf" style="display:flex;gap:8px"><input class="in" id="qi" placeholder="اسأل ${esc(s.name)}..." autocomplete="off"><button class="btn">${ic('send',18)}</button></form>
   <button class="btn g" style="margin-top:12px" onclick="closeM();render()">إغلاق</button>`);
   const ch=$('#ch');ch.scrollTop=ch.scrollHeight;
   $('#qf').onsubmit=async e=>{
-    e.preventDefault();const q=$('#qi').value.trim();if(!q)return;$('#qi').value='';
-    S.chat[s.id].push({r:'u',t:q});ch.innerHTML=draw();ch.scrollTop=ch.scrollHeight;
+    e.preventDefault();let q=$('#qi').value.trim();const ci=$('#cf').value,ce=ci!==''?S.ev[+ci]:null;if(!q&&!ce)return;if(!q)q='إيه تفسيرك للدليل ده؟';$('#qi').value='';$('#cf').value='';const useLd=!!($('#ld')&&$('#ld').checked&&S.ld>0);if($('#ld'))$('#ld').checked=false;
+    const shown=ce?q+'  ['+ce.title+']':q,qq=ce?q+'\n(المحقق بيواجهه بالدليل ده من لوحة الأدلة: "'+ce.title+'" - '+ce.detail+')':q;
+    S.chat[s.id].push({r:'u',t:shown});ch.innerHTML=draw();ch.scrollTop=ch.scrollHeight;
     try{
-      const r=await gem(sy(),`${ctx()}\n\n${S.case.real?`انت بتمثل "${s.name}" (id: ${s.id}) في إعادة تمثيل لقضية حقيقية. اتكلم بس بناء على الوقائع والتصريحات والشهادات الموثقة. لو السؤال عن حاجة مفيهاش تصريح موثق قول إن ده غير موثق في سجلات القضية بدل ما تخترع. لو الشخص كان بيكدب أو بيتناقض في الواقع اعكس ده زي ما اتوثق. ما تكشفش نتيجة القضية ولا تخرج عن الشخصية.`:`انت بتمثل المشتبه فيه "${s.name}" (id: ${s.id}). لو مش القاتل: بتقول الحقيقة بس ممكن تتحرج أو تخبي حاجة شخصية. لو القاتل أو الشريك: بتكدب بذكاء وما بتعترفش بسهولة، ولو اتحاصرت بدليل حقيقي من الملف بتعمل زلة صغيرة. ما تكشفش الحقيقة السرية ولا تخرج عن الشخصية.`}
-محادثة سابقة: ${JSON.stringify(S.chat[s.id].slice(-8))}
-سؤال المحقق: ${q}
-رد بـ JSON: {"answer":"ردك في 1-4 جمل","evidence":null أو ${evShape} (بس لو الاستجواب كشف تناقض أو معلومة جديدة فعلا)}`);
-      S.chat[s.id].push({r:'a',t:r.answer});
+      const r=await gem(sy(),`${ctx()}\n\n${S.case.real?`انت بتمثل "${s.name}" (id: ${s.id}) في نسخة لعبة من قضية حقيقية. اتكلم بشخصيته وبما يتماشى مع وقائع الملف. لو السؤال عن حاجة مش مذكورة في الملف، ارتجل إجابة معقولة تناسب شخصيته وما تناقضش الملف، وما تقولش "غير موثق". جاوب على السؤال بس وما تتبرعش بمعلومات. لو مش الجاني: بتقول الحقيقة بس ممكن تتوتر أو تخبي حاجة شخصية محرجة ملهاش علاقة بالجريمة. لو الجاني أو الشريك: بتراوغ وتكدب بذكاء حسب شخصيته وما بتعترفش، ولو اتحاصرت بدليل حقيقي بيكذّب كلامك بتتلخبط أو بتعدّل روايتك. لو سؤال المحقق دخل بشكل منطقي في حاجة من قايمة "hidden" في الملف (مش مجرد سؤال عام) ضيفها كدليل جديد في "evidence". ما تكشفش الحقيقة ولا تلمّح ليها ولا تخرج عن الشخصية.`:`انت بتمثل المشتبه فيه "${s.name}" (id: ${s.id}). لو مش القاتل: بتقول الحقيقة بس ممكن تتحرج أو تخبي حاجة شخصية. لو القاتل أو الشريك: بتكدب بذكاء وما بتعترفش بسهولة، ولو اتحاصرت بدليل حقيقي من الملف بتعمل زلة صغيرة. لو سؤال المحقق دخل بشكل منطقي في حاجة من قايمة "hidden" في الملف (مش مجرد سؤال عام) ضيفها كدليل جديد في "evidence". جاوب على السؤال بس وما تتبرعش بمعلومات. ما تكشفش الحقيقة السرية ولا تخرج عن الشخصية.`}
+محادثة سابقة: ${JSON.stringify(S.chat[s.id].slice(-14).map(m=>({r:m.r,t:m.t})))}
+سؤال المحقق: ${qq}
+${useLd?`جهاز كشف الكدب شغال على السؤال ده: ضيف للـ JSON المفتاحين stress (رقم من 0 لـ 100 لتوتر الجسم) وtell (علامة جسدية قصيرة زي تعرق أو تهرب بالنظر). لو بتكدب أو بتخبي حاجة مرتبطة بالجريمة التوتر غالبا عالي (حوالي 75 في المية من المرات)، ولو بريء ممكن يتوتر من سؤال شخصي محرج ومش دايما هادي، يعني الجهاز مش دليل قاطع.\n`:''}رد بـ JSON: {"answer":"ردك في 1-4 جمل","contradiction":null أو "جملة قصيرة محايدة بتوضح التناقض بين اللي قلته دلوقتي وقول سابق ليك في المحادثة أو في أقوالك الأولية، من غير أي حكم أو اتهام. اكتبها بس لو فيه تناقض حقيقي","evidence":null أو ${evShape} (بس لو الاستجواب كشف معلومة جديدة فعلا من قايمة hidden)}`,false,S.case.real?0.7:undefined);
+      const cx=(typeof r.contradiction==='string'&&r.contradiction.trim().length>3)?r.contradiction.trim():undefined;
+      S.chat[s.id].push({r:'a',t:r.answer,x:cx,lv:useLd?{s:Math.max(0,Math.min(100,Math.round(+r.stress||0))),t:String(r.tell||'')}:undefined});
+      if(useLd){S.ld--;const ln=document.getElementById('ldn');if(ln)ln.textContent=S.ld;const lc=$('#ld');if(lc&&S.ld<=0)lc.disabled=true}
+      if(cx){toast('اتسجل تناقض محتمل في الأقوال');if(S.case.suspects.reduce((n,x)=>n+flagsOf(x).length,0)>=3)unlock('catcher')}
       if(addEv(r.evidence))toast('دليل جديد اتضاف للوحة');
     }catch(err){S.chat[s.id].push({r:'a',t:'(حصل خطأ: '+err.message+')'})}
     save();ch.innerHTML=draw();ch.scrollTop=ch.scrollHeight;
@@ -5385,7 +5572,7 @@ $('#af').onsubmit=async e=>{
   if(S.pts<1)return toast('خلصت إجراءات التحقيق، وقت الاتهام');
   busy(true,'جاري تنفيذ الإجراء...');
   try{
-    const r=await gem(sy(),`${ctx()}\n\nالأدلة المتاحة حاليا: ${JSON.stringify(S.ev.map(x=>x.title))}\nالمحقق طلب إجراء: "${q}"\nلو الإجراء منطقي ومفيد نفّذه بنتيجة حقيقية متوافقة مع الملف. لو غير منطقي أو مفيهوش حاجة اقول كده من غير ما تخترع. ما تكشفش القاتل مباشرة.${S.case.real?' القضية حقيقية: النتيجة لازم تكون من الوقائع الموثقة بس (محاضر، تقارير، شهادات). لو الإجراء ما اتعملش في الواقع أو نتيجته غير موثقة قول كده وما تختلقش.':''}
+    const r=await gem(sy(),`${ctx()}\n\nالأدلة المتاحة حاليا: ${JSON.stringify(S.ev.map(x=>x.title))}\nالمحقق طلب إجراء: "${q}"\nلو الإجراء منطقي ومفيد نفّذه بنتيجة حقيقية متوافقة مع الملف. لو غير منطقي أو مفيهوش حاجة اقول كده من غير ما تخترع. ما تكشفش القاتل مباشرة. لو الإجراء بيطابق حاجة من "hidden" في الملف اكشفها كدليل جديد. لو لأ، اديه نتيجة معقولة ومحايدة ما تتعارضش مع الملف وما تشاورش على الجاني. اوصف الملاحظات بس (إيه اللي اتلاقى) من غير أي تفسير أو استنتاج.
 رد بـ JSON: {"ok":true/false,"result":"نتيجة الإجراء","evidence":null أو ${evShape}}`,GR());
     if(r.ok!==false)S.pts--;
     addEv(r.evidence);save();render();$('#aq').value='';
@@ -5394,14 +5581,24 @@ $('#af').onsubmit=async e=>{
 };
 $('#acc').onclick=()=>{
   const o=S.case.suspects.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join('');
-  modal(`<h3>الاتهام النهائي</h3><label>مين القاتل؟</label><select class="in" id="k">${o}</select><label>في شريك؟</label><select class="in" id="p"><option value="">مفيش شريك</option>${o}</select><label>${S.case.real?'ابني القضية: إزاي حصلت الجريمة، وإيه الأدلة اللي بتثبتها؟':'نظريتك: إزاي حصلت وليه؟ وأنهي دليل حسم عندك؟'}</label><textarea class="in" id="th" rows="4"></textarea><button class="btn r" style="margin-top:16px;width:100%" id="sub">${ic('shield',18)} قدّم الاتهام</button>`);
+  modal(`<h3>${DF()?'المرافعة النهائية':'الاتهام النهائي'}</h3><label>${DF()?'مين القاتل الحقيقي في رأيك؟ (اختياري)':'مين القاتل؟'}</label><select class="in" id="k">${DF()?'<option value="">مش هحدد، هطعن في الاتهام بس</option>':''}${o}</select><label>في شريك؟</label><select class="in" id="p"><option value="">مفيش شريك</option>${o}</select><label>${DF()?'مرافعتك: إيه الثغرات في أدلة الاتهام وليه موكلك بريء؟':S.case.real?'ابني القضية: دافعه كان إيه؟ إزاي نفّذها؟ وأنهي أدلة بتثبت ده؟':'نظريتك: إزاي حصلت وليه؟ وأنهي دليل حسم عندك؟'}</label><textarea class="in" id="th" rows="4"></textarea><label>${DF()?'اختار الأدلة اللي بتعتمد عليها في الدفاع':'اختار الأدلة اللي بتثبت اتهامك'}</label><div class="picks">${S.ev.map((e,i)=>`<label class="pick"><input type="checkbox" value="${i}"><span>${ic(e.icon,16)}${esc(e.title)}</span></label>`).join('')}</div><button class="btn r" style="margin-top:16px;width:100%" id="sub">${ic('shield',18)} قدّم الاتهام</button>`);
   $('#sub').onclick=async()=>{
-    const k=$('#k').value,p=$('#p').value,th=$('#th').value;closeM();busy(true,'القاضي بيراجع ملفك...');
+    const k=$('#k').value,p=$('#p').value,th=$('#th').value,pk=[...document.querySelectorAll('.picks input:checked')].map(x=>S.ev[+x.value]).filter(Boolean).map(e=>e.title);if(th.trim().length<15)return toast('اكتب نظريتك الأول: الدافع والطريقة');if(!pk.length)return toast('اختار دليل واحد على الأقل من اللي بتثبت بيه اتهامك');closeM();busy(true,'القاضي بيراجع ملفك...');
     try{
-      const r=await gem(sy(),`${ctx()}\n\nالمحقق اتهم: القاتل=${k}، الشريك=${p||'لا يوجد'}. نظريته: ${th}\n${S.case.real?"القضية حقيقية: التقييم وكشف الحل لازم يطابقوا الواقع الموثق (الحكم والمصير الفعلي). ":""}قيّم بعدل: correct لو القاتل صح ونظريته منطقية، partial لو القاتل صح بس النظرية ناقصة أو الشريك غلط، wrong لو القاتل غلط.
-رد بـ JSON: {"verdict":"correct|partial|wrong","score":0-100,"feedback":"تقييم لطريقة تفكيره في 2-4 جمل","reveal":"الحل الكامل الحقيقي في 3-5 جمل"}`);
-      const cl={correct:'ok',partial:'warn',wrong:'bad'}[r.verdict]||'warn',lb={correct:'القضية اتحلت',partial:'حل ناقص',wrong:'المتهم غلط'}[r.verdict]||'';
-      modal(`<div class="vd"><span class="tag">${lb}</span><div class="score ${cl}">${esc(r.score)}</div></div><div class="row"><b>تقييمك</b><span>${esc(r.feedback)}</span></div><div class="row"><b>الحل</b><span>${esc(r.reveal)}</span></div><button class="btn" style="width:100%;margin-top:14px" id="again">${ic('plus',18)} قضية جديدة</button>`);
+      const r=await gem(sy(),`${ctx()}\n\nالمحقق اتهم: القاتل=${k}، الشريك=${p||'لا يوجد'}. نظريته: ${th}\nالأدلة اللي اختارها كإثبات: ${JSON.stringify(pk)}\n${S.case.real?"القضية نسخة لعبة من قضية حقيقية: التقييم وكشف الحل لازم يطابقوا الملف والواقع الموثق (الحكم والمصير الفعلي)، واذكر في reveal الاسم الحقيقي للقضية. اللاعب هو اللي لازم يستنتج الدافع والطريقة، فما تدّيش correct لو نظريته من غير دافع أو من غير دليل. ":""}${DF()?'الوضع: المحقق محامي دفاع عن "'+S.case.defendant+'" وهو بريء. قيّم المرافعة بدل الاتهام: correct لو كشفت الثغرة الحاسمة في الاتهام أو حددت القاتل الصح، partial لو أثارت شك معقول بس، wrong لو المرافعة ضعيفة أو اتهمت بريء. ':GM()==='cold'?'ملحوظة: المدان رسميا بريء، والمطلوب هو القاتل الحقيقي. ':''}قيّم بعدل: correct لو القاتل صح ونظريته منطقية، partial لو القاتل صح بس النظرية ناقصة أو الشريك غلط، wrong لو القاتل غلط. اخصم من الدرجة لو الأدلة المختارة ما فيهاش الدليل الحاسم أو فيها دليل مضلل.
+رد بـ JSON: {"verdict":"correct|partial|wrong","score":0-100,"feedback":"تقييم لطريقة تفكيره في 2-4 جمل","reveal":"الحل الكامل الحقيقي في 3-5 جمل","evidence_note":"تعليق في جملة على اختياره للأدلة: هل فيها الدليل الحاسم وهل وقع في دليل مضلل"}`);
+      const cl={correct:'ok',partial:'warn',wrong:'bad'}[r.verdict]||'warn',lb=(DF()?{correct:'كسبت القضية',partial:'شك معقول بس',wrong:'خسرت القضية'}:{correct:'القضية اتحلت',partial:'حل ناقص',wrong:'المتهم غلط'})[r.verdict]||'';
+      const base=Math.max(0,Math.min(100,+r.score||0)),bonus=Math.round((S.pts/8)*15*({correct:1,partial:.5}[r.verdict]||0)),fin=Math.min(100,Math.round(base*.85)+bonus),rk=rankOf(fin),st=ST();
+      st.played=(st.played||0)+1;if(r.verdict==='correct')st.solved=(st.solved||0)+1;if(fin>(st.best||0))st.best=fin;try{localStorage.setItem('dtv_st',JSON.stringify(st))}catch(_){}
+      modal(`<div class="vd"><span class="tag">${lb}</span><div class="score ${cl}">${fin}</div><div class="rk">${ic('badge',18)}<b>${esc(rk)}</b></div></div><div class="row"><b>تقييمك</b><span>${esc(r.feedback)}</span></div><div class="row"><b>الحل</b><span>${esc(r.reveal)}</span></div>${r.evidence_note?'<div class="row"><b>أدلتك</b><span>'+esc(r.evidence_note)+'</span></div>':''}<div class="row"><b>الدرجة</b><span>تفكيرك ${Math.round(base*.85)} من 85، وتوفير الإجراءات (${S.pts} من 8) ضاف ${bonus} من 15</span></div>${S.ch?'<div class="row"><b>التحدي</b><span>درجتك '+fin+' ('+(8-S.pts)+' إجراء) مقابل '+S.ch.s+(S.ch.r?' ('+esc(S.ch.r)+')':'')+' عند صاحبك ('+S.ch.u+' إجراء): '+(fin>S.ch.s?'إنت كسبت التحدي':fin<S.ch.s?'صاحبك سبقك':'تعادل')+'</span></div>':''}${S.case.real&&S.case.real_name?'<div class="row"><b>القضية الأصلية</b><span>'+esc(S.case.real_name)+'</span></div>':''}${S.case.real&&(S.case.adaptations||[]).filter(Boolean).length?'<div class="row"><b>اللي اتعدّل عشان اللعب</b><span>'+S.case.adaptations.filter(Boolean).map(x=>esc(x)).join('، ')+'</span></div>':''}<button class="btn g" style="width:100%;margin-top:14px" id="shr">${ic('share',18)} شارك نتيجتك</button><button class="btn g" style="width:100%;margin-top:10px" id="chl">${ic('users',18)} تحدّى صحابك بنفس القضية</button><div id="chb"></div><button class="btn" style="width:100%;margin-top:10px" id="again">${ic('plus',18)} قضية جديدة</button>`);
+      if(GM()==='daily'){const dgx=dailyGet();if(dgx)dailySet({...dgx,done:true,score:fin});if(r.verdict!=='wrong'){const td=dstr(new Date()),yd=dstr(new Date(Date.now()-864e5));st.streak=st.lastDaily===td?(st.streak||1):(st.lastDaily===yd?(st.streak||0)+1:1);st.lastDaily=td;try{localStorage.setItem('dtv_st',JSON.stringify(st))}catch(_){}}}
+      _un=0;
+      if(r.verdict==='correct'){unlock('first');if(!(S.hints>0))unlock('nohint');if(S.pts>=6)unlock('saver');if(GM()==='cold')unlock('cold');if(DF())unlock('defender');if(S.opts&&S.opts.lie&&S.ld<2)unlock('polygraph');if(st.solved>=5)unlock('five')}
+      if(fin>=90)unlock('chief');if(S.ch&&fin>S.ch.s)unlock('rival');
+      if(GM()==='daily'&&st.streak>=3&&r.verdict!=='wrong')unlock('daily3');
+      const shTxt='قرينة | '+S.case.title+' | درجتي '+fin+' ('+rk+') | إجراءات استخدمتها '+(8-S.pts)+' من 8 | تلميحات '+(S.hints||0);
+      $('#shr').onclick=()=>{try{navigator.clipboard.writeText(shTxt).then(()=>toast('اتنسخت نتيجتك',true)).catch(()=>toast('مش قادر أنسخ'))}catch(_){toast('مش قادر أنسخ')}};
+      $('#chl').onclick=()=>{const code=chCode(fin,rk,8-S.pts,r.verdict);unlock('challenger');$('#chl').style.display='none';$('#chb').innerHTML=`<p class="lgm" style="margin-top:12px">ابعت الكود ده لأصحابك. هيلصقوه في خانة "عندك كود تحدي" في الصفحة الرئيسية ويلعبوا نفس القضية، وفي الآخر هتتقارن درجتهم بدرجتك (${fin}). الكود فيه الحل، فما تفتحوهوش قبل ما تخلصوا.</p><textarea class="in" id="dcode" rows="3" dir="ltr" readonly>${code}</textarea><button class="btn" style="width:100%;margin-top:8px" id="dcp">${ic('copy',18)} انسخ الكود</button>`;$('#dcp').onclick=()=>{try{navigator.clipboard.writeText(code).then(()=>toast('اتنسخ الكود',true)).catch(()=>$('#dcode').select())}catch(_){$('#dcode').select()}}};
       $('#again').onclick=()=>{closeM();if(S)delSave(S.id);S=null;render()};
     }catch(err){toast(err.message)}finally{busy(false)}
   };
@@ -5439,12 +5636,26 @@ function exitGame(){
   modal(`<h3>خروج من اللعبة</h3><p style="color:var(--soft)">تقدمك في القضية هيتحفظ، وتقدر ترجع تكمّلها في أي وقت.</p><div class="mrow"><button class="btn" id="xy">${ic('exit',18)} احفظ واخرج</button><button class="btn g" onclick="closeM()">كمّل لعب</button></div>`);
   $('#xy').onclick=go;
 }
+function hint(){
+  if(!S)return;
+  if(S.pts<1)return toast('خلصت نقاط التحقيق، مفيش تلميحات');
+  modal(`<h3>${ic('bulb',22)} تلميح من المفتش</h3><p style="color:var(--soft)">التلميح بيكلّفك نقطة تحقيق واحدة من ${S.pts} ومش بيكشف الحل، بس بيوجّه تفكيرك.</p><div class="mrow"><button class="btn" id="hy">${ic('bulb',18)} هات تلميح</button><button class="btn g" onclick="closeM()">إلغاء</button></div>`);
+  $('#hy').onclick=async()=>{
+    closeM();busy(true,'المفتش بيراجع ملفك...');
+    try{
+      const asked=Object.keys(S.chat).map(id=>{const m=S.case.suspects.find(x=>x.id===id);return{suspect:m?m.name:id,asked:S.chat[id].filter(x=>x.r==='u').map(x=>x.t).slice(-5)}});
+      const r=await gem(sy(),`${ctx()}\n\nالأدلة المتاحة حاليا: ${JSON.stringify(S.ev.map(x=>x.title))}\nالأسئلة اللي المحقق سألها لحد دلوقتي: ${JSON.stringify(asked)}\nاديه تلميح واحد غير مباشر في جملة أو اتنين، يوجّهه لاتجاه تفكير أو شخص يستجوبه أو إجراء يجربه أو تفصيلة يعيد النظر فيها. ما تذكرش اسم القاتل ولا الدليل الحاسم صراحة ولا الحل.\nرد بـ JSON: {"hint":"التلميح"}`);
+      S.pts--;S.hints=(S.hints||0)+1;save();render();
+      modal(`<h3>${ic('bulb',22)} التلميح</h3><p style="color:var(--soft)">${esc(r.hint)}</p><button class="btn g" style="margin-top:14px" onclick="closeM()">تمام</button>`);
+    }catch(err){toast(err.message)}finally{busy(false)}
+  };
+}
 $('#nb').onclick=()=>{if(S){save();S=null;render();try{window.scrollTo(0,0)}catch(e){}}};
 $('#svb').onclick=saveProgress;$('#xb').onclick=exitGame;
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#md').classList.contains('on'))closeM()});
 $('#lg').innerHTML=LOGO(40,'a');$('#sb').innerHTML=ic('gear',20);$('#nb').innerHTML=ic('home',18)+'<span class="t">القضايا</span>';$('#nb').classList.add('ex');$('#nb').title=$('#nb').ariaLabel='خروج من القضية للقائمة الرئيسية';
 $('#svb').innerHTML=SV_HTML();$('#xb').innerHTML=ic('exit',18)+'<span class="t">خروج</span>';
-$('#acc').innerHTML=ic('shield',18)+' اتهام';
+$('#acc').innerHTML=ic('shield',18)+' اتهام';$('#hn').innerHTML=ic('bulb',18);$('#hn').onclick=hint;
 render();
 <\/script>
 </body>
@@ -5731,6 +5942,27 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  });
  fixLabel();fixLock();
  if(window.curView===15)window.entView();
+})();
+</script>
+<script id="g22-refresh-js">
+(function(){
+ function en(){try{return getAppLanguage()==="en"}catch(e){return false}}
+ var ICON='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-3px;margin-inline-end:6px"><path d="M20 11a8 8 0 0 0-14.3-4.5L4 8"/><path d="M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.3 4.5L20 16"/><path d="M20 20v-4h-4"/></svg>';
+ function reload(){var done=false;function go(){if(done)return;done=true;location.reload()}
+  try{if(navigator.serviceWorker&&navigator.serviceWorker.getRegistrations){navigator.serviceWorker.getRegistrations().then(function(rs){return Promise.all(rs.map(function(r){return r.update()}))}).then(go,go);setTimeout(go,2500)}else go()}catch(e){go()}}
+ function addCard(){
+  var v=document.getElementById("v6");if(!v)return;
+  var c=document.getElementById("g22RefreshCard");
+  if(!c){c=document.createElement("div");c.className="settings-card";c.id="g22RefreshCard";
+   var E=en();
+   c.innerHTML='<h2>'+ICON+(E?'Refresh page':'تحديث الصفحة')+'</h2><div class="sub">'+(E?'Reloads the app to get the latest version. Your data stays saved on this device.':'بيعمل ريفرش للصفحة عشان تاخد آخر تحديث. بياناتك بتفضل محفوظة على الجهاز.')+'</div><div class="backup-actions"><button type="button" id="g22RefreshBtn">'+ICON+(E?'Refresh now':'حدّث الصفحة دلوقتي')+'</button></div>';
+   c.querySelector("#g22RefreshBtn").onclick=function(){this.disabled=true;try{appToast(en()?"Refreshing...":"جاري التحديث...")}catch(e){}reload()};
+  }
+  v.appendChild(c);
+ }
+ var o=window.settingsView;
+ if(typeof o==="function"&&!o.__g22rf){var w=function(){var r=o.apply(this,arguments);try{addCard()}catch(e){}return r};w.__g22rf=true;window.settingsView=w}
+ try{if(window.curView===6)addCard()}catch(e){}
 })();
 </script>
 </body>
