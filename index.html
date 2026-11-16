@@ -4007,6 +4007,52 @@ body:not(.ui-tablet) #examApp .exm-aside .exm-grid{display:grid;grid-template-co
 body:not(.ui-tablet) #examApp .exm-aside .exm-g{height:36px;border-radius:10px;font-size:.85rem}
 body:not(.ui-tablet) #examApp .exm-aside>.exm-nav{display:flex;gap:6px;margin:0;order:0}
 body:not(.ui-tablet) #examApp .exm-aside .exm-nav .exm-b{flex:1;min-height:46px;padding:6px 4px;font-size:.85rem;border-radius:14px}
+
+/* ===== v3: phone-only exam layout (follows the user's sketch). Tablet / desktop untouched: every rule needs body:not(.ui-tablet) or body.exm-focus (phone only) ===== */
+/* top bar stays visible during the exam, minus the drawer (menu) button */
+html body.exm-focus>.top{display:flex!important;position:static!important;margin:0 0 4px!important;padding:2px 6px!important;flex:none;border-radius:14px;gap:6px}
+html body.exm-focus>.top h1{font-size:1rem!important;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html body.exm-focus>.top #mb{display:none!important}
+html body.exm-focus>.top .tg{width:30px;height:30px;font-size:.9rem}
+html body.exm-focus>.top .lg{width:28px;height:28px}
+/* header: [progress text] [exams list] [pause] [hide filters] */
+html body:not(.ui-tablet) #examApp .exm-hd{padding:6px 8px}
+html body:not(.ui-tablet) #examApp .exm-hd .exm-hr{display:flex;flex-wrap:nowrap;align-items:center;gap:6px}
+html body:not(.ui-tablet) #examApp .exm-hd :is(.exm-en,.exm-mnb,.exm-setb,.exm-dtg){display:none!important}
+html body:not(.ui-tablet) #examApp .exm-hd .exm-hr .exm-scx{order:1;flex:1 1 0;min-width:0;margin:0;font-size:.74rem;line-height:1.25;white-space:normal}
+html body:not(.ui-tablet) #examApp .exm-hd .exm-hr #exm-rx{order:2}
+html body:not(.ui-tablet) #examApp .exm-hd .exm-hr [data-a="home"]{order:2;width:auto;min-width:0;padding:0 10px;font-size:.76rem;font-weight:700;white-space:nowrap;border:1px solid var(--x-pr);min-height:34px}
+html body:not(.ui-tablet) #examApp .exm-hd [data-a="home"]::before{display:none}
+html body:not(.ui-tablet) #examApp .exm-hd .exm-hr #exm-ps{order:3}
+html body:not(.ui-tablet) #examApp .exm-hd .exm-hr #exm-ftg{order:4}
+/* filters: visible by default (2 tidy rows); the hide button toggles .open = hidden */
+html body:not(.ui-tablet) #examApp .exm-hd .exm-fl2{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;margin-top:5px!important}
+html body:not(.ui-tablet) #examApp .exm-hd .exm-fl2.open{display:none!important}
+html body:not(.ui-tablet) #examApp .exm-hd .exm-fl2 .exm-dd{flex:none;min-width:0;grid-column:span 2}
+html body:not(.ui-tablet) #examApp .exm-hd .exm-fl2 .exm-dd:nth-of-type(n+4){grid-column:span 3}
+html body:not(.ui-tablet) #examApp .exm-hd .exm-fl2 .exm-ddb{padding:3px 8px;padding-inline-end:22px;font-size:.72rem;border-radius:10px}
+html body:not(.ui-tablet) #examApp .exm-hd .exm-fl2 .exm-ddb::after{inset-inline-end:8px;width:6px;height:6px}
+html body:not(.ui-tablet) #examApp .exm-hd .exm-bar{height:3px;margin-top:6px}
+/* question card fills the free height: tags + icons, question, options stretch evenly */
+html body:not(.ui-tablet) #examApp #exm-exam>#exm-qc{display:flex;flex-direction:column;gap:5px;padding:6px 8px;overflow-x:hidden;overflow-y:auto}
+html body:not(.ui-tablet) #examApp #exm-qc>*{flex:none;margin-top:0;margin-bottom:0}
+html body:not(.ui-tablet) #examApp #exm-qc .exm-tags{display:flex;flex-wrap:nowrap;align-items:center;overflow-x:auto;gap:5px;margin:0 0 2px}
+html body:not(.ui-tablet) #examApp #exm-qc .exm-side{display:flex;gap:5px;flex:none;position:sticky;inset-inline-end:0;margin-inline-start:auto;padding-inline-start:6px;background:var(--x-card);justify-content:flex-end}
+html body:not(.ui-tablet) #examApp #exm-qc .exm-fb{width:28px;height:28px;padding:0;justify-content:center;border-radius:50%}
+html body:not(.ui-tablet) #examApp #exm-qc .exm-fb span{display:none}
+html body:not(.ui-tablet) #examApp #exm-qc .exm-q{font-size:.95rem;line-height:1.45;margin:0 0 2px}
+html body:not(.ui-tablet) #examApp #exm-qc>.exm-o,html body:not(.ui-tablet) #examApp #exm-qc>.exm-ow{flex:1 0 auto;min-height:40px}
+html body:not(.ui-tablet) #examApp #exm-qc>.exm-ow{display:flex}
+html body:not(.ui-tablet) #examApp #exm-qc>.exm-ow>.exm-o{flex:1;min-height:0;margin:0}
+html body:not(.ui-tablet) #examApp #exm-qc>.exm-o{margin-top:0}
+html body:not(.ui-tablet) #examApp #exm-qc .exm-o{padding:4px 10px;font-size:.86rem;line-height:1.35;border-radius:13px;gap:8px}
+html body:not(.ui-tablet) #examApp #exm-qc .exm-o .exm-k{width:26px;height:26px;border-radius:8px;font-size:.82rem}
+/* bottom: Prev / Finish / Next first, then the question navigator */
+html body:not(.ui-tablet) #examApp .exm-aside{gap:6px}
+html body:not(.ui-tablet) #examApp .exm-aside>.exm-nav{order:0}
+html body:not(.ui-tablet) #examApp .exm-aside>.exm-card{order:1;padding:6px 8px}
+html body:not(.ui-tablet) #examApp .exm-aside .exm-nav .exm-b{min-height:40px;font-size:.84rem;border-radius:999px}
+html body:not(.ui-tablet) #examApp .exm-aside .exm-grid{max-height:76px}
 </style>
 <script id="exam-feature-js">
 /* ===== Question bank (exam app) - isolated feature. Only global added: window.G22Exam ===== */
@@ -4304,7 +4350,7 @@ function skeleton(){
 '<p class="exm-sc">'+tx('netNote')+'</p></div></div>'+
 '<div id="exm-mix" class="exm-hid"></div><div id="exm-mst" class="exm-hid"></div>'+
 '<div id="exm-exam" class="exm-hid"><div class="exm-card exm-hd">'+
-'<div class="exm-row exm-hr"><b id="exm-en" dir="auto" class="exm-en"></b><div class="exm-sc exm-scx" id="exm-sc"></div><button class="exm-b s rd exm-hid" id="exm-rx" data-a="redocur" title="'+esc(tx('redoB'))+'" aria-label="'+esc(tx('redoB'))+'">'+tx('redoB')+'</button><button class="exm-b s exm-dtg" id="exm-dtg" data-a="toggledr"></button><button class="exm-b s exm-mnb" id="exm-mnb" data-a="menu" title="'+esc(tx('menuB'))+'" aria-label="'+esc(tx('menuB'))+'">'+ic('menu')+'</button><button class="exm-b s exm-setb" id="exm-set" type="button" title="الإعدادات" aria-label="الإعدادات"><svg class="exm-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.27 4.80L10.75 2.48L13.25 2.48L13.73 4.80A7.4 7.4 0 0 1 15.87 5.69L15.87 5.69L17.84 4.38L19.62 6.16L18.31 8.13A7.4 7.4 0 0 1 19.20 10.27L19.20 10.27L21.52 10.75L21.52 13.25L19.20 13.73A7.4 7.4 0 0 1 18.31 15.87L18.31 15.87L19.62 17.84L17.84 19.62L15.87 18.31A7.4 7.4 0 0 1 13.73 19.20L13.73 19.20L13.25 21.52L10.75 21.52L10.27 19.20A7.4 7.4 0 0 1 8.13 18.31L8.13 18.31L6.16 19.62L4.38 17.84L5.69 15.87A7.4 7.4 0 0 1 4.80 13.73L4.80 13.73L2.48 13.25L2.48 10.75L4.80 10.27A7.4 7.4 0 0 1 5.69 8.13L5.69 8.13L4.38 6.16L6.16 4.38L8.13 5.69A7.4 7.4 0 0 1 10.27 4.80Z"/><circle cx="12" cy="12" r="3.1"/></svg></button><button class="exm-b s exm-ftg" id="exm-ftg" data-a="togglefl" title="'+esc(tx('flB'))+'" aria-label="'+esc(tx('flB'))+'">'+ic('filter')+'</button><button class="exm-b s" id="exm-ps" data-a="pause" title="'+esc(tx('pause'))+'" aria-label="'+esc(tx('pause'))+'">'+tx('pause')+'</button><button class="exm-b s" data-a="home" title="'+esc(tx('homeB'))+'" aria-label="'+esc(tx('homeB'))+'">'+tx('homeB')+'</button></div>'+
+'<div class="exm-row exm-hr"><b id="exm-en" dir="auto" class="exm-en"></b><div class="exm-sc exm-scx" id="exm-sc"></div><button class="exm-b s rd exm-hid" id="exm-rx" data-a="redocur" title="'+esc(tx('redoB'))+'" aria-label="'+esc(tx('redoB'))+'">'+tx('redoB')+'</button><button class="exm-b s exm-dtg" id="exm-dtg" data-a="toggledr"></button><button class="exm-b s exm-mnb" id="exm-mnb" data-a="menu" title="'+esc(tx('menuB'))+'" aria-label="'+esc(tx('menuB'))+'">'+ic('menu')+'</button><button class="exm-b s exm-setb" id="exm-set" type="button" title="الإعدادات" aria-label="الإعدادات"><svg class="exm-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.27 4.80L10.75 2.48L13.25 2.48L13.73 4.80A7.4 7.4 0 0 1 15.87 5.69L15.87 5.69L17.84 4.38L19.62 6.16L18.31 8.13A7.4 7.4 0 0 1 19.20 10.27L19.20 10.27L21.52 10.75L21.52 13.25L19.20 13.73A7.4 7.4 0 0 1 18.31 15.87L18.31 15.87L19.62 17.84L17.84 19.62L15.87 18.31A7.4 7.4 0 0 1 13.73 19.20L13.73 19.20L13.25 21.52L10.75 21.52L10.27 19.20A7.4 7.4 0 0 1 8.13 18.31L8.13 18.31L6.16 19.62L4.38 17.84L5.69 15.87A7.4 7.4 0 0 1 4.80 13.73L4.80 13.73L2.48 13.25L2.48 10.75L4.80 10.27A7.4 7.4 0 0 1 5.69 8.13L5.69 8.13L4.38 6.16L6.16 4.38L8.13 5.69A7.4 7.4 0 0 1 10.27 4.80Z"/><circle cx="12" cy="12" r="3.1"/></svg></button><button class="exm-b s exm-ftg" id="exm-ftg" data-a="togglefl" title="'+esc(tx('flB'))+'" aria-label="'+esc(tx('flB'))+'">'+ic('menu')+'</button><button class="exm-b s" id="exm-ps" data-a="pause" title="'+esc(tx('pause'))+'" aria-label="'+esc(tx('pause'))+'">'+tx('pause')+'</button><button class="exm-b s" data-a="home" title="'+esc(tx('homeB'))+'" aria-label="'+esc(tx('homeB'))+'">'+tx('homeB')+'</button></div>'+
 '<div class="exm-row exm-fl2" style="margin-top:8px"><select id="exm-fy"></select><select id="exm-fs"></select><select id="exm-ft"></select><select id="exm-fp"></select><select id="exm-fst">'+
 '<option value="">'+tx('fAll')+'</option><option value="un">'+tx('fUn')+'</option><option value="wr">'+tx('fWr')+'</option><option value="ok">'+tx('fOk')+'</option><option value="fl">'+tx('fFl')+'</option></select></div>'+
 '<div class="exm-bar"><i id="exm-pb"></i></div></div>'+
