@@ -12163,6 +12163,12 @@ html body .dr #ns{margin-top:12px!important;border-radius:14px!important;border-
 html body .dr .social-links{margin-top:12px;padding:14px 0 4px;border-top:1px solid var(--line);gap:8px}
 html body .dr .social-links .social-icon-link{min-height:46px;border-radius:12px}
 html body .dr .owner{border-radius:14px;background:var(--bg);border:1px solid var(--line);margin-top:10px;align-items:center;text-align:center}
+/* Fix: Entertainment (#m15) + Exam library (#g22LibNav) icons were forced to 20px by older #id rules, so the 8px tile padding crushed them. Match the other menu icons: 36px tile, 20px glyph. */
+html body .dr>button#m15>svg,html body .dr>button#g22LibNav>svg{width:36px;height:36px;padding:8px;box-sizing:border-box;border-radius:12px;background:var(--bg);color:var(--mute);flex:none;display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+html body .dr>button#m15.act>svg{background:var(--acc);color:#fff}
+html body .dr>button#m15,html body .dr>button#g22LibNav{gap:12px}
+html body .dr>button#g22LibNav{border-radius:14px;margin-top:12px}
+@media(hover:hover){html body .dr>button#m15:hover:not(.act)>svg,html body .dr>button#g22LibNav:hover>svg{color:var(--acc)}}
 .os-sec svg{width:20px;height:20px;flex:none;transition:transform .2s}.os-sec .os-k{display:flex;align-items:center;gap:10px;flex:1}.os-sec em{font-style:normal;color:#8a8a8a;font-size:.76rem;margin-inline:8px}.os-sec[aria-expanded=true] svg:last-child{transform:rotate(180deg)}.os-w{display:flex;align-items:center;justify-content:center;gap:8px}.os-w svg{width:16px;height:16px}
 </style>
 <script id="pm-pro-js">
