@@ -1781,30 +1781,32 @@ function today(onlySections,delta,target){
  var IC={bus:svg('<rect x="4" y="3" width="16" height="14" rx="3"/><path d="M4 11h16M8 17v2.5M16 17v2.5"/><circle cx="8.5" cy="14" r=".7"/><circle cx="15.5" cy="14" r=".7"/>'),ok:svg('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),book:svg('<path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M8 7h8"/>'),lab:svg('<path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9V3"/><path d="M7.5 15h9"/>'),pin:svg('<path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>'),usr:svg('<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/>'),clk:svg('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),cal:svg('<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>')};
  var E=[];
  o.r.forEach(function(x){var t=null;try{t=tmins(x.tm)}catch(e){}E.push({k:x.sec?"sec":"lec",x:x,st:t?t[0]:null,en:t&&t.length>1?t[1]:null})});
- E.sort(function(a,b){return(a.st===null?1e9:a.st)-(b.st===null?1e9:b.st)});
+ try{tkFor(dd).forEach(function(k){E.push({k:"task",x:k,st:k.st,en:k.dur?k.st+k.dur:null})})}catch(e){}
+  E.sort(function(a,b){return(a.st===null?1e9:a.st)-(b.st===null?1e9:b.st)});
  var B=null;try{if(busesEnabled()&&!busesLocked())B=busCalc(delta,onlySections)}catch(e){B=null}
  var R=[];
  if(B&&B.any)R.push({k:"bus",dir:"go",st:B.go});
  E.forEach(function(e){R.push(e)});
  if(B&&B.any)R.push({k:"bus",dir:"bk",st:B.ok?B.bk:null,en:null});
  var nl=0,ns=0,first=null,last=null;
- E.forEach(function(e){if(e.k==="sec")ns++;else nl++;if(e.st!==null&&(first===null||e.st<first))first=e.st;var ee=e.en!==null?e.en:e.st;if(ee!==null&&(last===null||ee>last))last=ee});
+ E.forEach(function(e){if(e.k==="task")return;if(e.k==="sec")ns++;else nl++;if(e.st!==null&&(first===null||e.st<first))first=e.st;var ee=e.en!==null?e.en:e.st;if(ee!==null&&(last===null||ee>last))last=ee});
  R.forEach(function(r){r.s="up";if(!isT)return;
-  if(r.k==="bus"){if(r.st!==null&&r.st<=nm)r.s="done";return}
+  if(r.k==="task"){var tx=r.x;body='<div class="tl-h"><span class="tl-n"><span class="tl-ic">'+IC.clk+'</span><span class="tl-nt" dir="auto">'+esc(tx.n)+'</span></span>'+(r.s==="done"?'<span class="tl-tg">'+IC.ok+' '+dT("خلصت","Done")+'</span>':r.s==="now"?'<span class="tl-tg">'+dT("شغالة دلوقتي","Now")+'</span>':'<span class="tl-tg s">'+dT("مهمة","Task")+'</span>')+'<button class="del" data-deltk="'+tx.id+'">✕</button></div><div class="tl-mc"><span class="tl-ch ty">'+dT("مهمتي","My task")+'</span><span class="tl-ch">'+esc(tkTime(tx))+'</span><span class="tl-ch">'+tkPlace(tx)+'</span></div>'+rem}
+   else if(r.k==="bus"){if(r.st!==null&&r.st<=nm)r.s="done";return}
   if(r.st!==null&&r.en!==null){if(r.en<=nm)r.s="done";else if(r.st<=nm)r.s="now"}else if(r.st!==null&&r.st<=nm)r.s="done"});
  var nx=-1;if(isT)for(var i=0;i<R.length;i++)if(R[i].s==="up"&&R[i].st!==null){nx=i;break}
  var days='<div class="tl-days">';
- for(var d=0;d<7;d++){var dt=new Date(Date.now()+864e5*d),has=false;try{has=dayList(dt).r.filter(function(x){return onlySections?!!x.sec:true}).length>0}catch(e){}
+ for(var d=0;d<7;d++){var dt=new Date(Date.now()+864e5*d),has=false;try{has=dayList(dt).r.filter(function(x){return onlySections?!!x.sec:true}).length>0||tkFor(dt).length>0}catch(e){}
   days+='<button type="button" data-'+(onlySections?'sd':'td')+'="'+d+'" class="tl-d'+(d===delta?' on':'')+'">'+(en?WD_EN[dt.getDay()].slice(0,3):WD[dt.getDay()])+'<b>'+dt.getDate()+'</b><i'+(has?'':' class="n"')+'></i></button>'}
  days+='</div>';
- var h=days;
+ var h=days+'<div class="tk-bar"><button type="button" data-addtk="'+tkKey(dd)+'">＋ '+dT("مهمة جديدة","New task")+'</button></div>';
  if(!E.length){
   h+='<div class="tl-empty">'+IC.cal+'<b>'+(onlySections?dT("ما عنديش سكاشن "+(delta?"في اليوم ده":"النهارده"),"No sections "+(delta?"on this day":"today")):dT("ما عنديش محاضرات ولا سكاشن "+(delta?"في اليوم ده":"النهارده"),"No lectures or sections "+(delta?"on this day":"today")))+'</b><span>'+(onlySections?dT("استمتع بيومك، والسكاشن هتظهر هنا تلقائيًا.","Enjoy your day; your sections will appear here automatically."):dT("استمتع بيومك، أو ضيف محاضرات من قسم المواد.","Enjoy your day, or add lectures from Subjects."))+'</span><button type="button" onclick="view(1)">'+dT("افتح المواد","Open Subjects")+'</button></div>';
   $(target).innerHTML=h;return}
  h+='<div class="tl-sum"><span class="a"><em>'+IC.book+'</em><div class="tl-sx"><b>'+nl+'</b>'+dT("محاضرات","Lectures")+'</div></span><span class="b"><em>'+IC.lab+'</em><div class="tl-sx"><b>'+ns+'</b>'+dT("سكاشن","Sections")+'</div></span><span class="c"><em>'+IC.clk+'</em><div class="tl-sx"><b dir="ltr">'+(first!==null&&last!==null?sh(first)+" "+ap(first)+" – "+sh(last)+" "+ap(last):"—")+'</b>'+dT("اليوم","Day")+'</div></span></div><div class="tl">';
  var prevE=null;
  R.forEach(function(r,i){
-  var tt,body,dot,cls="tl-c "+r.s+(r.k==="bus"?" bus":"")+(r.k==="sec"?" sec":"")+(i===nx?" nxt":""),rem="";
+  var tt,body,dot,cls="tl-c "+r.s+(r.k==="bus"?" bus":"")+(r.k==="sec"?" sec":"")+(r.k==="task"?" task":"")+(i===nx?" nxt":""),rem="";
   if(r.st!==null)tt='<b>'+sh(r.st)+'</b><small>'+ap(r.st)+'</small>'+(r.en!==null?'<small class="e">'+sh(r.en)+'</small>':"");else tt='<b>—</b>';
   if(i===nx&&r.st!==null)rem='<div class="tl-rm">'+dT("بعد ","In ")+dMin(r.st-nm)+'</div>';
   if(r.k==="bus"){
@@ -1816,7 +1818,7 @@ function today(onlySections,delta,target){
    body+=rem;
    if(prevE&&prevE.en!==null&&r.st!==null&&r.st>prevE.en)h+='<div class="tl-r"><div></div><div class="tl-l"></div><div class="tl-gp">'+dT("فاصل ","Break: ")+dMin(r.st-prevE.en)+'</div></div>';
    prevE=r}
-  dot=r.s==="now"?"now":(r.s==="done"?"dn":"")+(r.k==="sec"?" sc":"");
+  dot=r.s==="now"?"now":(r.s==="done"?"dn":"")+(r.k==="sec"?" sc":"")+(r.k==="task"?" tk":"");
   h+='<div class="tl-r"><div class="tl-t">'+tt+'</div><div class="tl-l"><i class="'+dot+'"></i></div><div class="'+cls+'">'+body+'</div></div>'});
  h+='</div>';
  $(target).innerHTML=h}
@@ -1997,10 +1999,53 @@ var tdelta=0;
 function chips(attr,cur){var h='<div class="bd wk">';for(var d=0;d<7;d++){var dt=new Date(Date.now()+864e5*d);
  h+='<button type="button" data-'+attr+'="'+d+'" class="'+(d===cur?"act":"")+'">'+WD[dt.getDay()]+'<span>'+(d===0?"النهارده":dt.getDate()+"/"+(dt.getMonth()+1))+'</span></button>'}
  return h+"</div>"}
+
+/* ===== custom tasks + sections-only mode ===== */
+function secOnly(){try{return localStorage.getItem("g22secOnly")==="1"}catch(e){return false}}
+function tkRead(){try{var a=JSON.parse(localStorage.getItem("g22tasks")||"[]");return Array.isArray(a)?a:[]}catch(e){return[]}}
+function tkWrite(a){try{localStorage.setItem("g22tasks",JSON.stringify(a))}catch(e){}}
+function tkKey(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function tkFor(d){var k=tkKey(d);return tkRead().filter(function(x){return x&&x.date===k}).sort(function(a,b){return a.st-b.st})}
+function tkTime(x){function f(m){var h=Math.floor(m/60),mi=m%60;return(h>12?h-12:(h===0?12:h))+":"+(mi<10?"0":"")+mi+" "+(h>=12?dT("م","PM"):dT("ص","AM"))}return f(x.st)+(x.dur?" – "+f(x.st+x.dur):"")}
+function tkPlace(x){return x.loc==="uni"?dT("في الجامعة","On campus"):dT("مفيش مكان محدد","No set place")}
+function tkForm(dk){
+ var u=[0,15,30,45,60,90,120,180].map(function(m){return '<option value="'+m+'">'+(m?m+" "+dT("دقيقة","min"):dT("من غير مدة","No duration"))+'</option>'}).join("");
+ return '<div class="tkf"><h3>＋ '+dT("مهمة جديدة","New task")+'</h3>'
+ +'<label>'+dT("اسم المهمة","Task name")+'</label><input id="tkN" maxlength="80" placeholder="'+dT("مثلًا: مقابلة","e.g. Interview")+'">'
+ +'<label>'+dT("التاريخ","Date")+'</label><input id="tkD" type="date" value="'+dk+'">'
+ +'<label>'+dT("الساعة","Time")+'</label><input id="tkT" type="time">'
+ +'<label>'+dT("المدة (مطلوبة لو هي آخر حاجة في اليوم)","Duration (required if it is the last thing of the day)")+'</label><select id="tkU">'+u+'</select>'
+ +'<label>'+dT("المكان","Place")+'</label><select id="tkL"><option value="uni">'+dT("في الجامعة (بتتحسب مع الباصات)","On campus (counts for buses)")+'</option><option value="none">'+dT("مفيش مكان محدد (مش بتأثر على الباصات)","No set place (does not affect buses)")+'</option></select>'
+ +'<div class="acts"><button type="button" class="add" data-tksave="1">'+dT("حفظ","Save")+'</button></div></div>'}
+function tkRefresh(){try{var v=window.curView;if(v===2)today();else if(v===4)sec();else if(v===3)bus();else if(v===10){var el=document.querySelector("#v10 .dnext");if(el){var s0=DASH_N;DASH_N=+((el.getAttribute("style")||"").match(/--n:(\d+)/)||[0,0])[1];var t=document.createElement("div");t.innerHTML=dNext();DASH_N=s0;if(t.firstChild)el.replaceWith(t.firstChild)}}}catch(e){}
+ try{var sh=$("dcalSheet");if(sh&&sh.classList.contains("on"))sh.innerHTML=calSheetHtml();var c=$("dcal");if(c)c.innerHTML=calGrid()}catch(e){}}
+function tkMsg(m){try{if(typeof appToast==="function"){appToast(m);return}}catch(e){}alert(m)}
+function tkSave(){
+ var n=($("tkN").value||"").trim(),dk=$("tkD").value,tv=$("tkT").value,dur=+$("tkU").value||0,loc=$("tkL").value;
+ if(!n){tkMsg(dT("اكتب اسم المهمة","Enter a task name"));return}
+ if(!dk){tkMsg(dT("اختار التاريخ","Pick a date"));return}
+ if(!tv){tkMsg(dT("اختار الساعة","Pick a time"));return}
+ var st=+tv.split(":")[0]*60+ +tv.split(":")[1],d=calParse(dk);
+ if(loc==="uni"&&!dur){var other=false;
+  try{var l=dayList(d).r;if(secOnly())l=l.filter(function(x){return !!x.sec});l.forEach(function(x){var t=tmins(x.tm);if(!t)return;var e=t.length>1?t[1]:t[0];if(e>st)other=true})}catch(e){}
+  tkFor(d).forEach(function(x){if(x.loc==="uni"&&x.st+(x.dur||0)>st)other=true});
+  if(!other){tkMsg(dT("المهمة دي آخر حاجة في يومك، حدد مدتها عشان باص العودة يتحسب صح","This is the last thing of the day, set its duration so the return bus is right"));return}}
+ var a=tkRead();a.push({id:"t"+Date.now()+Math.floor(Math.random()*1000),n:n,date:dk,st:st,dur:dur||0,loc:loc});tkWrite(a);
+ mClose();tkRefresh()}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-tksave],[data-deltk],[data-addtk]");if(!b)return;
+ if(b.hasAttribute("data-tksave")){tkSave();return}
+ if(b.hasAttribute("data-deltk")){var id=b.getAttribute("data-deltk");tkWrite(tkRead().filter(function(x){return x.id!==id}));tkRefresh();return}
+ mShow(tkForm(b.getAttribute("data-addtk")))});
+(function(){var st=document.createElement("style");st.textContent='.tkf label{display:block;font-size:.78rem;opacity:.75;margin:6px 0 2px}.tkf input,.tkf select{width:100%;box-sizing:border-box;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}.tkf h3{margin:0 0 6px}'
+ +'.tk-bar{margin:0 0 12px}.tk-bar button{width:100%;padding:10px;border:1.5px dashed #8b5cf6;border-radius:12px;background:transparent;color:#8b5cf6;font:inherit;font-weight:600}'
+ +'#v2 .tl-c.task:before,#v4 .tl-c.task:before{background:#8b5cf6}#v2 .tl-c.task .tl-ic,#v4 .tl-c.task .tl-ic{background:color-mix(in srgb,#8b5cf6 16%,transparent);color:#8b5cf6}#v2 .tl-c.task .tl-ch.ty,#v4 .tl-c.task .tl-ch.ty{color:#8b5cf6;background:color-mix(in srgb,#8b5cf6 14%,transparent)}#v2 .tl-l i.tk,#v4 .tl-l i.tk{border-color:#8b5cf6}#v2 .tl-l i.tk.dn,#v4 .tl-l i.tk.dn{background:#8b5cf6}'
+ +'.dcal-dots i.t,.dcal-lg i.t{background:#8b5cf6}.dcal-r.tkr svg{color:#8b5cf6}.dcal-r.tkr .tkx{margin-inline-start:auto;border:0;background:transparent;color:var(--mute);font-size:1rem}.tkd{margin:8px 0}.tkd summary{color:#8b5cf6;font-weight:600;padding:8px 0}';
+ document.head.appendChild(st)})();
 function busCalc(d,onlySec){var o=dayList(new Date(Date.now()+864e5*d)),st=null,en=null,unk=false,any=0;
- if(onlySec){o=Object.assign({},o,{r:o.r.filter(function(x){return !!x.sec})})}
+ if(onlySec===undefined)onlySec=secOnly();if(onlySec){o=Object.assign({},o,{r:o.r.filter(function(x){return !!x.sec})})}
  o.r.forEach(function(x){var t=tmins(x.tm);if(!t)return;any++;if(st===null||t[0]<st)st=t[0];var e=t.length>1?t[1]:null;if(e===null){unk=true;e=t[0]}if(en===null||e>en)en=e});
- var c={o:o,any:any,st:st,en:en,unk:unk,go:null,bk:null,ok:false};
+ try{tkFor(new Date(Date.now()+864e5*d)).forEach(function(k){if(k.loc!=="uni")return;any++;if(st===null||k.st<st)st=k.st;var e2=k.st+(k.dur||0);if(en===null||e2>en)en=e2})}catch(e){}
+  var c={o:o,any:any,st:st,en:en,unk:unk,go:null,bk:null,ok:false};
  if(any){c.go=chooseGo(st);for(var i=0;i<BK.length;i++)if(BK[i]>=en){c.bk=BK[i];break}c.ok=c.bk!==null}
  return c}
 /* Sections-only bus calc: first bus for the first SECTION, return bus after the last SECTION */
@@ -3034,21 +3079,25 @@ function dRingMin(m,pct){
  return '<span class="dn-ring"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="t" cx="32" cy="32" r="26"/><circle class="p" cx="32" cy="32" r="26" stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+(C*(1-pct/100)).toFixed(1)+'"/></svg><span class="dn-rc"><b dir="ltr">'+big+'</b><small>'+u+'</small></span></span>'}
 function dNext(d){
  var now=new Date(),nm=now.getHours()*60+now.getMinutes()+now.getSeconds()/60,L=[],cur=null,nxt=null,lastEnd=null,prevEnd=null,noTm=0,i;
- try{L=dayList(now).r}catch(e){}
- L.forEach(function(x){var t;try{t=tmins(x.tm)}catch(e){t=null}if(!t){noTm++;return}
-  var st=t[0],e2=t.length>1?t[1]:null,ee=e2!==null?e2:st;
-  if(lastEnd===null||ee>lastEnd)lastEnd=ee;
-  if(ee<=nm&&(prevEnd===null||ee>prevEnd))prevEnd=ee;
-  if(e2!==null&&st<=nm&&nm<e2){if(!cur||st>cur.st)cur={x:x,st:st,en:e2};return}
-  if(st>nm&&(!nxt||st<nxt.st))nxt={x:x,st:st}});
- function esc2(v){return esc(String(v))}
+ try{L=dayList(now).r;if(secOnly())L=L.filter(function(x){return !!x.sec})}catch(e){}
+ try{tkFor(now).forEach(function(k){L.push({n:k.n,sec:false,tk:true,loc:k.loc,dur:k.dur,pl:tkPlace(k),t:"",tm:String(k.id),_m:k.dur?[k.st,k.st+k.dur]:[k.st]})})}catch(e){}
+  var STS=[];L.forEach(function(x){var t;try{t=x._m||tmins(x.tm)}catch(e){t=null}if(t)STS.push(t[0])});
+  L.forEach(function(x){var t;try{t=x._m||tmins(x.tm)}catch(e){t=null}if(!t){noTm++;return}
+   var st=t[0],e2=t.length>1?t[1]:null,ee=e2!==null?e2:st,open=false,ns=null;
+   if(x.tk&&!x.dur){STS.forEach(function(s2){if(s2>st&&(ns===null||s2<ns))ns=s2});open=true;if(ns!==null)ee=ns}
+   if(!(x.tk&&x.loc!=="uni")&&(lastEnd===null||ee>lastEnd))lastEnd=ee;
+   if(ee<=nm&&(prevEnd===null||ee>prevEnd))prevEnd=ee;
+   if(open&&st<=nm&&(ns===null||nm<ns)){if(!cur||st>cur.st)cur={x:x,st:st,en:null,open:true};return}
+   if(e2!==null&&st<=nm&&nm<e2){if(!cur||st>cur.st)cur={x:x,st:st,en:e2};return}
+   if(st>nm&&(!nxt||st<nxt.st))nxt={x:x,st:st}});
+   function esc2(v){return esc(String(v))}
  function place(p){return p?(/^\d+$/.test(String(p).trim())?dT("قاعة ","Room ")+esc2(p):esc2(p)):""}
  function meta(x){return[x.sec?dT("سكشن","Section"):dT("محاضرة","Lecture"),place(x.pl),x.t?esc2(x.t):""].filter(Boolean).join(" · ")}
  function at(m){return '<span class="dn-at" dir="auto">'+fm(m)+'</span>'}
  function pct(rem,tot){return Math.max(3,Math.min(100,rem/Math.max(tot,1)*100))}
  var busOn=false;try{busOn=busesEnabled()&&!busesLocked()}catch(e){}
  var bus=null;
- if(busOn&&lastEnd!==null){var from=Math.max(lastEnd,nm);for(i=0;i<BK.length;i++)if(BK[i]>=from){bus=BK[i];break}}
+ if(busOn&&lastEnd!==null){var from=lastEnd;for(i=0;i<BK.length;i++)if(BK[i]>=from){bus=BK[i];break}}
 var go=2,body="";
  function tile(m,p){return '<span class="dn-tile">'+dRingMin(m,p)+'</span>'}
  function sv(p){return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+p+'</svg>'}
@@ -3057,28 +3106,31 @@ var go=2,body="";
  function dayName(dt,off){var en2=getAppLanguage()==="en";return off===0?dT("اليوم","Today"):off===1?dT("بكرة","Tomorrow"):(en2?WD_EN[dt.getDay()]:WD[dt.getDay()])}
  function lecRow(x,st,diff,pc,off,dt,label){
   var bell=off===0?dBellLec(x,st):dBellLecD(x,st,dt);
-  return '<div class="dn-row">'+tile(diff,pc)+'<div class="dn-in"><small class="dn-rem">'+label+'</small><b dir="auto">'+esc2(x.n)+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(st))+chip(dIc("cal"),dayName(dt,off)+" · "+dt.getDate()+"/"+(dt.getMonth()+1))+(x.pl?chip(icPin,place(x.pl)):"")+(x.t?chip(icUsr,esc2(x.t)):"")+'</span></div>'+bell+'</div>'}
+  return '<div class="dn-row">'+(diff>720?'':tile(diff,pc))+'<div class="dn-in"><small class="dn-rem">'+(diff>720?label.split(" · ")[0]:label)+'</small><b dir="auto">'+esc2(x.n)+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(st))+chip(dIc("cal"),dayName(dt,off)+" · "+dt.getDate()+"/"+(dt.getMonth()+1))+(x.pl?chip(icPin,place(x.pl)):"")+(x.t?chip(icUsr,esc2(x.t)):"")+'</span></div>'+bell+'</div>'}
  var nd=null;
- if(!nxt&&noTm!==L.length){try{for(var q=1;q<=7&&!nd;q++){var dq=new Date(now.getFullYear(),now.getMonth(),now.getDate()+q),lq=dayList(dq).r,bq=null;
-   lq.forEach(function(x){var t;try{t=tmins(x.tm)}catch(e){t=null}if(t&&(!bq||t[0]<bq.st))bq={x:x,st:t[0]}});
+ if(!nxt&&(noTm!==L.length||!L.length)){try{for(var q=1;q<=7&&!nd;q++){var dq=new Date(now.getFullYear(),now.getMonth(),now.getDate()+q),lq=dayList(dq).r.slice(),bq=null;if(secOnly())lq=lq.filter(function(x){return !!x.sec});tkFor(dq).forEach(function(k){lq.push({n:k.n,sec:false,tk:true,loc:k.loc,dur:k.dur,pl:tkPlace(k),t:"",tm:String(k.id),_m:[k.st]})});
+   lq.forEach(function(x){var t;try{t=x._m||tmins(x.tm)}catch(e){t=null}if(t&&(!bq||t[0]<bq.st))bq={x:x,st:t[0]}});
    if(bq)nd={x:bq.x,st:bq.st,dt:dq,off:q}}}catch(e){nd=null}}
  var ndRow="";
- if(nd){var ndiff=nd.off*1440+nd.st-nm;ndRow=lecRow(nd.x,nd.st,ndiff,12,nd.off,nd.dt,nd.x.sec?dT("السكشن الجاي · باقي على بدايته","Next section · starts in"):dT("المحاضرة الجاية · باقي على بدايتها","Next lecture · starts in"))}
- if(!L.length){
+ if(nd){var ndiff=nd.off*1440+nd.st-nm;ndRow=lecRow(nd.x,nd.st,ndiff,12,nd.off,nd.dt,nd.x.tk?dT("المهمة الجاية · باقي على بدايتها","Next task · starts in"):nd.x.sec?dT("السكشن الجاي · باقي على بدايته","Next section · starts in"):dT("المحاضرة الجاية · باقي على بدايتها","Next lecture · starts in"))}
+ try{if(nd&&busOn){var cb=busCalc(nd.off);if(cb.any&&cb.go!==null){var bdiff=nd.off*1440+cb.go-nm,near=bdiff<=720;
+   ndRow='<div class="dn-row">'+(near?tile(bdiff,12):'')+'<div class="dn-in"><small class="dn-rem">'+(near?dT("باص الذهاب الجاي · باقي عليه","Next outbound bus · leaves in"):dT("باص الذهاب الجاي","Next outbound bus"))+'</small><b dir="auto">🚌 '+dT("باص الذهاب","Outbound bus")+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(cb.go))+chip(dIc("cal"),dayName(nd.dt,nd.off)+" · "+nd.dt.getDate()+"/"+(nd.dt.getMonth()+1))+'</span></div></div>'+ndRow}}}catch(e){}
+  if(!L.length){
   body='<div class="dn-empty">'+dT("ما عنديش محاضرات ولا سكاشن النهارده 🎉","No lectures or sections today 🎉")+'</div>'+ndRow}
  else if(noTm===L.length){
   body='<div class="dn-empty">'+dT("عندي "+L.length+" النهارده بس من غير مواعيد في الجدول","You have "+L.length+" today but no times in the schedule")+'</div>'}
  else if(cur||nxt){
   if(cur){
    var lastNow=!nxt&&cur.en===lastEnd,busLine=(lastNow&&bus!==null)?'<span class="dn-meta" dir="auto">🚌 '+dT("باص العودة الساعة ","Return bus at ")+fm(bus)+'</span>':"";
-   body+='<div class="dn-row now cmp">'+tile(cur.en-nm,pct(cur.en-nm,cur.en-cur.st))+'<div class="dn-in"><small class="dn-rem">● '+dT("شغالة دلوقتي · باقي على نهايتها","Happening now · time left")+'</small><b dir="auto">'+esc2(cur.x.n)+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(cur.st)+" – "+fm(cur.en))+(cur.x.pl?chip(icPin,place(cur.x.pl)):"")+(cur.x.t?chip(icUsr,esc2(cur.x.t)):"")+'</span>'+busLine+'</div></div>'}
+   body+='<div class="dn-row now cmp">'+(cur.open?'':tile(cur.en-nm,pct(cur.en-nm,cur.en-cur.st)))+'<div class="dn-in"><small class="dn-rem">● '+(cur.open?dT("شغالة دلوقتي · وقتها مفتوح","Happening now · open-ended"):dT("شغالة دلوقتي · باقي على نهايتها","Happening now · time left"))+'</small><b dir="auto">'+esc2(cur.x.n)+'</b><span class="dn-chips">'+chip(dIc("clock"),cur.open?fm(cur.st):fm(cur.st)+" – "+fm(cur.en))+(cur.x.pl?chip(icPin,place(cur.x.pl)):"")+(cur.x.t?chip(icUsr,esc2(cur.x.t)):"")+'</span>'+busLine+'</div></div>'}
   if(nxt){
    var diff=nxt.st-nm,win=prevEnd!==null?nxt.st-prevEnd:180;if(win>180||win<1)win=Math.min(180,Math.max(win,diff));
-   body+=lecRow(nxt.x,nxt.st,diff,pct(diff,win),0,now,nxt.x.sec?dT("السكشن الجاي · باقي على بدايته","Next section · starts in"):dT("المحاضرة الجاية · باقي على بدايتها","Next lecture · starts in"))}
+   body+=lecRow(nxt.x,nxt.st,diff,pct(diff,win),0,now,nxt.x.tk?dT("المهمة الجاية · باقي على بدايتها","Next task · starts in"):nxt.x.sec?dT("السكشن الجاي · باقي على بدايته","Next section · starts in"):dT("المحاضرة الجاية · باقي على بدايتها","Next lecture · starts in"))}
   else body+=ndRow}
- else if(busOn){
+ else if(busOn&&lastEnd!==null){
   go=3;
-  if(bus!==null){var bd=bus-nm;
+  if(bus!==null&&bus<=nm){body='<div class="dn-empty">✅ '+dT("خلصت يومك، وباص العودة عدّى الساعة ","Your day is done, the return bus left at ")+fm(bus)+'</div>'+ndRow}
+   else if(bus!==null){var bd=bus-nm;
    body='<div class="dn-row">'+tile(bd,pct(bd,bus-lastEnd))+'<div class="dn-in"><small class="dn-rem">✅ '+dT("خلصت محاضراتك · باقي على الباص","Classes done · bus leaves in")+'</small><b dir="auto">🚌 '+dT("باص العودة","Return bus")+'</b>'+at(bus)+'<span class="dn-meta" dir="auto">'+dT("آخر محاضرة خلصت ","Last class ended ")+fm(lastEnd)+'</span></div>'+dBellBus(bus)+'</div>'+ndRow}
   else body='<div class="dn-empty">✅ '+dT("خلصت محاضراتك، ومفيش باصات تانية النهارده 🚕 هتروح مواصلات","Classes done, no more buses today 🚕 take a taxi")+'</div>'+ndRow}
  else body='<div class="dn-empty">'+dT("خلصت محاضراتك النهارده 🎉","You're done for today 🎉")+'</div>'+ndRow;
@@ -3155,10 +3207,10 @@ function calKey(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,
 function calParse(k){var p=k.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
 function calNotes(){try{var o=JSON.parse(localStorage.getItem("g22calNotes")||"{}");return o&&typeof o==="object"&&!Array.isArray(o)?o:{}}catch(e){return{}}}
 function calNotesSave(o){try{localStorage.setItem("g22calNotes",JSON.stringify(o))}catch(e){}}
-function calDayData(d,notes){var o={lec:[],sec:[],ex:[],nt:[]},k=calKey(d);
+function calDayData(d,notes){var o={lec:[],sec:[],ex:[],nt:[],tk:[]},k=calKey(d);
  try{dayList(d).r.forEach(function(x){(x.sec?o.sec:o.lec).push(x)})}catch(e){}
  try{exRead().forEach(function(x){if(x.date===k)o.ex.push(x)})}catch(e){}
- o.nt=notes[k]||[];return o}
+ o.nt=notes[k]||[];try{o.tk=tkFor(d)}catch(e){}return o}
 function calGrid(){
  var en=getAppLanguage()==="en",now=new Date(),idx=now.getFullYear()*12+now.getMonth()+CAL.off,y=Math.floor(idx/12),mo=idx%12,first=new Date(y,mo,1).getDay(),count=new Date(y,mo+1,0).getDate(),notes=calNotes(),tk=calKey(now);
  var title=new Date(y,mo,1).toLocaleDateString(en?"en-US":"ar-EG",{month:"long",year:"numeric"});
@@ -3166,9 +3218,9 @@ function calGrid(){
  (en?["S","M","T","W","T","F","S"]:["أ","ن","ث","ر","خ","ج","س"]).forEach(function(x){c+='<div class="streak-day cal-head">'+x+'</div>'});
  for(var b=0;b<first;b++)c+='<div></div>';
  for(var d=1;d<=count;d++){var dt=new Date(y,mo,d),k=calKey(dt),o=calDayData(dt,notes),dots="";
-  if(o.lec.length)dots+='<i></i>';if(o.sec.length)dots+='<i class="s"></i>';if(o.ex.length)dots+='<i class="e"></i>';if(o.nt.length)dots+='<i class="n"></i>';
+  if(o.lec.length)dots+='<i></i>';if(o.sec.length)dots+='<i class="s"></i>';if(o.ex.length)dots+='<i class="e"></i>';if(o.tk.length)dots+='<i class="t"></i>';if(o.nt.length)dots+='<i class="n"></i>';
   c+='<button type="button" class="streak-day dcal-day'+(dots?' has':'')+(k===tk?' today':'')+'" data-cald="'+k+'"><span class="d-num">'+d+'</span><span class="d-hrs dcal-dots">'+(dots||'&nbsp;')+'</span></button>'}
- return c+'</div><div class="dcal-lg"><span><i></i>'+dT("محاضرات","Lectures")+'</span><span><i class="s"></i>'+dT("سكاشن","Sections")+'</span><span><i class="e"></i>'+dT("امتحانات","Exams")+'</span><span><i class="n"></i>'+dT("ملاحظاتي","Notes")+'</span></div>'}
+ return c+'</div><div class="dcal-lg"><span><i class="t"></i>'+dT("مهامي","My tasks")+'</span><span><i></i>'+dT("محاضرات","Lectures")+'</span><span><i class="s"></i>'+dT("سكاشن","Sections")+'</span><span><i class="e"></i>'+dT("امتحانات","Exams")+'</span><span><i class="n"></i>'+dT("ملاحظاتي","Notes")+'</span></div>'}
 function calBusRows(d){
  try{if(!busesEnabled()||busesLocked())return"";var t0=new Date();t0.setHours(0,0,0,0);var dd=new Date(d);dd.setHours(0,0,0,0);
   var c=busCalc(Math.round((dd-t0)/864e5));if(!c.any)return"";
@@ -3181,8 +3233,9 @@ function calSheetHtml(){
  if(o.lec.length)h+='<div class="dcal-gh">'+dT("المحاضرات","Lectures")+'</div>'+o.lec.map(calRow).join("");
  if(o.sec.length)h+='<div class="dcal-gh">'+dT("السكاشن","Sections")+'</div>'+o.sec.map(calRow).join("");
  h+=calBusRows(d);
+  h+='<div class="dcal-gh">'+dT("مهامي","My tasks")+'</div>'+o.tk.map(function(x){return '<div class="dcal-r tkr">'+dIc("cal")+'<div class="tx"><b dir="auto">'+esc(x.n)+'</b><small>'+esc(tkTime(x))+' · '+tkPlace(x)+'</small></div><button type="button" class="tkx" data-deltk="'+x.id+'" aria-label="'+dT("حذف","Delete")+'">✕</button></div>'}).join("")+'<details class="tkd"><summary>＋ '+dT("مهمة بوقت ومكان","Task with time and place")+'</summary>'+tkForm(CAL.sel)+'</details>';
  if(o.ex.length)h+='<div class="dcal-gh">'+dT("الامتحانات","Exams")+'</div>'+o.ex.map(function(x){return '<div class="dcal-r">'+dIc("c_flag")+'<div class="tx"><b dir="auto">'+esc(exTypeTxt(x.type)+" · "+x.subject)+'</b></div></div>'}).join("");
- if(!o.lec.length&&!o.sec.length&&!o.ex.length)h+='<div class="dcal-e">'+dT("مفيش محاضرات ولا سكاشن ولا امتحانات في اليوم ده.","No lectures, sections or exams on this day.")+'</div>';
+ if(!o.lec.length&&!o.sec.length&&!o.ex.length&&!o.tk.length)h+='<div class="dcal-e">'+dT("مفيش محاضرات ولا سكاشن ولا امتحانات في اليوم ده.","No lectures, sections or exams on this day.")+'</div>';
  h+='<div class="dcal-gh">'+dT("ملاحظاتي","My notes")+'</div>';
  o.nt.forEach(function(n){h+='<div class="dcal-r'+(n.done?' dn':'')+'"><button type="button" class="dcal-c" data-caltog="'+esc(n.id)+'" aria-label="'+dT("تم","Done")+'">'+dIc("check")+'</button><div class="tx"><b dir="auto">'+esc(n.t)+'</b></div><button type="button" class="dcal-c" data-caldel="'+esc(n.id)+'" aria-label="'+dT("حذف","Delete")+'">'+dIc("c_x")+'</button></div>'});
  h+='<div class="dcal-add"><input id="dcalIn" maxlength="120" placeholder="'+dT("ضيف حاجة عليك تعملها في اليوم ده","Add something to do on this day")+'"><button type="button" data-cal="add" aria-label="'+dT("إضافة","Add")+'">'+dIc("c_plus")+'</button></div>';
@@ -3208,6 +3261,11 @@ document.addEventListener("click",function(e){var b=e.target.closest&&e.target.c
 function mainView(){if(appLocked()||window.__mainEdit)mainSetupView();else dashView()}
 (function(){var o=window.settingsView;if(typeof o!=="function"||o.__dash)return;
  var w=function(){var r=o.apply(this,arguments);try{dashSettingsCard()}catch(e){console.error(e)}return r};w.__dash=true;window.settingsView=w})();
+(function(){var o=window.settingsView;if(typeof o!=="function"||o.__so)return;
+ var w=function(){var r=o.apply(this,arguments);try{secOnlyCard()}catch(e){console.error(e)}return r};w.__so=true;window.settingsView=w})();
+function secOnlyCard(){var v=$("v6");if(!v||v.querySelector("#secOnlySet"))return;
+ var h='<div class="settings-card" id="secOnlySet"><div class="dash-set-row"><span class="l"><span><b>'+dT("سكاشن بس","Sections only")+'</b><br><small style="opacity:.7">'+dT("القسم الرئيسي وقسم الباصات يحسبوا من السكاشن بس، من غير المحاضرات","Main section and Buses use sections only, no lectures")+'</small></span></span><label><input type="checkbox" id="secOnlyChk" '+(secOnly()?"checked":"")+'></label></div></div>';
+ v.insertAdjacentHTML("afterbegin",h);$("secOnlyChk").onchange=function(){try{localStorage.setItem("g22secOnly",this.checked?"1":"0")}catch(e){}}}
 function dashSettingsCard(){
  var v=$("v6");if(!v||v.querySelector("#dashSet"))return;
  var h='<div class="settings-card" id="dashSet"><h2 style="display:flex;align-items:center;gap:8px"><span style="display:inline-flex;width:20px;height:20px;color:var(--acc)">'+dIc("grid")+'</span>'+dT("كروت القسم الرئيسي","Main dashboard cards")+'</h2><div class="sub">'+dT("اختار الأقسام اللي تظهر ملخصاتها في القسم الرئيسي. اللي تقفله مش هيظهر.","Choose which sections show a summary in the Main section. Anything you turn off is hidden.")+'</div>';
