@@ -1798,8 +1798,8 @@ function today(onlySections,delta,target){
  var days='<div class="tl-days">';
  for(var d=0;d<7;d++){var dt=new Date(Date.now()+864e5*d),has=false;try{has=dayList(dt).r.filter(function(x){return onlySections?!!x.sec:true}).length>0||tkFor(dt).length>0}catch(e){}
   days+='<button type="button" data-'+(onlySections?'sd':'td')+'="'+d+'" class="tl-d'+(d===delta?' on':'')+'">'+(en?WD_EN[dt.getDay()].slice(0,3):WD[dt.getDay()])+'<b>'+dt.getDate()+'</b><i'+(has?'':' class="n"')+'></i></button>'}
- days+='</div>';
- var h=days+'<div class="tk-bar"><button type="button" data-addtk="'+tkKey(dd)+'">＋ '+dT("مهمة جديدة","New task")+'</button></div>';
+ days+='<button type="button" class="tk-add" data-addtk="'+tkKey(dd)+'" aria-label="'+dT("مهمة جديدة","New task")+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div>';
+ var h=days;
  if(!E.length){
   h+='<div class="tl-empty">'+IC.cal+'<b>'+(onlySections?dT("ما عنديش سكاشن "+(delta?"في اليوم ده":"النهارده"),"No sections "+(delta?"on this day":"today")):dT("ما عنديش محاضرات ولا سكاشن "+(delta?"في اليوم ده":"النهارده"),"No lectures or sections "+(delta?"on this day":"today")))+'</b><span>'+(onlySections?dT("استمتع بيومك، والسكاشن هتظهر هنا تلقائيًا.","Enjoy your day; your sections will appear here automatically."):dT("استمتع بيومك، أو ضيف محاضرات من قسم المواد.","Enjoy your day, or add lectures from Subjects."))+'</span><button type="button" onclick="view(1)">'+dT("افتح المواد","Open Subjects")+'</button></div>';
   $(target).innerHTML=h;return}
@@ -2037,7 +2037,7 @@ document.addEventListener("click",function(e){var b=e.target.closest&&e.target.c
  if(b.hasAttribute("data-deltk")){var id=b.getAttribute("data-deltk");tkWrite(tkRead().filter(function(x){return x.id!==id}));tkRefresh();return}
  mShow(tkForm(b.getAttribute("data-addtk")))});
 (function(){var st=document.createElement("style");st.textContent='.tkf label{display:block;font-size:.78rem;opacity:.75;margin:6px 0 2px}.tkf input,.tkf select{width:100%;box-sizing:border-box;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}.tkf h3{margin:0 0 6px}'
- +'.tk-bar{margin:0 0 12px}.tk-bar button{width:100%;padding:10px;border:1.5px dashed #8b5cf6;border-radius:12px;background:transparent;color:#8b5cf6;font:inherit;font-weight:600}'
+ +'.tk-add{flex:none;align-self:stretch;width:46px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:18px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;transition:transform .15s,background .2s}.tk-add svg{width:20px;height:20px}.tk-add:active{transform:scale(.94)}.tk-bar{margin:0 0 12px}.tk-bar button{width:100%;padding:10px;border:1.5px dashed #8b5cf6;border-radius:12px;background:transparent;color:#8b5cf6;font:inherit;font-weight:600}'
  +'#v2 .tl-c.task:before,#v4 .tl-c.task:before{background:#8b5cf6}#v2 .tl-c.task .tl-ic,#v4 .tl-c.task .tl-ic{background:color-mix(in srgb,#8b5cf6 16%,transparent);color:#8b5cf6}#v2 .tl-c.task .tl-ch.ty,#v4 .tl-c.task .tl-ch.ty{color:#8b5cf6;background:color-mix(in srgb,#8b5cf6 14%,transparent)}#v2 .tl-l i.tk,#v4 .tl-l i.tk{border-color:#8b5cf6}#v2 .tl-l i.tk.dn,#v4 .tl-l i.tk.dn{background:#8b5cf6}'
  +'.dcal-dots i.t,.dcal-lg i.t{background:#8b5cf6}.dcal-r.tkr svg{color:#8b5cf6}.dcal-r.tkr .tkx{margin-inline-start:auto;border:0;background:transparent;color:var(--mute);font-size:1rem}.tkd{margin:8px 0}.tkd summary{color:#8b5cf6;font-weight:600;padding:8px 0}';
  document.head.appendChild(st)})();
@@ -3113,13 +3113,16 @@ var go=2,body="";
    if(bq)nd={x:bq.x,st:bq.st,dt:dq,off:q}}}catch(e){nd=null}}
  var ndRow="";
  if(nd){var ndiff=nd.off*1440+nd.st-nm;ndRow=lecRow(nd.x,nd.st,ndiff,12,nd.off,nd.dt,nd.x.tk?dT("المهمة الجاية · باقي على بدايتها","Next task · starts in"):nd.x.sec?dT("السكشن الجاي · باقي على بدايته","Next section · starts in"):dT("المحاضرة الجاية · باقي على بدايتها","Next lecture · starts in"))}
- try{if(nd&&busOn){var cb=busCalc(nd.off);if(cb.any&&cb.go!==null){var bdiff=nd.off*1440+cb.go-nm,near=bdiff<=720;
-   ndRow='<div class="dn-row">'+(near?tile(bdiff,12):'')+'<div class="dn-in"><small class="dn-rem">'+(near?dT("باص الذهاب الجاي · باقي عليه","Next outbound bus · leaves in"):dT("باص الذهاب الجاي","Next outbound bus"))+'</small><b dir="auto">🚌 '+dT("باص الذهاب","Outbound bus")+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(cb.go))+chip(dIc("cal"),dayName(nd.dt,nd.off)+" · "+nd.dt.getDate()+"/"+(nd.dt.getMonth()+1))+'</span></div></div>'+ndRow}}}catch(e){}
+ function busRowHtml(m,off,dt){var bdiff=off*1440+m-nm,near=bdiff<=720;
+   return '<div class="dn-row">'+(near?tile(bdiff,12):'')+'<div class="dn-in"><small class="dn-rem">'+(near?dT("باص الذهاب الجاي · باقي عليه","Next outbound bus · leaves in"):dT("باص الذهاب الجاي","Next outbound bus"))+'</small><b dir="auto">🚌 '+dT("باص الذهاب","Outbound bus")+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(m))+chip(dIc("cal"),dayName(dt,off)+" · "+dt.getDate()+"/"+(dt.getMonth()+1))+'</span></div></div>'}
+  try{if(nd&&busOn){var cb=busCalc(nd.off);if(cb.any&&cb.go!==null)ndRow=busRowHtml(cb.go,nd.off,nd.dt)}}catch(e){}
+  var tg=null;try{if(busOn){var ct=busCalc(0);if(ct.any&&ct.go!==null&&ct.go>nm)tg=ct.go}}catch(e){}
   if(!L.length){
   body='<div class="dn-empty">'+dT("ما عنديش محاضرات ولا سكاشن النهارده 🎉","No lectures or sections today 🎉")+'</div>'+ndRow}
  else if(noTm===L.length){
   body='<div class="dn-empty">'+dT("عندي "+L.length+" النهارده بس من غير مواعيد في الجدول","You have "+L.length+" today but no times in the schedule")+'</div>'}
- else if(cur||nxt){
+ else if(tg!==null&&!cur){body=busRowHtml(tg,0,now)}
+  else if(cur||nxt){
   if(cur){
    var lastNow=!nxt&&cur.en===lastEnd,busLine=(lastNow&&bus!==null)?'<span class="dn-meta" dir="auto">🚌 '+dT("باص العودة الساعة ","Return bus at ")+fm(bus)+'</span>':"";
    body+='<div class="dn-row now cmp">'+(cur.open?'':tile(cur.en-nm,pct(cur.en-nm,cur.en-cur.st)))+'<div class="dn-in"><small class="dn-rem">● '+(cur.open?dT("شغالة دلوقتي · وقتها مفتوح","Happening now · open-ended"):dT("شغالة دلوقتي · باقي على نهايتها","Happening now · time left"))+'</small><b dir="auto">'+esc2(cur.x.n)+'</b><span class="dn-chips">'+chip(dIc("clock"),cur.open?fm(cur.st):fm(cur.st)+" – "+fm(cur.en))+(cur.x.pl?chip(icPin,place(cur.x.pl)):"")+(cur.x.t?chip(icUsr,esc2(cur.x.t)):"")+'</span>'+busLine+'</div></div>'}
