@@ -1791,8 +1791,8 @@ function today(onlySections,delta,target){
  var nl=0,ns=0,first=null,last=null;
  E.forEach(function(e){if(e.k==="task")return;if(e.k==="sec")ns++;else nl++;if(e.st!==null&&(first===null||e.st<first))first=e.st;var ee=e.en!==null?e.en:e.st;if(ee!==null&&(last===null||ee>last))last=ee});
  R.forEach(function(r){r.s="up";if(!isT)return;
-  if(r.k==="task"){var tx=r.x;body='<div class="tl-h"><span class="tl-n"><span class="tl-ic">'+IC.clk+'</span><span class="tl-nt" dir="auto">'+esc(tx.n)+'</span></span>'+(r.s==="done"?'<span class="tl-tg">'+IC.ok+' '+dT("خلصت","Done")+'</span>':r.s==="now"?'<span class="tl-tg">'+dT("شغالة دلوقتي","Now")+'</span>':'<span class="tl-tg s">'+dT("مهمة","Task")+'</span>')+'<button class="del" data-deltk="'+tx.id+'">✕</button></div><div class="tl-mc"><span class="tl-ch ty">'+dT("مهمتي","My task")+'</span><span class="tl-ch">'+esc(tkTime(tx))+'</span><span class="tl-ch">'+tkPlace(tx)+'</span></div>'+rem}
-   else if(r.k==="bus"){if(r.st!==null&&r.st<=nm)r.s="done";return}
+  
+   if(r.k==="bus"){if(r.st!==null&&r.st<=nm)r.s="done";return}
   if(r.st!==null&&r.en!==null){if(r.en<=nm)r.s="done";else if(r.st<=nm)r.s="now"}else if(r.st!==null&&r.st<=nm)r.s="done"});
  var nx=-1;if(isT)for(var i=0;i<R.length;i++)if(R[i].s==="up"&&R[i].st!==null){nx=i;break}
  var days='<div class="tl-days">';
@@ -1814,6 +1814,7 @@ function today(onlySections,delta,target){
   else{var x=r.x,meta='<span class="tl-ch ty">'+(r.k==="sec"?dT("سكشن","Section"):dT("محاضرة","Lecture"))+'</span>'+(x.pl?'<span class="tl-ch">'+IC.pin+(/^\d+$/.test(String(x.pl).trim())?dT("قاعة ","Room ")+esc(x.pl):esc(x.pl))+'</span>':"")+(x.t?'<span class="tl-ch">'+IC.usr+esc(x.t)+'</span>':""),stag="";
    if(r.s==="done")stag='<span class="tl-tg">'+IC.ok+' '+dT("خلصت","Done")+'</span>';else if(r.s==="now")stag='<span class="tl-tg">'+dT("شغالة دلوقتي","Now")+'</span>';else if(r.k==="sec")stag='<span class="tl-tg s">'+dT("سكشن","Section")+'</span>';
    body='<div class="tl-h"><span class="tl-n"><span class="tl-ic">'+(r.k==="sec"?IC.lab:IC.book)+'</span><span class="tl-nt" dir="auto">'+esc(x.n)+'</span></span>'+stag+(x.wk!=null?'<button class="del" data-delw="'+x.wk+'">✕</button>':"")+'</div><div class="tl-mc">'+meta+'</div>';
+   if(r.k==="task"){var tx=x;body='<div class="tl-h"><span class="tl-n"><span class="tl-ic">'+IC.clk+'</span><span class="tl-nt" dir="auto">'+esc(tx.n)+'</span></span>'+(r.s==="done"?'<span class="tl-tg">'+IC.ok+' '+dT("خلصت","Done")+'</span>':r.s==="now"?'<span class="tl-tg">'+dT("شغالة دلوقتي","Now")+'</span>':'<span class="tl-tg s">'+dT("مهمة","Task")+'</span>')+'<button class="del" data-deltk="'+tx.id+'">✕</button></div><div class="tl-mc"><span class="tl-ch ty">'+dT("مهمتي","My task")+'</span><span class="tl-ch">'+esc(tkTime(tx))+'</span><span class="tl-ch">'+tkPlace(tx)+'</span></div>'+rem}
    if(r.s==="now"){var pc=Math.max(2,Math.min(100,(nm-r.st)/(r.en-r.st)*100));body+='<div class="tl-pb"><u style="width:'+pc.toFixed(1)+'%"></u></div><div class="tl-m">'+dT("باقي ","Left: ")+dMin(r.en-nm)+'</div>'}
    body+=rem;
    if(prevE&&prevE.en!==null&&r.st!==null&&r.st>prevE.en)h+='<div class="tl-r"><div></div><div class="tl-l"></div><div class="tl-gp">'+dT("فاصل ","Break: ")+dMin(r.st-prevE.en)+'</div></div>';
@@ -3086,6 +3087,7 @@ function dNext(d){
  try{tkFor(now).forEach(function(k){L.push({n:k.n,sec:false,tk:true,loc:k.loc,dur:k.dur,pl:tkPlace(k),t:"",tm:String(k.id),_m:k.dur?[k.st,k.st+k.dur]:[k.st]})})}catch(e){}
   var SK={};try{SK=(JSON.parse(localStorage.getItem("g22skip")||"{}")||{})[tkKey(now)]||{}}catch(e){}
   function skKey(x){return x.n+"|"+x.tm+(x.sec?"|s":"")}
+   function skBtn(x){return '<button type="button" class="nb dn-skip" data-skip="'+encodeURIComponent(skKey(x))+'" aria-label="'+dT("خلصتها بدري، روح للي بعدها","Done early, skip to next")+'"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5l9 7-9 7z"/><path d="M19 5v14"/></svg></button>'}
   var STS=[];L.forEach(function(x){var t;try{t=x._m||tmins(x.tm)}catch(e){t=null}if(t&&SK[skKey(x)]===undefined)STS.push(t[0])});
   L.forEach(function(x){var t;try{t=x._m||tmins(x.tm)}catch(e){t=null}if(!t){noTm++;return}
    var st=t[0],e2=t.length>1?t[1]:null,ee=e2!==null?e2:st,open=false,ns=null;
@@ -3113,7 +3115,7 @@ var go=2,body="";
  function dayName(dt,off){var en2=getAppLanguage()==="en";return off===0?dT("اليوم","Today"):off===1?dT("بكرة","Tomorrow"):(en2?WD_EN[dt.getDay()]:WD[dt.getDay()])}
  function lecRow(x,st,diff,pc,off,dt,label){
   var bell=off===0?dBellLec(x,st):dBellLecD(x,st,dt);
-  return '<div class="dn-row">'+(diff>720?'':tile(diff,pc))+'<div class="dn-in"><small class="dn-rem">'+(diff>720?label.split(" · ")[0]:label)+'</small><b dir="auto">'+esc2(x.n)+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(st))+chip(dIc("cal"),dayName(dt,off)+" · "+dt.getDate()+"/"+(dt.getMonth()+1))+(x.pl?chip(icPin,place(x.pl)):"")+(x.t?chip(icUsr,esc2(x.t)):"")+'</span></div>'+bell+'</div>'}
+  return '<div class="dn-row">'+(diff>720?'':tile(diff,pc))+'<div class="dn-in"><small class="dn-rem">'+(diff>720?label.split(" · ")[0]:label)+'</small><b dir="auto">'+esc2(x.n)+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(st))+chip(dIc("cal"),dayName(dt,off)+" · "+dt.getDate()+"/"+(dt.getMonth()+1))+(x.pl?chip(icPin,place(x.pl)):"")+(x.t?chip(icUsr,esc2(x.t)):"")+'</span></div><span class="dn-btns">'+bell+(off===0?skBtn(x):"")+'</span></div>'}
  var nd=null;
  if(!nxt&&(noTm!==L.length||!L.length)){try{for(var q=1;q<=7&&!nd;q++){var dq=new Date(now.getFullYear(),now.getMonth(),now.getDate()+q),lq=dayList(dq).r.slice(),bq=null;if(secOnly())lq=lq.filter(function(x){return !!x.sec});tkFor(dq).forEach(function(k){lq.push({n:k.n,sec:false,tk:true,loc:k.loc,dur:k.dur,pl:tkPlace(k),t:"",tm:String(k.id),_m:[k.st]})});
    lq.forEach(function(x){var t;try{t=x._m||tmins(x.tm)}catch(e){t=null}if(t&&(!bq||t[0]<bq.st))bq={x:x,st:t[0]}});
@@ -3134,7 +3136,7 @@ var go=2,body="";
   else if(cur||nxt){
   if(cur){
    var lastNow=!nxt&&(cur.open||cur.en===lastEnd),busLine=(!upBus&&bus!==null&&bus>nm)?'<span class="dn-meta" dir="auto">🚌 '+dT("باص العودة الساعة ","Return bus at ")+fm(bus)+'</span>':"";
-   body+='<div class="dn-row now cmp">'+(cur.open?'':tile(cur.en-nm,pct(cur.en-nm,cur.en-cur.st)))+'<div class="dn-in"><small class="dn-rem">● '+(cur.open?dT("شغالة دلوقتي · وقتها مفتوح","Happening now · open-ended"):dT("شغالة دلوقتي · باقي على نهايتها","Happening now · time left"))+'</small><b dir="auto">'+esc2(cur.x.n)+'</b><span class="dn-chips">'+chip(dIc("clock"),cur.open?fm(cur.st):fm(cur.st)+" – "+fm(cur.en))+(cur.x.pl?chip(icPin,place(cur.x.pl)):"")+(cur.x.t?chip(icUsr,esc2(cur.x.t)):"")+'</span>'+busLine+'</div><button type="button" class="nb dn-skip" data-skip="'+encodeURIComponent(skKey(cur.x))+'" aria-label="'+dT("خلصتها بدري، روح للي بعدها","Done early, skip to next")+'"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M5 5l9 7-9 7z"/><path d="M16 5h3v14h-3z"/></svg></button></div>'}
+   body+='<div class="dn-row now cmp">'+(cur.open?'':tile(cur.en-nm,pct(cur.en-nm,cur.en-cur.st)))+'<div class="dn-in"><small class="dn-rem">● '+(cur.open?dT("شغالة دلوقتي · وقتها مفتوح","Happening now · open-ended"):dT("شغالة دلوقتي · باقي على نهايتها","Happening now · time left"))+'</small><b dir="auto">'+esc2(cur.x.n)+'</b><span class="dn-chips">'+chip(dIc("clock"),cur.open?fm(cur.st):fm(cur.st)+" – "+fm(cur.en))+(cur.x.pl?chip(icPin,place(cur.x.pl)):"")+(cur.x.t?chip(icUsr,esc2(cur.x.t)):"")+'</span>'+busLine+'</div><span class="dn-btns">'+skBtn(cur.x)+'</span></div>'}
   if(nxt){
    var diff=nxt.st-nm,win=prevEnd!==null?nxt.st-prevEnd:180;if(win>180||win<1)win=Math.min(180,Math.max(win,diff));
    body+=lecRow(nxt.x,nxt.st,diff,pct(diff,win),0,now,nxt.x.tk?dT("المهمة الجاية · باقي على بدايتها","Next task · starts in"):nxt.x.sec?dT("السكشن الجاي · باقي على بدايته","Next section · starts in"):dT("المحاضرة الجاية · باقي على بدايتها","Next lecture · starts in"))+((!cur&&!upBus&&bus!==null&&bus>nm)?'<div class="dn-meta" dir="auto" style="padding:4px 2px">🚌 '+dT("باص العودة الساعة ","Return bus at ")+fm(bus)+'</div>':"")}
@@ -5142,6 +5144,9 @@ html body button:focus:not(:focus-visible),html.apple-mode button:focus:not(:foc
 #v10 .dnext .dn-row .dn-rem{display:block;margin:0;font-size:.8rem;font-weight:700;opacity:1}
 #v10 .dnext .dn-row .dn-tm{flex:none;font-size:1.35rem;letter-spacing:0}
 #v10 .dnext .dn-row .nb{position:static;inset:auto;flex:none;width:38px;height:38px;margin:0}
+#v10 .dnext .dn-btns{display:flex;flex:none;align-items:center;gap:8px}
+#v10 .dnext .dn-skip svg{width:18px;height:18px}
+#v10 .dnext .dn-skip:active{transform:scale(.92)}
 #v10 .dn-row.now .dn-bar{margin-top:8px;height:8px}
 #v10 .dn-ring{position:relative;flex:none;width:68px;height:68px}
 #v10 .dn-ring svg{width:100%;height:100%;transform:rotate(-90deg);fill:none;stroke-width:6;stroke-linecap:round}
