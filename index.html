@@ -3115,7 +3115,7 @@ var go=2,body="";
  if(nd){var ndiff=nd.off*1440+nd.st-nm;ndRow=lecRow(nd.x,nd.st,ndiff,12,nd.off,nd.dt,nd.x.tk?dT("المهمة الجاية · باقي على بدايتها","Next task · starts in"):nd.x.sec?dT("السكشن الجاي · باقي على بدايته","Next section · starts in"):dT("المحاضرة الجاية · باقي على بدايتها","Next lecture · starts in"))}
  function busRowHtml(m,off,dt){var bdiff=off*1440+m-nm,near=bdiff<=720;
    return '<div class="dn-row">'+(near?tile(bdiff,12):'')+'<div class="dn-in"><small class="dn-rem">'+(near?dT("باص الذهاب الجاي · باقي عليه","Next outbound bus · leaves in"):dT("باص الذهاب الجاي","Next outbound bus"))+'</small><b dir="auto">🚌 '+dT("باص الذهاب","Outbound bus")+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(m))+chip(dIc("cal"),dayName(dt,off)+" · "+dt.getDate()+"/"+(dt.getMonth()+1))+'</span></div></div>'}
-  try{if(nd&&busOn){var cb=busCalc(nd.off);if(cb.any&&cb.go!==null)ndRow=busRowHtml(cb.go,nd.off,nd.dt)}}catch(e){}
+  try{if(nd&&busOn){var cb=busCalc(nd.off);if(cb.any&&cb.go!==null)ndRow=(nd.off*1440+cb.go-nm<=720)?busRowHtml(cb.go,nd.off,nd.dt):""}}catch(e){}
   var tg=null;try{if(busOn){var ct=busCalc(0);if(ct.any&&ct.go!==null&&ct.go>nm)tg=ct.go}}catch(e){}
   if(!L.length){
   body='<div class="dn-empty">'+dT("ما عنديش محاضرات ولا سكاشن النهارده 🎉","No lectures or sections today 🎉")+'</div>'+ndRow}
@@ -3124,7 +3124,7 @@ var go=2,body="";
  else if(tg!==null&&!cur){body=busRowHtml(tg,0,now)}
   else if(cur||nxt){
   if(cur){
-   var lastNow=!nxt&&cur.en===lastEnd,busLine=(lastNow&&bus!==null)?'<span class="dn-meta" dir="auto">🚌 '+dT("باص العودة الساعة ","Return bus at ")+fm(bus)+'</span>':"";
+   var lastNow=!nxt&&(cur.open||cur.en===lastEnd),busLine=(lastNow&&bus!==null&&bus>nm)?'<span class="dn-meta" dir="auto">🚌 '+dT("باص العودة الساعة ","Return bus at ")+fm(bus)+'</span>':"";
    body+='<div class="dn-row now cmp">'+(cur.open?'':tile(cur.en-nm,pct(cur.en-nm,cur.en-cur.st)))+'<div class="dn-in"><small class="dn-rem">● '+(cur.open?dT("شغالة دلوقتي · وقتها مفتوح","Happening now · open-ended"):dT("شغالة دلوقتي · باقي على نهايتها","Happening now · time left"))+'</small><b dir="auto">'+esc2(cur.x.n)+'</b><span class="dn-chips">'+chip(dIc("clock"),cur.open?fm(cur.st):fm(cur.st)+" – "+fm(cur.en))+(cur.x.pl?chip(icPin,place(cur.x.pl)):"")+(cur.x.t?chip(icUsr,esc2(cur.x.t)):"")+'</span>'+busLine+'</div></div>'}
   if(nxt){
    var diff=nxt.st-nm,win=prevEnd!==null?nxt.st-prevEnd:180;if(win>180||win<1)win=Math.min(180,Math.max(win,diff));
