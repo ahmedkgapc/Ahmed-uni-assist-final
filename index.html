@@ -2032,6 +2032,9 @@ function tkSave(){
   if(!other){tkMsg(dT("المهمة دي آخر حاجة في يومك، حدد مدتها عشان باص العودة يتحسب صح","This is the last thing of the day, set its duration so the return bus is right"));return}}
  var a=tkRead();a.push({id:"t"+Date.now()+Math.floor(Math.random()*1000),n:n,date:dk,st:st,dur:dur||0,loc:loc});tkWrite(a);
  mClose();tkRefresh()}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-skip]");if(!b)return;e.stopPropagation();e.preventDefault();
+ try{var n=new Date(),k=tkKey(n),all=JSON.parse(localStorage.getItem("g22skip")||"{}")||{},o={};o[k]=all[k]||{};o[k][decodeURIComponent(b.getAttribute("data-skip"))]=n.getHours()*60+n.getMinutes();localStorage.setItem("g22skip",JSON.stringify(o))}catch(er){}
+ tkRefresh()},true);
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-tksave],[data-deltk],[data-addtk]");if(!b)return;
  if(b.hasAttribute("data-tksave")){tkSave();return}
  if(b.hasAttribute("data-deltk")){var id=b.getAttribute("data-deltk");tkWrite(tkRead().filter(function(x){return x.id!==id}));tkRefresh();return}
@@ -3081,9 +3084,12 @@ function dNext(d){
  var now=new Date(),nm=now.getHours()*60+now.getMinutes()+now.getSeconds()/60,L=[],cur=null,nxt=null,lastEnd=null,prevEnd=null,noTm=0,upBus=false,i;
  try{L=dayList(now).r;if(secOnly())L=L.filter(function(x){return !!x.sec})}catch(e){}
  try{tkFor(now).forEach(function(k){L.push({n:k.n,sec:false,tk:true,loc:k.loc,dur:k.dur,pl:tkPlace(k),t:"",tm:String(k.id),_m:k.dur?[k.st,k.st+k.dur]:[k.st]})})}catch(e){}
-  var STS=[];L.forEach(function(x){var t;try{t=x._m||tmins(x.tm)}catch(e){t=null}if(t)STS.push(t[0])});
+  var SK={};try{SK=(JSON.parse(localStorage.getItem("g22skip")||"{}")||{})[tkKey(now)]||{}}catch(e){}
+  function skKey(x){return x.n+"|"+x.tm+(x.sec?"|s":"")}
+  var STS=[];L.forEach(function(x){var t;try{t=x._m||tmins(x.tm)}catch(e){t=null}if(t&&SK[skKey(x)]===undefined)STS.push(t[0])});
   L.forEach(function(x){var t;try{t=x._m||tmins(x.tm)}catch(e){t=null}if(!t){noTm++;return}
    var st=t[0],e2=t.length>1?t[1]:null,ee=e2!==null?e2:st,open=false,ns=null;
+   var sk=SK[skKey(x)];if(sk!==undefined){if(!(x.tk&&x.loc!=="uni")&&(lastEnd===null||sk>lastEnd))lastEnd=sk;if(sk<=nm&&(prevEnd===null||sk>prevEnd))prevEnd=sk;return}
    if(x.tk&&!x.dur){STS.forEach(function(s2){if(s2>st&&(ns===null||s2<ns))ns=s2});open=true;if(ns!==null)ee=ns}
    if(!(x.tk&&x.loc!=="uni")&&(lastEnd===null||ee>lastEnd))lastEnd=ee;
    if(!(x.tk&&x.loc!=="uni")&&st>nm)upBus=true;
@@ -3122,11 +3128,13 @@ var go=2,body="";
   body='<div class="dn-empty">'+dT("ما عنديش محاضرات ولا سكاشن النهارده 🎉","No lectures or sections today 🎉")+'</div>'+ndRow}
  else if(noTm===L.length){
   body='<div class="dn-empty">'+dT("عندي "+L.length+" النهارده بس من غير مواعيد في الجدول","You have "+L.length+" today but no times in the schedule")+'</div>'}
- else if(tg!==null&&!cur){body=busRowHtml(tg,0,now)}
+ else if(busOn&&bus!==null&&!upBus&&nm>=bus&&nm<bus+TRAVEL){var rl=bus+TRAVEL-nm;
+   body='<div class="dn-row now cmp">'+tile(rl,pct(rl,TRAVEL))+'<div class="dn-in"><small class="dn-rem">● '+dT("في الباص دلوقتي · باقي على الوصول","On the bus · arrives in")+'</small><b dir="auto">🚌 '+dT("باص العودة","Return bus")+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(bus)+" – "+fm(bus+TRAVEL))+'</span></div></div>'+ndRow}
+  else if(tg!==null&&!cur){body=busRowHtml(tg,0,now)}
   else if(cur||nxt){
   if(cur){
    var lastNow=!nxt&&(cur.open||cur.en===lastEnd),busLine=(!upBus&&bus!==null&&bus>nm)?'<span class="dn-meta" dir="auto">🚌 '+dT("باص العودة الساعة ","Return bus at ")+fm(bus)+'</span>':"";
-   body+='<div class="dn-row now cmp">'+(cur.open?'':tile(cur.en-nm,pct(cur.en-nm,cur.en-cur.st)))+'<div class="dn-in"><small class="dn-rem">● '+(cur.open?dT("شغالة دلوقتي · وقتها مفتوح","Happening now · open-ended"):dT("شغالة دلوقتي · باقي على نهايتها","Happening now · time left"))+'</small><b dir="auto">'+esc2(cur.x.n)+'</b><span class="dn-chips">'+chip(dIc("clock"),cur.open?fm(cur.st):fm(cur.st)+" – "+fm(cur.en))+(cur.x.pl?chip(icPin,place(cur.x.pl)):"")+(cur.x.t?chip(icUsr,esc2(cur.x.t)):"")+'</span>'+busLine+'</div></div>'}
+   body+='<div class="dn-row now cmp">'+(cur.open?'':tile(cur.en-nm,pct(cur.en-nm,cur.en-cur.st)))+'<div class="dn-in"><small class="dn-rem">● '+(cur.open?dT("شغالة دلوقتي · وقتها مفتوح","Happening now · open-ended"):dT("شغالة دلوقتي · باقي على نهايتها","Happening now · time left"))+'</small><b dir="auto">'+esc2(cur.x.n)+'</b><span class="dn-chips">'+chip(dIc("clock"),cur.open?fm(cur.st):fm(cur.st)+" – "+fm(cur.en))+(cur.x.pl?chip(icPin,place(cur.x.pl)):"")+(cur.x.t?chip(icUsr,esc2(cur.x.t)):"")+'</span>'+busLine+'</div><button type="button" class="nb dn-skip" data-skip="'+encodeURIComponent(skKey(cur.x))+'" aria-label="'+dT("خلصتها بدري، روح للي بعدها","Done early, skip to next")+'"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M5 5l9 7-9 7z"/><path d="M16 5h3v14h-3z"/></svg></button></div>'}
   if(nxt){
    var diff=nxt.st-nm,win=prevEnd!==null?nxt.st-prevEnd:180;if(win>180||win<1)win=Math.min(180,Math.max(win,diff));
    body+=lecRow(nxt.x,nxt.st,diff,pct(diff,win),0,now,nxt.x.tk?dT("المهمة الجاية · باقي على بدايتها","Next task · starts in"):nxt.x.sec?dT("السكشن الجاي · باقي على بدايته","Next section · starts in"):dT("المحاضرة الجاية · باقي على بدايتها","Next lecture · starts in"))+((!cur&&!upBus&&bus!==null&&bus>nm)?'<div class="dn-meta" dir="auto" style="padding:4px 2px">🚌 '+dT("باص العودة الساعة ","Return bus at ")+fm(bus)+'</div>':"")}
