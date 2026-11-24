@@ -3124,7 +3124,7 @@ var go=2,body="";
  if(nd){var ndiff=nd.off*1440+nd.st-nm;ndRow=lecRow(nd.x,nd.st,ndiff,12,nd.off,nd.dt,nd.x.tk?dT("المهمة الجاية · باقي على بدايتها","Next task · starts in"):nd.x.sec?dT("السكشن الجاي · باقي على بدايته","Next section · starts in"):dT("المحاضرة الجاية · باقي على بدايتها","Next lecture · starts in"))}
  function busRowHtml(m,off,dt){var bdiff=off*1440+m-nm,near=bdiff<=720;
    return '<div class="dn-row">'+(near?tile(bdiff,12):'')+'<div class="dn-in"><small class="dn-rem">'+(near?dT("باص الذهاب الجاي · باقي عليه","Next outbound bus · leaves in"):dT("باص الذهاب الجاي","Next outbound bus"))+'</small><b dir="auto">🚌 '+dT("باص الذهاب","Outbound bus")+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(m))+chip(dIc("cal"),dayName(dt,off)+" · "+dt.getDate()+"/"+(dt.getMonth()+1))+'</span></div></div>'}
-  try{if(nd&&busOn){var cb=busCalc(nd.off);if(cb.any&&cb.go!==null)ndRow=(nd.off*1440+cb.go-nm<=720)?busRowHtml(cb.go,nd.off,nd.dt):""}}catch(e){}
+  try{if(nd&&busOn){var cb=busCalc(nd.off);if(cb.any&&cb.go!==null)ndRow=((nd.off*1440+cb.go-nm<=720)?busRowHtml(cb.go,nd.off,nd.dt):"")+ndRow}}catch(e){}
   var tg=null;try{if(busOn){var ct=busCalc(0);if(ct.any&&ct.go!==null&&ct.go>nm)tg=ct.go}}catch(e){}
   if(!L.length){
   body='<div class="dn-empty">'+dT("ما عنديش محاضرات ولا سكاشن النهارده 🎉","No lectures or sections today 🎉")+'</div>'+ndRow}
@@ -3132,7 +3132,7 @@ var go=2,body="";
   body='<div class="dn-empty">'+dT("عندي "+L.length+" النهارده بس من غير مواعيد في الجدول","You have "+L.length+" today but no times in the schedule")+'</div>'}
  else if(busOn&&bus!==null&&!upBus&&nm>=bus&&nm<bus+TRAVEL){var rl=bus+TRAVEL-nm;
    body='<div class="dn-row now cmp">'+tile(rl,pct(rl,TRAVEL))+'<div class="dn-in"><small class="dn-rem">● '+dT("في الباص دلوقتي · باقي على الوصول","On the bus · arrives in")+'</small><b dir="auto">🚌 '+dT("باص العودة","Return bus")+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(bus)+" – "+fm(bus+TRAVEL))+'</span></div></div>'+ndRow}
-  else if(tg!==null&&!cur){body=busRowHtml(tg,0,now)}
+  else if(tg!==null&&!cur){body=busRowHtml(tg,0,now)+(nxt?(function(){var df=nxt.st-nm,w=prevEnd!==null?nxt.st-prevEnd:180;if(w>180||w<1)w=Math.min(180,Math.max(w,df));return lecRow(nxt.x,nxt.st,df,pct(df,w),0,now,nxt.x.tk?dT("المهمة الجاية · باقي على بدايتها","Next task · starts in"):nxt.x.sec?dT("السكشن الجاي · باقي على بدايته","Next section · starts in"):dT("المحاضرة الجاية · باقي على بدايتها","Next lecture · starts in"))})():ndRow)}
   else if(cur||nxt){
   if(cur){
    var lastNow=!nxt&&(cur.open||cur.en===lastEnd),busLine=(!upBus&&bus!==null&&bus>nm)?'<span class="dn-meta" dir="auto">🚌 '+dT("باص العودة الساعة ","Return bus at ")+fm(bus)+'</span>':"";
