@@ -3085,9 +3085,9 @@ function dNext(d){
  var now=new Date(),nm=now.getHours()*60+now.getMinutes()+now.getSeconds()/60,L=[],cur=null,nxt=null,lastEnd=null,prevEnd=null,noTm=0,upBus=false,i;
  try{L=dayList(now).r;if(secOnly())L=L.filter(function(x){return !!x.sec})}catch(e){}
  try{tkFor(now).forEach(function(k){L.push({n:k.n,sec:false,tk:true,loc:k.loc,dur:k.dur,pl:tkPlace(k),t:"",tm:String(k.id),_m:k.dur?[k.st,k.st+k.dur]:[k.st]})})}catch(e){}
-  var SK={};try{SK=(JSON.parse(localStorage.getItem("g22skip")||"{}")||{})[tkKey(now)]||{}}catch(e){}
+  var SK={};try{SK={}}catch(e){}
   function skKey(x){return x.n+"|"+x.tm+(x.sec?"|s":"")}
-   function skBtn(x){return '<button type="button" class="nb dn-skip" data-skip="'+encodeURIComponent(skKey(x))+'" aria-label="'+dT("خلصتها بدري، روح للي بعدها","Done early, skip to next")+'"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5l9 7-9 7z"/><path d="M19 5v14"/></svg></button>'}
+   function skBtn(x){return ""}
   var STS=[];L.forEach(function(x){var t;try{t=x._m||tmins(x.tm)}catch(e){t=null}if(t&&SK[skKey(x)]===undefined)STS.push(t[0])});
   L.forEach(function(x){var t;try{t=x._m||tmins(x.tm)}catch(e){t=null}if(!t){noTm++;return}
    var st=t[0],e2=t.length>1?t[1]:null,ee=e2!==null?e2:st,open=false,ns=null;
@@ -3125,13 +3125,14 @@ var go=2,body="";
  function busRowHtml(m,off,dt){var bdiff=off*1440+m-nm,near=bdiff<=720;
    return '<div class="dn-row">'+(near?tile(bdiff,12):'')+'<div class="dn-in"><small class="dn-rem">'+(near?dT("باص الذهاب الجاي · باقي عليه","Next outbound bus · leaves in"):dT("باص الذهاب الجاي","Next outbound bus"))+'</small><b dir="auto">🚌 '+dT("باص الذهاب","Outbound bus")+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(m))+chip(dIc("cal"),dayName(dt,off)+" · "+dt.getDate()+"/"+(dt.getMonth()+1))+'</span></div></div>'}
   try{if(nd&&busOn){var cb=busCalc(nd.off);if(cb.any&&cb.go!==null)ndRow=((nd.off*1440+cb.go-nm<=720)?busRowHtml(cb.go,nd.off,nd.dt):"")+ndRow}}catch(e){}
-  var tg=null;try{if(busOn){var ct=busCalc(0);if(ct.any&&ct.go!==null&&ct.go>nm)tg=ct.go}}catch(e){}
+  var tg=null,ob=null;try{if(busOn){var ct=busCalc(0);if(ct.any&&ct.go!==null){if(ct.go>nm)tg=ct.go;else if(nm<ct.go+TRAVEL)ob=ct.go}}}catch(e){}
   if(!L.length){
   body='<div class="dn-empty">'+dT("ما عنديش محاضرات ولا سكاشن النهارده 🎉","No lectures or sections today 🎉")+'</div>'+ndRow}
  else if(noTm===L.length){
   body='<div class="dn-empty">'+dT("عندي "+L.length+" النهارده بس من غير مواعيد في الجدول","You have "+L.length+" today but no times in the schedule")+'</div>'}
  else if(busOn&&bus!==null&&!upBus&&nm>=bus&&nm<bus+TRAVEL){var rl=bus+TRAVEL-nm;
    body='<div class="dn-row now cmp">'+tile(rl,pct(rl,TRAVEL))+'<div class="dn-in"><small class="dn-rem">● '+dT("في الباص دلوقتي · باقي على الوصول","On the bus · arrives in")+'</small><b dir="auto">🚌 '+dT("باص العودة","Return bus")+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(bus)+" – "+fm(bus+TRAVEL))+'</span></div></div>'+ndRow}
+  else if(ob!==null&&!cur){var rl2=ob+TRAVEL-nm;body='<div class="dn-row now cmp">'+tile(rl2,pct(rl2,TRAVEL))+'<div class="dn-in"><small class="dn-rem">● '+dT("في الباص دلوقتي · باقي على الوصول","On the bus · arrives in")+'</small><b dir="auto">🚌 '+dT("باص الذهاب","Outbound bus")+'</b><span class="dn-chips">'+chip(dIc("clock"),fm(ob)+" – "+fm(ob+TRAVEL))+'</span></div></div>'+(nxt?(function(){var df=nxt.st-nm,w=prevEnd!==null?nxt.st-prevEnd:180;if(w>180||w<1)w=Math.min(180,Math.max(w,df));return lecRow(nxt.x,nxt.st,df,pct(df,w),0,now,nxt.x.tk?dT("المهمة الجاية · باقي على بدايتها","Next task · starts in"):nxt.x.sec?dT("السكشن الجاي · باقي على بدايته","Next section · starts in"):dT("المحاضرة الجاية · باقي على بدايتها","Next lecture · starts in"))})():ndRow)}
   else if(tg!==null&&!cur){body=busRowHtml(tg,0,now)+(nxt?(function(){var df=nxt.st-nm,w=prevEnd!==null?nxt.st-prevEnd:180;if(w>180||w<1)w=Math.min(180,Math.max(w,df));return lecRow(nxt.x,nxt.st,df,pct(df,w),0,now,nxt.x.tk?dT("المهمة الجاية · باقي على بدايتها","Next task · starts in"):nxt.x.sec?dT("السكشن الجاي · باقي على بدايته","Next section · starts in"):dT("المحاضرة الجاية · باقي على بدايتها","Next lecture · starts in"))})():ndRow)}
   else if(cur||nxt){
   if(cur){
